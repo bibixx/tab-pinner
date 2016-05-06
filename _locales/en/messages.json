@@ -107,9 +107,9 @@
 		"message": "Are you sure that you want to leave without saving your options?",
 		"description": "Message confirming leaving options page unsaved"
 	},
-	"contact": {
-		"message": "Have you found a bug, you would like to translate this extention or you would like to just contact with me? Email me at <a href=\"mailto:bartosz.legiec@gmail.com\">bartosz.legiec@gmail.com</a>.",
-		"description": "Contact message"
+	"author": {
+		"message": "Made with ❤ by <a href=\"http://github.com/bibixx\">bibixx</a>",
+		"description": "Author"
 	},
 	"translators_msg_1": {
 		"message": "$translators$ translated this extention to English",

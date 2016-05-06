@@ -1,162 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="shortcut icon" href="icon.ico">
-<script src="jquery-1.11.3.min.js"></script>
 <meta charset='utf-8'>
-<style>
-	body{
-		min-width: 995px;
-	}
-
-	#main{
-		border: 1px solid #000;
-		padding: 20px;
-		position: absolute;
-		left: 50%;
-		border-radius: 3px;
-		min-width: 934px;
-	}
-
-	hr{
-		border: none;
-		border-bottom: 1px solid #000;
-	}
-
-	p, div{
-		font-size: 15px;
-	}
-
-	#main > p:first-child {
-		margin-top: 0px;
-	}
-
-	#inp_cont > div{
-		margin: 5px 0px;
-	}
-
-	#inp_cont div input{
-		padding: 6px;
-		margin: 0px 5px;
-	}
-
-	#inp_cont div p{
-		text-align: center;
-	}
-
-	#inp_cont div input#regexp{
-		width: 300px;
-	}
-
-	#inp_cont div input#index{
-		width: 30px;
-	}
-
-	button{
-		margin: 10px 0px;
-		padding: 7px;
-		cursor: pointer;
-	}
-
-	#save, #clear, #add, #remove {
-		font-size: 15px;
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#24b52d), color-stop(100%,#187c1c));
-		color: #FFF;
-		border: 1px solid #000;
-		border-radius: 1px;
-		text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-	}
-
-	#clear, #remove {
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e52d2d), color-stop(100%,#aa2222));
-	}
-
-	#add {
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2da8e5), color-stop(100%,#286ec9));
-	}
-
-	#remove{
-		text-align: right;
-	}
-
-	#popup {
-		position: absolute;
-		top: 0;
-		left: 0;
-		display: none;
-		text-align: left !important;
-		margin-right: 10px;
-		cursor: help;
-		z-index: 2;
-	}
-
-	#popup #car {
-		position: relative;
-	}
-
-	#popup #arr, #popup #arr_border{
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-width: 5px 8.7px 5px 0;
-		border-color: transparent #000 transparent transparent;
-		margin: 0px !important;
-		margin-top: 7px !important;;
-		float: left;
-		position: absolute;
-		left: 0px;
-		cursor: default !important;
-	}
-
-	#popup #arr_border{
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-width: 5px 8.7px 5px 0;
-		border-color: rgba(255, 255, 255, 0) #fff transparent transparent;
-		margin-top: 7px;
-		float: left;
-		position: absolute;
-		left: 2px;
-	}
-
-	#popup #contanier {
-		background: #fff;
-		border: 1px solid #000;
-		float: left;
-		margin: 0px !important;
-		margin-left: 8px !important;
-		border-radius: 5px;
-		padding: 8px;
-		cursor: text;
-	}
-
-	#popup #contanier span{
-		font-size: 12px;
-		color: #000;
-		float: left;
-		clear: both;
-		cursor: text !important;
-	}
-
-	span#change_shrt, a:visited {
-		color: #00E;
-		text-decoration: underline;
-		cursor: pointer;
-	}
-
-	#options span, #options label {
-		cursor: pointer;
-	}
-
-	#how_to {
-		max-width: 1020px;
-	}
-
-	#translators p {
-		margin-bottom: 0px
-	}
-</style>
+<script src="jquery-1.11.3.min.js"></script>
+<link rel="shortcut icon" href="icon.ico">
+<link rel="stylesheet" href="options.css" charset="utf-8">
 </head>
 <body>
 <div id="main">
@@ -174,7 +22,7 @@
 	<button class="local" id="save"></button>
 	<button class="local" id="clear"></button><br>
 	<div id="textContent"></div>
-	<div class="local" id="contact">Znalazłeś jakiś błąd, chciałbyś przetłumaczyć to roszerzenie lub poprostu się ze mną skontaktować? Napisz na <a href="mailto:bartosz@legiec.eu">bartosz@legiec.eu</a></div>
+	<div class="local" id="author">Stworzone z ❤ przez <a href="http://github.com/bibixx">bibixx</a></div>
 	<div id="translators"></div>
 </div>
 <script src="options.js"></script>

@@ -16,13 +16,13 @@ function input(){
 	$("input").on("keyup change", function(){
 		wb()
 	})
-	
+
 	$("label").on("click", function(){
 		wb()
 	})
 }
 
-function save_options() {
+function save_options(el) {
 	wub()
 	var arr;
 	arr = []
@@ -34,29 +34,30 @@ function save_options() {
 		if(index==''){
 			index = -1
 		}
-		
+
 		var v = [name, regexp, enabled, index]
 		arr.push( v )
 	})
-	
+
 	var arro = {}
 	$("#options input").each(function(){
 		arro[ $(this).attr("id") ] = $(this).prop("checked")
 	})
-	
+
 	arr.push( arro )
-	
+
 	if( $('#inp_cont div').length == 0){
 		arr = false
 	}
-	
+
 	console.log(arr[arr.length-1])
-  
+
   chrome.storage.sync.set({
     regexp: arr,
   }, function() {
     textContent = chrome.i18n.getMessage( "options_saved" );
-    alert( textContent )
+    alert( textContent );
+		el.blur();
   });
 }
 
@@ -108,14 +109,14 @@ function popup(element){
 				})
 			})
 		}
-		
+
 		$(element+", #popup").bind("mouseleave", function(e){
 			if( !($("#"+e.toElement.id).parent().attr("id") == "car") ){
 				$("#popup").remove()
 				$(element+", #popup").unbind("mouseleave")
 			}
 		})
-		
+
 	})
 }
 
@@ -125,7 +126,7 @@ function close_conf(t){
 		$("#options label#close_conf").show()
 		$("#options span.disabled").remove()
 	} else {
-		$("#options #close_conf").attr("disabled", true);		
+		$("#options #close_conf").attr("disabled", true);
 		$("#options label#close_conf").hide()
 		$("#options label#close_conf").after( "<span class='disabled'>"+$("#options label#close_conf").html()+"</span>" )
 	}
@@ -140,12 +141,12 @@ $("#options label#close").bind("click", function(){
 })
 
 $(window).resize(function(){
-	res()
+	//res()
 })
 
 function restore_options() {
 	chrome.storage.sync.get({
-		regexp: [['Facebook', '^http[s]?\:\/\/www\.facebook\.com', true], {"close": true, "close_conf": true, "back_index": true}]
+		regexp: [['Facebook', '^http[s]?:\/\/www.facebook.com(\/)?$', true], {"close": true, "close_conf": true, "back_index": true}]
 	}, function(items) {
 		if(items.regexp){
 			for(x=0; x<items.regexp.length-1; x++){
@@ -175,7 +176,7 @@ function restore_options() {
 			})
 		}
 		remove()
-		res()
+		//res()
 		label()
 		input()
 		popup('#inp_cont div p span, #inp_cont div p label')
@@ -195,12 +196,15 @@ function add(){
 	popup('#inp_cont div p span, #inp_cont div p label')
 }
 
-function clear(){
+function clear(el){
 	if(confirm( chrome.i18n.getMessage( "clear_confirm" ) )){
 		wub()
+		el.blur();
 		chrome.storage.sync.clear(function(){
 			location.reload();
 		})
+	} else {
+		el.blur();
 	}
 }
 
@@ -211,10 +215,17 @@ $('a#change_shrt').on('click', function(e){
 popup('span#change_shrt')
 
 document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click', save_options);
-document.getElementById('add').addEventListener('click', add);
-document.getElementById('clear').addEventListener('click', clear);
-res();
+document.getElementById('save').addEventListener('click', function(){
+	save_options(this);
+});
+document.getElementById('add').addEventListener('click', function(){
+	add();
+	this.blur();
+});
+document.getElementById('clear').addEventListener('click', function(){
+	clear(this);
+});
+//res();
 
 $(".local").each(function(){
 	$(this).html( chrome.i18n.getMessage( $(this).attr("id") ) )
@@ -226,7 +237,7 @@ $(".local").each(function(){
 
 $.getJSON("trans_arr.json", function(trans_arr) {
 	$("#translators").each(function(){
-		var trans = trans_arr[ chrome.i18n.getMessage("@@ui_locale") ].translators		
+		var trans = trans_arr[ chrome.i18n.getMessage("@@ui_locale") ].translators
 		if( trans.length == 1 ){
 			var translators = trans[0]
 			$(this).html( "<p>"+chrome.i18n.getMessage("translators_msg_1", [translators] )+"</p>" );

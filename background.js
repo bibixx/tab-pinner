@@ -21,7 +21,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
 			});
 	
 			chrome.storage.sync.get({
-				regexp: [['Facebook', '^http[s]?\:\/\/www\.facebook\.com', true], {"close": true, "close_conf": true, "back_index": true}]
+				regexp: [['Facebook', '^http[s]?:\/\/www.facebook.com(\/)?$', true], {"close": true, "close_conf": true, "back_index": true}]
 			}, function(items) {
 				if( changeInfo.url ){
 					var reg;
@@ -76,7 +76,7 @@ chrome.tabs.onActivated.addListener(function(activeInfo){
 
 chrome.tabs.onCreated.addListener(function(tab){
 	chrome.storage.sync.get({
-		regexp: [['Facebook', '^http[s]?\:\/\/www\.facebook\.com', true], {"close": true, "close_conf": true, "back_index": true}]
+		regexp: [['Facebook', '^http[s]?:\/\/www.facebook.com(\/)?$', true], {"close": true, "close_conf": true, "back_index": true}]
 	}, function(items) {
 		var reg;
 		reg = []
@@ -107,7 +107,7 @@ chrome.tabs.onCreated.addListener(function(tab){
 
 
 chrome.browserAction.onClicked.addListener(function(tab) {
-	chrome.storage.sync.get({ regexp: [['Facebook', '^http[s]?\:\/\/www\.facebook\.com', true], {"close": true, "close_conf": true, "back_index": true}]
+	chrome.storage.sync.get({ regexp: [['Facebook', '^http[s]?:\/\/www.facebook.com(\/)?$', true], {"close": true, "close_conf": true, "back_index": true}]
 	}, function(items) {
 		var ac_close = items.regexp[items.regexp.length-1].close;
 		var ac_conf = items.regexp[items.regexp.length-1].close_conf;

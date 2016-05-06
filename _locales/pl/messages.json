@@ -107,9 +107,9 @@
 		"message": "Czy jeseś pewien, że chcesz opuścić tą stronę bez zapisywania?",
 		"description": "Message confirming leaving options page unsaved"
 	},
-	"contact": {
-		"message": "Znalazłeś jakiś błąd, chciałbyś przetłumaczyć to roszerzenie lub poprostu się ze mną skontaktować? Napisz na <a href=\"mailto:bartosz.legiec@gmail.com\">bartosz.legiec@gmail.com</a>.",
-		"description": "Contact message"
+	"author": {
+		"message": "Stworzone z ❤ przez <a href='http://github.com/bibixx'>bibixx</a>",
+		"description": "Author"
 	},
 	"translators_msg_1": {
 		"message": "$translators$ przetłumaczył to rozszerzenie na język Polski",
