@@ -19,24 +19,32 @@
 		"message": "Auto Pinner Options",
 		"description": "Title of option page"
 	},
+	"how_to_header": {
+		"message": "How to use the plugin?",
+		"description": "How to use plugin (header)"
+	},
 	"how_to": {
-		"message": "<strong>How to use the plugin:</strong><br>To pin or unpin tab click on plugin icon (pin) or use shortcut (default \"Ctrl+Shift+X\"). To close current tab double click on the icon or double use shortcut.",
+		"message": "To pin or unpin tab click on plugin icon (pin) or use shortcut (default&nbsp;&ndash;&nbsp;”Ctrl+Shift+X”). To close current tab double click on the icon or double use shortcut.",
 		"description": "How to use plugin"
 	},
 	"change_shrt": {
-		"message": "Change shortcut for pinning tab.",
+		"message": "How to change shortcut for pinning/unpinning/closing tab?",
 		"description": "How to change shortcut"
 	},
 	"change_shrt_popup": {
 		"message": "1. Go to <a href=\"chrome://extensions/\">chrome://extensions/</a>.<br>2. Scroll to the bottom of the page and click \"Keyboard shortcuts\".<br>3. You can now enter your shortcut in the field next to the name of plugin.",
 		"description": "How to change shortcut - popup"
 	},
+	"rules": {
+		"message": "Rules",
+		"description": "Header on card"
+	},
 	"add": {
 		"message": "Add new rule",
 		"description": "Add new rule button"
 	},
 	"rule_name": {
-		"message": "Rule name: ",
+		"message": "Rule name",
 		"description": "Subtitle on `rn` input"
 	},
 	"rule_name_popup": {
@@ -44,7 +52,7 @@
 		"description": "Subtitle on `rn` input - popup"
 	},
 	"regular_expression": {
-		"message": "Regular expression: ",
+		"message": "Regular expression",
 		"description": "Subtitle on `re` input"
 	},
 	"regular_expression_popup": {
@@ -52,7 +60,7 @@
 		"description": "Subtitle on `re` input"
 	},
 	"tab_index": {
-		"message": "Tab index: ",
+		"message": "Tab index",
 		"description": "Subtitle on `ti` input"
 	},
 	"tab_index_popup": {
@@ -71,8 +79,8 @@
 		"message": "Delete rule",
 		"description": "text of `remove` button"
 	},
-	"h3_options": {
-		"message": "Options:",
+	"settings_header": {
+		"message": "Settings",
 		"description": "Header of options"
 	},
 	"close": {
@@ -99,16 +107,24 @@
 		"message": "Options saved.",
 		"description": "Message confirming that options were saved"
 	},
-	"clear_confirm": {
-		"message": "Are you sure that you want to delete all your options?",
-		"description": "Message confirming deleting all options"
+	"delete_rule_confirm": {
+		"message": "Are you sure that you want to delete this rule?",
+		"description": "Message confirming deleting specific rule"
 	},
-	"refresh_confirm": {
-		"message": "Are you sure that you want to leave without saving your options?",
-		"description": "Message confirming leaving options page unsaved"
+	"delete_all_rules_confirm": {
+		"message": "Are you sure that you want to delete all rules?",
+		"description": "Message confirming deleting all rules"
+	},
+	"delete_button": {
+		"message": "Delete",
+		"description": "Text on delete button on popup"
+	},
+	"cancel_button": {
+		"message": "Cancel",
+		"description": "Text on cancel button on popup"
 	},
 	"author": {
-		"message": "Made with ❤ by <a href=\"http://github.com/bibixx\">bibixx</a>",
+		"message": "<span>Made with&MediumSpace;</span><i class=\"material-icons\">favorite</i><span>&MediumSpace;by&MediumSpace;</span><span><a href=\"http://github.com/bibixx\" target=\"_blank\">bibixx</a></span>",
 		"description": "Author"
 	},
 	"translators_msg_1": {

@@ -19,24 +19,36 @@
 		"message": "Opcje Auto Pinnera",
 		"description": "Title of option page"
 	},
+	"how_to_header": {
+		"message": "Jak używać rozszerzenia?",
+		"description": "How to use plugin (header)"
+	},
 	"how_to": {
-		"message": "<strong>Jak używać rozszerzenia:</strong><br>Aby przypiąć lub odpiąć kartę, naciśnij na ikonę roszerzenia (pinezka) lub użyj skrótu klawiszowego (domyślnie - \"Ctrl+Shift+X\"). Aby zamknąć aktywną kartę podwójnie naciśnij na ikonę rozszerzenia lub dwókrotnie użyj skrótu klawiszowego.",
+		"message": "Aby przypiąć lub odpiąć kartę, naciśnij na ikonę roszerzenia (pinezka) lub użyj skrótu klawiszowego (domyślnie - „Ctrl+Shift+X”). Aby zamknąć aktywną kartę podwójnie naciśnij na ikonę rozszerzenia lub dwókrotnie użyj skrótu klawiszowego.",
 		"description": "How to use plugin"
 	},
 	"change_shrt": {
-		"message": "Zmień skrót klawiszowy do przypinania/odpinania/zamykania kart.",
+		"message": "Jak zmienić skrót klawiszowy do przypinania/odpinania/zamykania kart?",
 		"description": "How to change shortcut"
 	},
 	"change_shrt_popup": {
 		"message": "1. Przejdź do <a href=\"chrome://extensions/\">chrome://extensions/</a>.<br>2. Przesuń stronę na sam dół i naciśnij \"Skróty klawiaturowe\".<br>3. Po wybraniu pola obok nazwy wtyczki możesz wprowadzić swój własny skrót.",
 		"description": "How to change shortcut - popup"
 	},
+	"change_shrt_header": {
+		"message": "1. Przejdź do <a href=\"chrome://extensions/\">chrome://extensions/</a>.<br>2. Przesuń stronę na sam dół i naciśnij \"Skróty klawiaturowe\".<br>3. Po wybraniu pola obok nazwy wtyczki możesz wprowadzić swój własny skrót.",
+		"description": "How to change shortcut - popup"
+	},
+	"rules": {
+		"message": "Reguły",
+		"description": "Header on card"
+	},
 	"add": {
 		"message": "Dodaj nową regułę",
 		"description": "Add new rule button"
 	},
 	"rule_name": {
-		"message": "Nazwa reguły: ",
+		"message": "Nazwa reguły",
 		"description": "Subtitle on `rn` input"
 	},
 	"rule_name_popup": {
@@ -44,7 +56,7 @@
 		"description": "Subtitle on `rn` input - popup"
 	},
 	"regular_expression": {
-		"message": "Wyrażenie regularne: ",
+		"message": "Wyrażenie regularne",
 		"description": "Subtitle on `re` input"
 	},
 	"regular_expression_popup": {
@@ -52,7 +64,7 @@
 		"description": "Subtitle on `re` input"
 	},
 	"tab_index": {
-		"message": "Pozycja karty: ",
+		"message": "Pozycja karty",
 		"description": "Subtitle on `ti` input"
 	},
 	"tab_index_popup": {
@@ -71,8 +83,8 @@
 		"message": "Usuń regułę",
 		"description": "text of `remove` button"
 	},
-	"h3_options": {
-		"message": "Opcje:",
+	"settings_header": {
+		"message": "Opcje",
 		"description": "Header of options"
 	},
 	"close": {
@@ -99,16 +111,24 @@
 		"message": "Opcje zapisane.",
 		"description": "Message confirming that options were saved"
 	},
-	"clear_confirm": {
-		"message": "Czy jesteś pewien, że chcesz usunąć wszystkie swoje ustawienia?",
-		"description": "Message confirming deleting all options"
+	"delete_rule_confirm": {
+		"message": "Czy chcesz usunąć tę regułę?",
+		"description": "Message confirming deleting specific rule"
 	},
-	"refresh_confirm": {
-		"message": "Czy jeseś pewien, że chcesz opuścić tą stronę bez zapisywania?",
-		"description": "Message confirming leaving options page unsaved"
+	"delete_all_rules_confirm": {
+		"message": "Czy jesteś pewien, że chcesz usunąć wszystkie reguły?",
+		"description": "Message confirming deleting all rules"
+	},
+	"delete_button": {
+		"message": "Usuń",
+		"description": "Text on delete button on popup"
+	},
+	"cancel_button": {
+		"message": "Anuluj",
+		"description": "Text on cancel button on popup"
 	},
 	"author": {
-		"message": "Stworzone z ❤ przez <a href='http://github.com/bibixx'>bibixx</a>",
+		"message": "<span>Stworzone z&MediumSpace;</span><i class=\"material-icons\">favorite</i><span>&MediumSpace;przez&MediumSpace;</span><span><a href=\"http://github.com/bibixx\" target=\"_blank\">bibixx</a></span>",
 		"description": "Author"
 	},
 	"translators_msg_1": {

@@ -1,0 +1,61 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons" rel="stylesheet")
+    link(href="css/options.min.css" rel="stylesheet")
+  body
+    header
+      h1
+
+    main
+      h2#howto
+      p
+      a(href="#")#changeKeys
+
+      #card
+        header
+          h2 Reguły
+          .icons
+            i.material-icons.blink.blink-black#add add
+            i.material-icons.blink.blink-black#remove-toggle delete
+
+        table
+          thead
+            th
+              input(type="checkbox", checked)#row-master
+              label(for="row-master"): i.material-icons
+              i.material-icons#remove-master delete
+            th#rule_name
+            th#regular_expression
+              .tooltip
+                | Tu jest miejsce na wprowadzenie reguły przypinania kart. Możesz ją ustalić poprostu wpisując adres strony lub wprowadzić jako&MediumSpace;
+                a(href="https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/RegExp") wyrażenie regularne.
+            th#tab_index
+              .tooltip
+                | Ten parametr określa pozycję przypiętej karty (np. "0" oznacza 0 kart od lewej, natomiast "3" oznacza, że przed przypiętą kartą będą się znajdowały maksymalnie 3 inne przypięte karty).
+
+          tbody
+
+      h2#settings_header
+      .checkbox-group
+        input(type="checkbox")#close
+        label(for="close").checkbox: i.material-icons
+        label(for="close").text
+
+      .checkbox-group
+        input(type="checkbox")#confirm
+        label(for="confirm").checkbox: i.material-icons
+        label(for="confirm").text
+
+      .checkbox-group
+        input(type="checkbox")#move
+        label(for="move").checkbox: i.material-icons
+        label(for="move").text
+
+    footer
+
+    script(src="dist/js/jquery-3.1.1.min.js", charset="utf-8")
+    script(src="dist/js/blink.min.js", charset="utf-8")
+    script(src="dist/js/options.min.js", charset="utf-8")

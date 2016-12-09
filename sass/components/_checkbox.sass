@@ -1,0 +1,31 @@
+.checkbox-group
+  &::after
+    display: block
+    clear: both
+    content: ""
+
+  input
+    display: none
+
+    &:checked ~ label.checkbox i.material-icons::before
+      content: "check_box"
+
+  label
+    cursor: pointer
+
+    &.checkbox
+      float: left
+
+      i.material-icons
+        font-size: 18px
+        line-height: 20px
+
+        &::before
+          color: $main-color
+          content: "check_box_outline_blank"
+
+    &.text
+      height: 22px
+      padding-left: 8px
+      float: left
+      line-height: 22px
