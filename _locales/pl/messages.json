@@ -24,7 +24,7 @@
 		"description": "How to use plugin (header)"
 	},
 	"how_to": {
-		"message": "Aby przypiąć lub odpiąć kartę, naciśnij na ikonę roszerzenia (pinezka) lub użyj skrótu klawiszowego (domyślnie - „Ctrl+Shift+X”). Aby zamknąć aktywną kartę podwójnie naciśnij na ikonę rozszerzenia lub dwókrotnie użyj skrótu klawiszowego.",
+		"message": "Aby przypiąć lub odpiąć kartę, naciśnij na ikonę roszerzenia (pinezka) lub użyj skrótu klawiszowego (domyślnie - „Ctrl+Shift+X”). Aby zamknąć aktywną kartę podwójnie naciśnij na ikonę rozszerzenia lub dwukrotnie użyj skrótu klawiszowego.",
 		"description": "How to use plugin"
 	},
 	"change_shrt": {
