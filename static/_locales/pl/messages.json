@@ -1,0 +1,159 @@
+{
+	"description": {
+		"message": "Przypnij lub odepnij kartę.",
+		"description": "Description of plugin"
+	},
+	"close_conf_msg": {
+		"message": "Czy jesteś pewien, że chcesz zamknąć tę kartę?",
+		"description": "Message confirming closing tab"
+	},
+	"pin": {
+		"message": "Przypnij!",
+		"description": "Message after hovering plugin icon - pin"
+	},
+	"unpin": {
+		"message": "Odepnij!",
+		"description": "Message after hovering plugin icon - unpin"
+	},
+	"options_title": {
+		"message": "Opcje Auto Pinnera",
+		"description": "Title of option page"
+	},
+	"how_to_header": {
+		"message": "Jak używać rozszerzenia?",
+		"description": "How to use plugin (header)"
+	},
+	"how_to": {
+		"message": "Aby przypiąć lub odpiąć kartę, naciśnij na ikonę roszerzenia (pinezka) lub użyj skrótu klawiszowego (domyślnie - „Ctrl+Shift+X”). Aby zamknąć aktywną kartę podwójnie naciśnij na ikonę rozszerzenia lub dwukrotnie użyj skrótu klawiszowego.",
+		"description": "How to use plugin"
+	},
+	"change_shrt": {
+		"message": "Jak zmienić skrót klawiszowy do przypinania/odpinania/zamykania kart?",
+		"description": "How to change shortcut"
+	},
+	"change_shrt_popup": {
+		"message": "1. Przejdź do <a href=\"chrome://extensions/\">chrome://extensions/</a>.<br>2. Przesuń stronę na sam dół i naciśnij \"Skróty klawiaturowe\".<br>3. Po wybraniu pola obok nazwy wtyczki możesz wprowadzić swój własny skrót.",
+		"description": "How to change shortcut - popup"
+	},
+	"change_shrt_header": {
+		"message": "1. Przejdź do <a href=\"chrome://extensions/\">chrome://extensions/</a>.<br>2. Przesuń stronę na sam dół i naciśnij \"Skróty klawiaturowe\".<br>3. Po wybraniu pola obok nazwy wtyczki możesz wprowadzić swój własny skrót.",
+		"description": "How to change shortcut - popup"
+	},
+	"rules": {
+		"message": "Reguły",
+		"description": "Header on card"
+	},
+	"add": {
+		"message": "Dodaj nową regułę",
+		"description": "Add new rule button"
+	},
+	"rule_name": {
+		"message": "Nazwa reguły",
+		"description": "Subtitle on `rn` input"
+	},
+	"rule_name_popup": {
+		"message": "Tu możesz wprowadzić nazwę dla reguły.",
+		"description": "Subtitle on `rn` input - popup"
+	},
+	"regular_expression": {
+		"message": "Wyrażenie regularne",
+		"description": "Subtitle on `re` input"
+	},
+	"regular_expression_popup": {
+		"message": "Tu jest miejsce na wprowadzenie reguły przypinania kart. Możesz ją ustalić poprostu wpisując adres strony lub wprowadzić jako <a href=\"http://kursjs.pl/kurs/regular.html\">wyrażenie regularne</a>.",
+		"description": "Subtitle on `re` input"
+	},
+	"tab_index": {
+		"message": "Pozycja karty",
+		"description": "Subtitle on `ti` input"
+	},
+	"tab_index_popup": {
+		"message": "Ten parametr określa pozycję przypiętej karty (np. \"0\" oznacza 0 kart od lewej, natomiast \"3\" oznacza, że przed przypiętą kartą będą się znajdowały maksymalnie 3 inne przypięte karty).",
+		"description": "Subtitle on `ti` input - popup"
+	},
+	"enabled": {
+		"message": "Aktywne",
+		"description": "Subtitle on `enabled` input"
+	},
+	"enabled_popup": {
+		"message": "Ten parametr określa czy reguła jest aktywna czy nie.",
+		"description": "Subtitle on `enabled` input - popup"
+	},
+	"remove_b": {
+		"message": "Usuń regułę",
+		"description": "text of `remove` button"
+	},
+	"settings_header": {
+		"message": "Opcje",
+		"description": "Header of options"
+	},
+	"close": {
+		"message": "Zamknij kartę po dwókrotnym naciśnięciu ikony rozszerzenia.",
+		"description": "`Close tab after dbl click` checkbox"
+	},
+	"close_conf": {
+		"message": "Potwierdzaj zamykanie kart po dwókrotnym naciśnięciu ikony rozszerzenia.",
+		"description": "`Confirm closing tab after dbl click` checkbox"
+	},
+	"back_index": {
+		"message": "Po odpięciu karty przesuń ją na prawo.",
+		"description": "`After unpinning tab move it to right` checkbox"
+	},
+	"save": {
+		"message": "Zapisz",
+		"description": "Text of `save` button"
+	},
+	"clear": {
+		"message": "Wyczyść ustawienia",
+		"description": "Text of `reset` button"
+	},
+	"options_saved": {
+		"message": "Opcje zapisane.",
+		"description": "Message confirming that options were saved"
+	},
+	"delete_rule_confirm": {
+		"message": "Czy chcesz usunąć tę regułę?",
+		"description": "Message confirming deleting specific rule"
+	},
+	"delete_all_rules_confirm": {
+		"message": "Czy jesteś pewien, że chcesz usunąć wszystkie reguły?",
+		"description": "Message confirming deleting all rules"
+	},
+	"delete_button": {
+		"message": "Usuń",
+		"description": "Text on delete button on popup"
+	},
+	"cancel_button": {
+		"message": "Anuluj",
+		"description": "Text on cancel button on popup"
+	},
+	"author": {
+		"message": "<span>Stworzone z&MediumSpace;</span><i class=\"material-icons\">favorite</i><span>&MediumSpace;przez&MediumSpace;</span><span><a href=\"http://github.com/bibixx\" target=\"_blank\">bibixx</a></span>",
+		"description": "Author"
+	},
+	"translators_msg_1": {
+		"message": "$translators$ przetłumaczył to rozszerzenie na język Polski",
+		"description": "Who translated extention - for single translator",
+		"placeholders": {
+			"translators": {
+				"content": "$1"
+			}
+		}
+	},
+	"translators_msg": {
+		"message": "$translators$ przetłumaczyli to rozszerzenie na język Polski",
+		"description": "Who translated extention - for multiple translators",
+		"placeholders": {
+			"translators": {
+				"content": "$1"
+			}
+		}
+	},
+	"translators_and": {
+		"message": "i",
+		"description": "`and` used to connect translator names"
+	},
+	"i_understand": {
+		"message": "Rozumiem"
+	}
+}

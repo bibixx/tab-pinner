@@ -1,0 +1,155 @@
+{
+	"description": {
+		"message": "Pin or unpin tab.",
+		"description": "Description of plugin"
+	},
+	"close_conf_msg": {
+		"message": "Are you sure that you want to close that tab?",
+		"description": "Message of confirming of closing tab"
+	},
+	"pin": {
+		"message": "Pin!",
+		"description": "Message after hovering plugin icon - pin"
+	},
+	"unpin": {
+		"message": "Unpin!",
+		"description": "Message after hovering plugin icon - unpin"
+	},
+	"options_title": {
+		"message": "Auto Pinner Options",
+		"description": "Title of option page"
+	},
+	"how_to_header": {
+		"message": "How to use the plugin?",
+		"description": "How to use plugin (header)"
+	},
+	"how_to": {
+		"message": "To pin or unpin tab click on plugin icon (pin) or use shortcut (default&nbsp;&ndash;&nbsp;”Ctrl+Shift+X”). To close current tab double click on the icon or double use shortcut.",
+		"description": "How to use plugin"
+	},
+	"change_shrt": {
+		"message": "How to change shortcut for pinning/unpinning/closing tab?",
+		"description": "How to change shortcut"
+	},
+	"change_shrt_popup": {
+		"message": "1. Go to <a href=\"chrome://extensions/\">chrome://extensions/</a>.<br>2. Scroll to the bottom of the page and click \"Keyboard shortcuts\".<br>3. You can now enter your shortcut in the field next to the name of plugin.",
+		"description": "How to change shortcut - popup"
+	},
+	"rules": {
+		"message": "Rules",
+		"description": "Header on card"
+	},
+	"add": {
+		"message": "Add new rule",
+		"description": "Add new rule button"
+	},
+	"rule_name": {
+		"message": "Rule name",
+		"description": "Subtitle on `rn` input"
+	},
+	"rule_name_popup": {
+		"message": "Here you can enter a name of the rule",
+		"description": "Subtitle on `rn` input - popup"
+	},
+	"regular_expression": {
+		"message": "Regular expression",
+		"description": "Subtitle on `re` input"
+	},
+	"regular_expression_popup": {
+		"message": "Here you enter URL you would like to pin. You can either enter it with <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions\">regular expression</a> or just by typing in the link of the page.",
+		"description": "Subtitle on `re` input"
+	},
+	"tab_index": {
+		"message": "Tab index",
+		"description": "Subtitle on `ti` input"
+	},
+	"tab_index_popup": {
+		"message": "This parameter specifies where will be the pinned tab placed (eg. \"0\" means 0 tabs from left and \"3\" means that there will be at least 3 pinned tabs before the pinned tab).",
+		"description": "Subtitle on `ti` input - popup"
+	},
+	"enabled": {
+		"message": "Enabled",
+		"description": "Subtitle on `enabled` input"
+	},
+	"enabled_popup": {
+		"message": "It specifies whether the rule is enabled or not.",
+		"description": "Subtitle on `enabled` input - popup"
+	},
+	"remove_b": {
+		"message": "Delete rule",
+		"description": "text of `remove` button"
+	},
+	"settings_header": {
+		"message": "Settings",
+		"description": "Header of options"
+	},
+	"close": {
+		"message": "Close tab after double clicking on plugin icon.",
+		"description": "`Close tab after dbl click` checkbox"
+	},
+	"close_conf": {
+		"message": "Confirm closing tab after double clicking on plugin icon.",
+		"description": "`Confirm closing tab after dbl click` checkbox"
+	},
+	"back_index": {
+		"message": "After unpinning tab move it to right.",
+		"description": "`After unpinning tab move it to right` checkbox"
+	},
+	"save": {
+		"message": "Save",
+		"description": "Text of `save` button"
+	},
+	"clear": {
+		"message": "Reset",
+		"description": "Text of `reset` button"
+	},
+	"options_saved": {
+		"message": "Options saved.",
+		"description": "Message confirming that options were saved"
+	},
+	"delete_rule_confirm": {
+		"message": "Are you sure that you want to delete this rule?",
+		"description": "Message confirming deleting specific rule"
+	},
+	"delete_all_rules_confirm": {
+		"message": "Are you sure that you want to delete all rules?",
+		"description": "Message confirming deleting all rules"
+	},
+	"delete_button": {
+		"message": "Delete",
+		"description": "Text on delete button on popup"
+	},
+	"cancel_button": {
+		"message": "Cancel",
+		"description": "Text on cancel button on popup"
+	},
+	"author": {
+		"message": "<span>Made with&MediumSpace;</span><i class=\"material-icons\">favorite</i><span>&MediumSpace;by&MediumSpace;</span><span><a href=\"http://github.com/bibixx\" target=\"_blank\">bibixx</a></span>",
+		"description": "Author"
+	},
+	"translators_msg_1": {
+		"message": "$translators$ translated this extention to English",
+		"description": "Who translated extention - for single translator",
+		"placeholders": {
+			"translators": {
+				"content": "$1"
+			}
+		}
+	},
+	"translators_msg": {
+		"message": "$translators$ translated this extention to English",
+		"description": "Who translated extention - for multiple translators",
+		"placeholders": {
+			"translators": {
+				"content": "$1"
+			}
+		}
+	},
+	"translators_and": {
+		"message": "and",
+		"description": "`and` used to connect translator names"
+	},
+	"i_understand": {
+		"message": "I understand"
+	}
+}

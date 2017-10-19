@@ -1,0 +1,63 @@
+.blink-blink
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  border-radius: 50%
+  background: $blink-white
+  animation: blink-in .1s ease-in-out forwards
+
+  &.blink-remove
+    animation: blink-out .3s ease-in-out forwards
+
+  @keyframes blink-in
+    0%
+      opacity: 0
+
+    100%
+      opacity: 1
+
+  @keyframes blink-out
+    0%
+      opacity: 1
+
+    100%
+      opacity: 0
+
+
+.blink-big-blink
+  position: absolute
+  margin: auto
+  border-radius: 50%
+  background: $blink-big-white
+  animation: blink-big .65s ease-out forwards
+
+  @keyframes blink-big
+    0%
+      transform: scale(0)
+      opacity: 1
+
+    100%
+      transform: scale(2.5)
+      opacity: 0
+
+
+.blink, .blink-big
+  position: relative
+  overflow: hidden
+  -webkit-tap-highlight-color: transparent
+
+  &.blink-white
+    .blink-blink
+      background: $blink-white
+
+    .blink-big-blink
+      background: $blink-big-white
+
+  &.blink-black
+    .blink-blink
+      background: $blink-black
+
+    .blink-big-blink
+      background: $blink-big-black
