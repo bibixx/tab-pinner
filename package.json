@@ -1,6 +1,6 @@
 {
-  "name": "petroom",
-  "version": "1.0.0",
+  "name": "tab-pinner",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
