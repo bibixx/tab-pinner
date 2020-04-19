@@ -1,8 +1,14 @@
 {
-  "extends": ["airbnb-typescript"],
+  "extends": [
+    "airbnb-typescript",
+    "plugin:react-hooks/recommended"
+  ],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "plugins": [
+    "react-hooks"
+  ],
   "rules": {
     "import/prefer-default-export": 0,
     "class-methods-use-this": 0
