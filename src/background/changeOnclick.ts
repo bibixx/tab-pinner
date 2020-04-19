@@ -1,32 +1,28 @@
-import chromeGet from './chromeGet';
-import { pinIcon, unpinIcon } from './changeIcon';
+import { changeIcon } from './changeIcon';
+import { store } from '../shared/store';
 
-export default function changeOnclick(tab: chrome.tabs.Tab) {
+export const handleIconClick = async (tab: chrome.tabs.Tab) => {
   if (tab.id === undefined) {
     return;
   }
 
+  changeIcon(tab.pinned);
+
   if (tab.pinned === true) {
-    unpinIcon();
     chrome.tabs.update(tab.id, {
       pinned: false,
     });
 
-    chromeGet((items) => {
-      if (tab.id === undefined) {
-        return;
-      }
+    const settings = await store.getSettings();
 
-      if (items.settings.move) {
-        chrome.tabs.move(tab.id, {
-          index: -1,
-        });
-      }
-    });
+    if (settings.move) {
+      chrome.tabs.move(tab.id, {
+        index: -1,
+      });
+    }
   } else {
-    pinIcon();
     chrome.tabs.update(tab.id, {
       pinned: true,
     });
   }
-}
+};

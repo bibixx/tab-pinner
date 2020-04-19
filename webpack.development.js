@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -6,7 +7,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const outputDir = path.resolve(__dirname, 'build');
 
 const optionsEntryFile = path.resolve(__dirname, './src/options.tsx');
-const optionsTemplatePath = path.resolve(__dirname, './src/options.ejs');
+const optionsTemplatePath = path.resolve(__dirname, './src/options/options.ejs');
 
 const backgroundEntryFile = path.resolve(__dirname, './src/background.ts');
 
@@ -68,7 +69,9 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanStaleWebpackAssets: false
+    }),
     new HtmlWebpackPlugin({
       filename: 'options.html',
       template: optionsTemplatePath,
@@ -76,7 +79,7 @@ module.exports = {
     }),
     new CopyPlugin([
       { from: 'static' },
-    ]),
+    ])
   ],
   resolve: {
     extensions: ['.ts', '.js', '.tsx']
@@ -92,7 +95,7 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
-      chunks: 'all',
+      chunks: 'async',
     },
   },
 };

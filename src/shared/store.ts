@@ -10,71 +10,49 @@ interface PartialSettings {
 }
 
 export class Store {
-  public rules: PinnerRule[];
-
-  public settings: PinnerSettings;
-
-  public loaded = false;
-
-  public loadingPromise?: Promise<void>;
-
   async getRules() {
-    if (this.loaded === true) {
-      return this.rules;
-    }
+    const storageValues = await getStorageValues();
 
-    await this.loadingPromise;
-
-    return this.rules;
+    return storageValues.rules;
   }
 
   async getSettings() {
-    if (this.loaded === true) {
-      return this.rules;
-    }
-
-    await this.loadingPromise;
-
-    return this.rules;
-  }
-
-  constructor() {
-    this.loadingPromise = this.loadData();
-  }
-
-  async loadData() {
     const storageValues = await getStorageValues();
-    this.rules = storageValues.rules;
-    this.settings = storageValues.settings;
 
-    this.loaded = true;
+    return storageValues.settings;
   }
 
-  addRule(rule: PinnerRule) {
-    this.rules.push(rule);
-    this.updateChromeStorage();
+  async addRule(rule: PinnerRule) {
+    const storageValues = await getStorageValues();
+    const newRules = [...storageValues.rules, rule];
+
+    setStorageValues(newRules, storageValues.settings);
   }
 
-  removeRule(rule: PinnerRule) {
-    this.rules = this.rules.filter(({ id }) => rule.id !== id);
-    this.updateChromeStorage();
+  async removeRule(rule: PinnerRule) {
+    const storageValues = await getStorageValues();
+    const newRules = storageValues.rules.filter(({ id }) => rule.id !== id);
+
+    setStorageValues(newRules, storageValues.settings);
   }
 
-  updateRule(newRule: PinnerRule) {
-    this.rules = this.rules.map((oldRule) => (oldRule.id === newRule.id ? newRule : oldRule));
-    this.updateChromeStorage();
+  async updateRule(newRule: PinnerRule) {
+    const storageValues = await getStorageValues();
+    const newRules = storageValues.rules
+      .map((oldRule) => (oldRule.id === newRule.id ? newRule : oldRule));
+
+    setStorageValues(newRules, storageValues.settings);
   }
 
-  updateSettings(newSettings: PartialSettings) {
-    this.settings = {
-      ...this.settings,
-      ...newSettings,
+  async updateSettings(settings: PartialSettings) {
+    const storageValues = await getStorageValues();
+    const newSettings: PinnerSettings = {
+      ...storageValues.settings,
+      ...settings,
     };
 
-    this.updateChromeStorage();
-  }
-
-  private updateChromeStorage() {
-    setStorageValues(this.rules, this.settings);
+    setStorageValues(storageValues.rules, newSettings);
   }
 }
+
+export const store = new Store();
