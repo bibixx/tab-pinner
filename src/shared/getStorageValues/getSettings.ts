@@ -1,5 +1,5 @@
-import { PinnerSettings } from "../../types/PinnerSettings";
-import { SettingsBuilder } from "./settingsBuilder";
+import { PinnerSettings } from '../../types/PinnerSettings';
+import { SettingsBuilder } from './settingsBuilder';
 
 export const getSettings = (settings: any): PinnerSettings => {
   const settingsBuilder = new SettingsBuilder();
@@ -8,17 +8,17 @@ export const getSettings = (settings: any): PinnerSettings => {
   const confirm = settings?.confirm;
   const move = settings?.move;
 
-  if (typeof close === "boolean") {
+  if (typeof close === 'boolean') {
     settingsBuilder.setClose(close);
   }
 
-  if (typeof confirm === "boolean") {
+  if (typeof confirm === 'boolean') {
     settingsBuilder.setConfirm(confirm);
   }
 
-  if (typeof move === "boolean") {
+  if (typeof move === 'boolean') {
     settingsBuilder.setMove(move);
   }
 
   return settingsBuilder.getSettings();
-}
+};

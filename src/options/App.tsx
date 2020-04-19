@@ -13,8 +13,8 @@ interface InputLineProps {
 }
 
 const InputLine: React.FC<InputLineProps> = ({ rule, editRule }) => {
-  const name = rule.name;
-  const regexp = rule.regexp;
+  const { name } = rule;
+  const { regexp } = rule;
   const position = typeof rule.position === 'number' ? rule.position : undefined;
 
   const update = (key: 'name'|'regexp') => ({ target: { value } }: React.ChangeEvent<HTMLInputElement>): void => {
@@ -23,7 +23,7 @@ const InputLine: React.FC<InputLineProps> = ({ rule, editRule }) => {
   };
 
   const updatePosition = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>): void => {
-    if (value === "") {
+    if (value === '') {
       const newRule: PinnerRule = { ...rule, position: null };
 
       editRule(newRule);
@@ -45,11 +45,11 @@ const InputLine: React.FC<InputLineProps> = ({ rule, editRule }) => {
         <StyledInput type="text" value={regexp} onChange={update('regexp')} />
       </td>
       <td>
-        <StyledInput type="number" defaultValue={position} onChange={updatePosition}/>
+        <StyledInput type="number" defaultValue={position} onChange={updatePosition} />
       </td>
     </tr>
   );
-}
+};
 
 const App = () => {
   const storage = useRef<Store>();
@@ -62,7 +62,7 @@ const App = () => {
     (async () => {
       setRules(await newStorage.getRules());
     })();
-  }, [])
+  }, []);
 
   const addRule = () => {
     const newRule: PinnerRule = {
@@ -71,26 +71,26 @@ const App = () => {
       active: true,
       regexp: '',
       position: null,
-    }
+    };
 
     setRules([
       ...rules,
-      newRule
+      newRule,
     ]);
 
     storage.current?.addRule(newRule);
-  }
+  };
 
   const editRule = (newRule: PinnerRule) => {
-    const newRules = rules.map((oldRule) => oldRule.id === newRule.id ? newRule : oldRule);
+    const newRules = rules.map((oldRule) => (oldRule.id === newRule.id ? newRule : oldRule));
 
     setRules(newRules);
     storage.current?.updateRule(newRule);
-  }
+  };
 
   return (
     <div>
-      <button onClick={addRule}>addRule</button>
+      <button onClick={addRule} type="button">addRule</button>
       <table>
         <thead>
           <tr>
@@ -106,7 +106,7 @@ const App = () => {
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
 export default App;

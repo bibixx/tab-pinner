@@ -1,11 +1,15 @@
-import { PinnerRule } from "../../types/PinnerRule";
+import { PinnerRule } from '../../types/PinnerRule';
 
 export class RuleBuilder {
   private id?: number;
+
   private active: boolean = false;
-  private regexp: string = "";
+
+  private regexp: string = '';
+
   private position: number|null = null;
-  private name: string = "";
+
+  private name: string = '';
 
   setId(id: number) {
     this.id = id;
@@ -29,7 +33,7 @@ export class RuleBuilder {
 
   getRule(): PinnerRule {
     if (this.id === undefined) {
-      throw new Error("Id not present!");
+      throw new Error('Id not present!');
     }
 
     return {
@@ -38,6 +42,6 @@ export class RuleBuilder {
       active: this.active,
       regexp: this.regexp,
       position: this.position,
-    }
+    };
   }
 }

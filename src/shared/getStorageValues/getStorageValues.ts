@@ -1,6 +1,6 @@
-import { AppStorage } from "../../types/AppStorage";
-import { ChromeStorage } from "../../types/ChromeStorage";
-import { defaultStorageValues } from "./defaultStorageValues";
+import { AppStorage } from '../../types/AppStorage';
+import { ChromeStorage } from '../../types/ChromeStorage';
+import { defaultStorageValues } from './defaultStorageValues';
 import { getRules } from './getRules';
 import { getSettings } from './getSettings';
 
@@ -20,5 +20,5 @@ export const getStorageValues = async (): Promise<AppStorage> => {
   return {
     rules: getRules(items?.rules),
     settings: getSettings(items?.settings),
-  }
-}
+  };
+};

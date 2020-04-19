@@ -1,5 +1,5 @@
-import { PinnerRule } from "../../types/PinnerRule";
-import { RuleBuilder } from "./ruleBuilder";
+import { PinnerRule } from '../../types/PinnerRule';
+import { RuleBuilder } from './ruleBuilder';
 
 export const getRules = (rules: any): PinnerRule[] => {
   if (!Array.isArray(rules)) {
@@ -15,34 +15,34 @@ export const getRules = (rules: any): PinnerRule[] => {
   }) => {
     const ruleBuilder = new RuleBuilder();
 
-    if (typeof id === "number") {
+    if (typeof id === 'number') {
       ruleBuilder.setId(id);
     } else {
       ruleBuilder.setId(Date.now());
     }
 
-    if (typeof active === "boolean") {
+    if (typeof active === 'boolean') {
       ruleBuilder.setActive(active);
     }
 
-    if (typeof name === "string") {
+    if (typeof name === 'string') {
       ruleBuilder.setName(name);
     }
 
-    if (typeof regexp === "string") {
+    if (typeof regexp === 'string') {
       ruleBuilder.setRegexp(regexp);
     }
 
-    if (typeof position === "string") {
-      if (position === "") {
+    if (typeof position === 'string') {
+      if (position === '') {
         ruleBuilder.setPosition(null);
       } else {
         ruleBuilder.setPosition(Number.parseInt(position, 10));
       }
-    } else if (typeof position === "number" && position >= 0) {
+    } else if (typeof position === 'number' && position >= 0) {
       ruleBuilder.setPosition(position);
     }
 
     return ruleBuilder.getRule();
-  })
-}
+  });
+};

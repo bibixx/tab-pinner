@@ -1,7 +1,7 @@
-import { PinnerRule } from "../types/PinnerRule";
-import { PinnerSettings } from "../types/PinnerSettings";
-import { getStorageValues } from "./getStorageValues";
-import { setStorageValues } from "./setStorageValues";
+import { PinnerRule } from '../types/PinnerRule';
+import { PinnerSettings } from '../types/PinnerSettings';
+import { getStorageValues } from './getStorageValues';
+import { setStorageValues } from './setStorageValues';
 
 interface PartialSettings {
   close?: boolean;
@@ -11,8 +11,11 @@ interface PartialSettings {
 
 export class Store {
   public rules: PinnerRule[];
+
   public settings: PinnerSettings;
+
   public loaded = false;
+
   public loadingPromise?: Promise<void>;
 
   async getRules() {
@@ -44,9 +47,6 @@ export class Store {
     this.rules = storageValues.rules;
     this.settings = storageValues.settings;
 
-    console.log(this.rules);
-
-
     this.loaded = true;
   }
 
@@ -61,7 +61,7 @@ export class Store {
   }
 
   updateRule(newRule: PinnerRule) {
-    this.rules = this.rules.map((oldRule) => oldRule.id === newRule.id ? newRule : oldRule);
+    this.rules = this.rules.map((oldRule) => (oldRule.id === newRule.id ? newRule : oldRule));
     this.updateChromeStorage();
   }
 
@@ -69,7 +69,7 @@ export class Store {
     this.settings = {
       ...this.settings,
       ...newSettings,
-    }
+    };
 
     this.updateChromeStorage();
   }
