@@ -24,7 +24,7 @@
 		"description": "How to use plugin (header)"
 	},
 	"how_to": {
-		"message": "To pin or unpin tab click on plugin icon (pin) or use shortcut (default&nbsp;&ndash;&nbsp;”Ctrl+Shift+X”). To close current tab double click on the icon or double use shortcut.",
+		"message": "To pin or unpin tab click on plugin icon (pin) or use shortcut (default – ”Ctrl+Shift+X”). To close current tab double click on the icon or double use shortcut.",
 		"description": "How to use plugin"
 	},
 	"change_shrt": {
@@ -35,7 +35,7 @@
 		"message": "1. Go to <a href=\"chrome://extensions/\">chrome://extensions/</a>.<br>2. Scroll to the bottom of the page and click \"Keyboard shortcuts\".<br>3. You can now enter your shortcut in the field next to the name of plugin.",
 		"description": "How to change shortcut - popup"
 	},
-	"rules": {
+	"rules_header": {
 		"message": "Rules",
 		"description": "Header on card"
 	},
@@ -92,8 +92,8 @@
 		"description": "`Confirm closing tab after dbl click` checkbox"
 	},
 	"back_index": {
-		"message": "After unpinning tab move it to right.",
-		"description": "`After unpinning tab move it to right` checkbox"
+		"message": "After unpinning tab move it to the right.",
+		"description": "`After unpinning tab move it to the right` checkbox"
 	},
 	"save": {
 		"message": "Save",
@@ -124,7 +124,7 @@
 		"description": "Text on cancel button on popup"
 	},
 	"author": {
-		"message": "<span>Made with&MediumSpace;</span><i class=\"material-icons\">favorite</i><span>&MediumSpace;by&MediumSpace;</span><span><a href=\"http://github.com/bibixx\" target=\"_blank\">bibixx</a></span>",
+		"message": "Made with $heart by $author",
 		"description": "Author"
 	},
 	"translators_msg_1": {

@@ -1,68 +1,59 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import InputLine from './InputLine/InputLine';
 import { store } from '../../shared/store';
 import { PinnerRule } from '../../types/PinnerRule';
+import {
+  addRule as addRuleAction,
+  updateRule as updateRuleAction,
+  removeRule as removeRuleAction,
+} from '../actions/rules';
+import {
+  updateSetting as updateSettingAction,
+} from '../actions/settings';
+
+import Rules from './Rules';
+import Settings from './Settings';
+import { PinnerSettings } from '../../types/PinnerSettings';
+import HowTo from './HowTo';
+import Header from './Header';
+import Footer from './Footer/Footer';
 
 const App = () => {
   const [rules, setRules] = useState<PinnerRule[]>([]);
+  const [settings, setSettings] = useState<PinnerSettings>({
+    close: false,
+    confirm: false,
+    move: false,
+  });
 
   useEffect(() => {
-    (async () => {
-      setRules(await store.getRules());
-    })();
+    store.getRules()
+      .then((newRules) => setRules(newRules));
+    store.getSettings()
+      .then((newSettings) => setSettings(newSettings));
   }, []);
 
   const updateRules = useCallback(async () => setRules(await store.getRules()), []);
-
-  const addRule = useCallback(async () => {
-    const newRule: PinnerRule = {
-      id: Date.now(),
-      name: '',
-      active: true,
-      regexp: '',
-      position: null,
-    };
-
-    await store.addRule(newRule);
-
-    await updateRules();
-  }, [updateRules]);
-
-  const updateRule = useCallback(async (newRule: PinnerRule) => {
-    await store.updateRule(newRule);
-
-    await updateRules();
-  }, [updateRules]);
-
-  const removeRule = useCallback(async (rule: PinnerRule) => {
-    await store.removeRule(rule);
-
-    await updateRules();
-  }, [updateRules]);
+  const updateSettings = useCallback(async () => setSettings(await store.getSettings()), []);
+  const addRule = useCallback(addRuleAction(updateRules), [updateRules]);
+  const updateRule = useCallback(updateRuleAction(updateRules), [updateRules]);
+  const removeRule = useCallback(removeRuleAction(updateRules), [updateRules]);
+  const updateSetting = useCallback(updateSettingAction(updateSettings), [updateSettings]);
 
   return (
     <div>
-      <button onClick={addRule} type="button">addRule</button>
-      <table>
-        <thead>
-          <tr>
-            <th>Active</th>
-            <th>Rule name</th>
-            <th>Regular expression</th>
-            <th>Tab index</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rules.map((rule) => (
-            <InputLine
-              key={rule.id}
-              rule={rule}
-              updateRule={updateRule}
-              removeRule={removeRule}
-            />
-          ))}
-        </tbody>
-      </table>
+      <Header />
+      <HowTo />
+      <Rules
+        rules={rules}
+        addRule={addRule}
+        updateRule={updateRule}
+        removeRule={removeRule}
+      />
+      <Settings
+        settings={settings}
+        updateSetting={updateSetting}
+      />
+      <Footer />
     </div>
   );
 };

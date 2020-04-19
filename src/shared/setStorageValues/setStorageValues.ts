@@ -1,16 +1,14 @@
 import { PinnerRule } from '../../types/PinnerRule';
 import { PinnerSettings } from '../../types/PinnerSettings';
 import { AppStorage } from '../../types/AppStorage';
-import { ChromeStorage } from '../../types/ChromeStorage';
+import { isChromeStorageAvailable } from '../isChromeStorageAvailable/isChromeStorageAvailable';
 
 const storageSet = (value: any): Promise<void> => new Promise(
   (resolve) => {
-    const chromeStorage = window?.chrome.storage as ChromeStorage;
-
-    if (chromeStorage === undefined) {
-      localStorage.setItem('sync', value);
-    } else {
+    if (isChromeStorageAvailable()) {
       chrome.storage.sync.set(value, resolve);
+    } else {
+      localStorage.setItem('sync', JSON.stringify(value));
     }
   },
 );

@@ -16,7 +16,7 @@
 	"browser_action": {
 		"default_icon": "imgs/icon.png",
 		"default_title": "__MSG_pin__"
-		},
+	},
 	"icons": { "48": "imgs/icon_big_48.png" },
 	"commands": {
 	  "_execute_browser_action": {

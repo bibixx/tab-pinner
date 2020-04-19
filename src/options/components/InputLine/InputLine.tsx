@@ -1,6 +1,7 @@
 import React from 'react';
 import { PinnerRule } from '../../../types/PinnerRule';
 import { StyledInput } from './InputLine.styled';
+import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslatedText';
 
 interface InputLineProps {
   rule: PinnerRule;
@@ -62,6 +63,7 @@ const InputLine: React.FC<InputLineProps> = ({
           type="text"
           value={name}
           onChange={updateName}
+          placeholder={getTranslatedText('rule_name')}
         />
       </td>
       <td>
@@ -69,6 +71,7 @@ const InputLine: React.FC<InputLineProps> = ({
           type="text"
           value={regexp}
           onChange={updateRegex}
+          placeholder={getTranslatedText('regular_expression')}
         />
       </td>
       <td>
@@ -78,6 +81,7 @@ const InputLine: React.FC<InputLineProps> = ({
           onChange={updatePosition}
           min={0}
           step={0}
+          placeholder={getTranslatedText('tab_index')}
         />
       </td>
     </tr>

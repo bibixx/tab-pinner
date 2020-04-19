@@ -1,16 +1,21 @@
 import { AppStorage } from '../../types/AppStorage';
-import { ChromeStorage } from '../../types/ChromeStorage';
 import { getRules } from './getRules';
 import { getSettings } from './getSettings';
+import { isChromeStorageAvailable } from '../isChromeStorageAvailable/isChromeStorageAvailable';
 
 const storageGet = (): Promise<any> => new Promise((resolve) => {
-  const chromeStorage = window?.chrome.storage as ChromeStorage;
+  if (!isChromeStorageAvailable()) {
+    const value = localStorage.getItem('sync');
+    if (value === null) {
+      resolve(value);
+      return;
+    }
 
-  if (chromeStorage === undefined) {
-    resolve(localStorage.getItem('sync'));
-  } else {
-    chrome.storage.sync.get(resolve);
+    resolve(JSON.parse(value));
+    return;
   }
+
+  chrome.storage.sync.get(resolve);
 });
 
 export const getStorageValues = async (): Promise<AppStorage> => {

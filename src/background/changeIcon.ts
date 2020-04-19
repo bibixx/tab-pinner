@@ -1,13 +1,15 @@
+import { getTranslatedText } from '../shared/getTranslatedText/getTranslatedText';
+
 const getProperties = (pinned: boolean) => {
   if (pinned) {
     return {
-      title: chrome.i18n.getMessage('unpin'),
+      title: getTranslatedText('unpin'),
       path: 'imgs/icon_in.png',
     };
   }
 
   return {
-    title: chrome.i18n.getMessage('pin'),
+    title: getTranslatedText('pin'),
     path: 'imgs/icon.png',
   };
 };
