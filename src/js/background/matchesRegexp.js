@@ -8,7 +8,9 @@ export default function matchesRegexp( tab ) {
         const regexp = v.regexp;
         const expression = new RegExp( regexp );
         const position = v.position;
-        if ( expression.test( tab.url ) ) {
+        const url = tab.url || tab.pendingUrl;
+        if ( expression.test( url ) ) {
+
           chrome.tabs.update( tab.id, {
             "pinned": true,
           } );
