@@ -1,7 +1,7 @@
 {
 	"name": "Tab pinner",
 	"description": "__MSG_description__",
-	"version": "2.1.1",
+	"version": "2.2.0",
 	"default_locale": "en",
 	"permissions": [
 		"activeTab",
@@ -9,8 +9,8 @@
 		"storage"
 	],
 	"background": {
-	"scripts": ["js/background.js"],
-	"persistent": false
+		"scripts": ["background.bundle.js"],
+		"persistent": false
 	},
 	"options_page": "options.html",
 	"browser_action": {

@@ -1,0 +1,1 @@
+export { setStorageValues } from './setStorageValues';

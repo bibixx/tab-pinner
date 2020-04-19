@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "outDir": "./build/",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "target": "es2016",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "esModuleInterop": true
+  },
+  "include": [
+    "./src/**/**/*"
+  ]
+}
