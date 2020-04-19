@@ -3,19 +3,20 @@ import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslat
 
 import { replaceStringsWithComponents, Mappings } from '../../utils/replaceStringsWithComponents';
 import { renderWithReplacedStrings } from '../../utils/renderWithReplacedStrings';
+import { StyleFooter, StyledIcon, Link } from './Footer.styled';
 
 const mappings: Mappings[] = [
-  ['$heart', <span role="img" aria-label="love" key="heart">♥️</span>],
-  ['$author', <a href="https://legiec.io" key="link">bibixx</a>],
+  ['$heart', <StyledIcon>favorite</StyledIcon>],
+  ['$author', <Link href="https://legiec.io" key="link">bibixx</Link>],
 ];
 
 const Footer: React.FC = () => {
   const authorString = replaceStringsWithComponents(mappings, getTranslatedText('author'));
 
   return (
-    <footer>
+    <StyleFooter>
       {renderWithReplacedStrings(authorString)}
-    </footer>
+    </StyleFooter>
   );
 };
 

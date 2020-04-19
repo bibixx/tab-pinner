@@ -1,6 +1,7 @@
 import React from 'react';
 import { PinnerSettings, SettingKey } from '../../../types/PinnerSettings';
 import I18n from '../I18n';
+import { H2 } from '../Headings';
 
 interface SettingsProps {
   settings: PinnerSettings;
@@ -18,7 +19,7 @@ const Settings: React.FC<SettingsProps> = ({
 
   return (
     <div>
-      <h2><I18n>settings_header</I18n></h2>
+      <H2><I18n>settings_header</I18n></H2>
       <ul>
         <li>
           <label>

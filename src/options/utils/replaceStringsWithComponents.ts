@@ -1,4 +1,4 @@
-export type Mappings = [RegExp|string, React.ReactElement];
+export type Mappings = [RegExp|string, React.ReactElement|React.FC];
 type RegExpMappings = [RegExp, any];
 type FoundRecord = { start: number, end: number, mappingIndex: number };
 

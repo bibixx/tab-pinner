@@ -1,12 +1,12 @@
 import React from 'react';
 
 export const renderWithReplacedStrings = (strings: React.ReactElement[]) => strings
-  .map<React.FC>((el) => () => el)
-  .map((Comp, i) => {
-    if (typeof Comp === 'string') {
-      return Comp;
+  .map((el) => {
+    if (typeof el === 'string') {
+      return () => <span>{el}</span>;
     }
 
-    // eslint-disable-next-line react/no-array-index-key
-    return <Comp key={i} />;
-  });
+    return () => el;
+  })
+  // eslint-disable-next-line react/no-array-index-key
+  .map((Comp, i) => <Comp key={i} />);

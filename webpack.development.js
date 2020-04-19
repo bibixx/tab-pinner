@@ -6,7 +6,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const outputDir = path.resolve(__dirname, 'build');
 
 const optionsEntryFile = path.resolve(__dirname, './src/options/options.tsx');
-const optionsTemplatePath = path.resolve(__dirname, './src/options/options.ejs');
+const optionsTemplatePath = path.resolve(__dirname, './src/options/options.html');
 
 const backgroundEntryFile = path.resolve(__dirname, './src/background/background.ts');
 

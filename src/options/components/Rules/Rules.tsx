@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PinnerRule } from '../../../types/PinnerRule';
-import InputLine from '../InputLine';
+import { EditMode } from '../../../types/EditMote';
+
+import InputLine from './InputLine';
 import I18n from '../I18n';
+
+import {
+  Wrapper, Header, Table, Th,
+} from './Rules.styled';
+import { H2 } from '../Headings';
+import Icon from '../Icon';
 
 interface RulesProps {
   rules: PinnerRule[];
@@ -15,39 +23,57 @@ const Rules: React.FC<RulesProps> = ({
   addRule,
   updateRule,
   removeRule,
-}) => (
-  <div>
-    <h2><I18n>rules_header</I18n></h2>
-    <button onClick={addRule} type="button">addRule</button>
-    <table>
-      <thead>
-        <tr>
-          <th>
-            Active
-          </th>
-          <th>
-            <I18n>rule_name</I18n>
-          </th>
-          <th>
-            <I18n>regular_expression</I18n>
-          </th>
-          <th>
-            <I18n>tab_index</I18n>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {rules.map((rule) => (
-          <InputLine
-            key={rule.id}
-            rule={rule}
-            updateRule={updateRule}
-            removeRule={removeRule}
-          />
-        ))}
-      </tbody>
-    </table>
-  </div>
-);
+}) => {
+  const [editMode, setEditMode] = useState<EditMode>(EditMode.active);
+
+  const changeEditMode = () => {
+    setEditMode(editMode === EditMode.active ? EditMode.delete : EditMode.active);
+  };
+
+  return (
+    <Wrapper>
+      <Header>
+        <H2><I18n>rules_header</I18n></H2>
+        <div>
+          <button onClick={addRule} type="button">
+            <Icon>add</Icon>
+          </button>
+          <button onClick={changeEditMode} type="button">
+            <Icon>delete</Icon>
+          </button>
+        </div>
+      </Header>
+      <Table>
+        <thead>
+          <tr>
+            <Th>
+              Active
+            </Th>
+            <Th>
+              <I18n>rule_name</I18n>
+            </Th>
+            <Th>
+              <I18n>regular_expression</I18n>
+            </Th>
+            <Th>
+              <I18n>tab_index</I18n>
+            </Th>
+          </tr>
+        </thead>
+        <tbody>
+          {rules.map((rule) => (
+            <InputLine
+              key={rule.id}
+              rule={rule}
+              updateRule={updateRule}
+              removeRule={removeRule}
+              editMode={editMode}
+            />
+          ))}
+        </tbody>
+      </Table>
+    </Wrapper>
+  );
+};
 
 export default Rules;

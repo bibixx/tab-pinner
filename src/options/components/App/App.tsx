@@ -1,21 +1,24 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { store } from '../../shared/store';
-import { PinnerRule } from '../../types/PinnerRule';
+import { store } from '../../../shared/store';
+import { PinnerRule } from '../../../types/PinnerRule';
 import {
   addRule as addRuleAction,
   updateRule as updateRuleAction,
   removeRule as removeRuleAction,
-} from '../actions/rules';
+} from '../../actions/rules';
 import {
   updateSetting as updateSettingAction,
-} from '../actions/settings';
+} from '../../actions/settings';
+import { PinnerSettings } from '../../../types/PinnerSettings';
 
-import Rules from './Rules';
-import Settings from './Settings';
-import { PinnerSettings } from '../../types/PinnerSettings';
-import HowTo from './HowTo';
-import Header from './Header';
-import Footer from './Footer/Footer';
+import Rules from '../Rules';
+import Settings from '../Settings';
+import HowTo from '../HowTo';
+import Header from '../Header';
+import Footer from '../Footer';
+import Paper from '../Paper';
+
+import './global.css';
 
 const App = () => {
   const [rules, setRules] = useState<PinnerRule[]>([]);
@@ -40,21 +43,23 @@ const App = () => {
   const updateSetting = useCallback(updateSettingAction(updateSettings), [updateSettings]);
 
   return (
-    <div>
+    <>
       <Header />
-      <HowTo />
-      <Rules
-        rules={rules}
-        addRule={addRule}
-        updateRule={updateRule}
-        removeRule={removeRule}
-      />
-      <Settings
-        settings={settings}
-        updateSetting={updateSetting}
-      />
+      <Paper>
+        <HowTo />
+        <Rules
+          rules={rules}
+          addRule={addRule}
+          updateRule={updateRule}
+          removeRule={removeRule}
+        />
+        <Settings
+          settings={settings}
+          updateSetting={updateSetting}
+        />
+      </Paper>
       <Footer />
-    </div>
+    </>
   );
 };
 

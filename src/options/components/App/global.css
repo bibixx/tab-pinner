@@ -1,0 +1,38 @@
+:root {
+  /* dark */
+  --background: #202020;
+  --text-color: #d2d2d2;
+  --paper-color: #424242;
+  --paper-text-color: var(--text-color);
+  --heart-icon: #ff3838;
+  --table-header: #000;
+
+  /* Light */
+
+  --background: #3f51b5;
+  --text-color: #fff;
+  --paper-color: #fff;
+  --paper-text-color: #111;
+  --heart-icon: #ff3838;
+  --table-header: #757575;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+body, html {
+  height: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

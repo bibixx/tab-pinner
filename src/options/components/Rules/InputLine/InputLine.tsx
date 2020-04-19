@@ -1,18 +1,23 @@
 import React from 'react';
-import { PinnerRule } from '../../../types/PinnerRule';
+import { PinnerRule } from '../../../../types/PinnerRule';
+import { EditMode } from '../../../../types/EditMote';
+
 import { StyledInput } from './InputLine.styled';
-import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslatedText';
+import { getTranslatedText } from '../../../../shared/getTranslatedText/getTranslatedText';
+import { Td } from '../Rules.styled';
 
 interface InputLineProps {
   rule: PinnerRule;
   updateRule: (newRule: PinnerRule) => void;
   removeRule: (newRule: PinnerRule) => void;
+  editMode: EditMode;
 }
 
 const InputLine: React.FC<InputLineProps> = ({
   rule,
   updateRule,
   removeRule,
+  editMode,
 }) => {
   const {
     name, regexp, active,
@@ -48,33 +53,36 @@ const InputLine: React.FC<InputLineProps> = ({
     updateRule(newRule);
   };
 
+  const firstColumn = editMode === EditMode.active
+    ? (
+      <StyledInput
+        type="checkbox"
+        checked={active}
+        onChange={onActiveChange}
+      />
+    )
+    : (<button onClick={() => removeRule(rule)} type="button">🗑</button>);
+
   return (
     <tr>
-      <td>
-        <button onClick={() => removeRule(rule)} type="button">🗑</button>
-        <StyledInput
-          type="checkbox"
-          checked={active}
-          onChange={onActiveChange}
-        />
-      </td>
-      <td>
+      <Td>{firstColumn}</Td>
+      <Td>
         <StyledInput
           type="text"
           value={name}
           onChange={updateName}
           placeholder={getTranslatedText('rule_name')}
         />
-      </td>
-      <td>
+      </Td>
+      <Td>
         <StyledInput
           type="text"
           value={regexp}
           onChange={updateRegex}
           placeholder={getTranslatedText('regular_expression')}
         />
-      </td>
-      <td>
+      </Td>
+      <Td>
         <StyledInput
           type="number"
           value={position}
@@ -83,7 +91,7 @@ const InputLine: React.FC<InputLineProps> = ({
           step={0}
           placeholder={getTranslatedText('tab_index')}
         />
-      </td>
+      </Td>
     </tr>
   );
 };
