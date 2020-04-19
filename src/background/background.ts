@@ -1,6 +1,6 @@
 import {
   onUpdate, onCreated, onActivated, onIconClick,
-} from './background/listeners';
+} from './listeners';
 
 chrome.tabs.onUpdated.addListener(onUpdate);
 
