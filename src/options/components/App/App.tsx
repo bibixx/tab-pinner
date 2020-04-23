@@ -7,6 +7,7 @@ import {
   addRule as addRuleAction,
   updateRule as updateRuleAction,
   removeRule as removeRuleAction,
+  changeAllActive as changeAllActiveAction,
 } from '../../actions/rules';
 import {
   updateSetting as updateSettingAction,
@@ -42,6 +43,7 @@ const App = () => {
   const addRule = useCallback(addRuleAction(updateRules), [updateRules]);
   const updateRule = useCallback(updateRuleAction(updateRules), [updateRules]);
   const removeRule = useCallback(removeRuleAction(updateRules), [updateRules]);
+  const changeAllActive = useCallback(changeAllActiveAction(updateRules), [updateSettings]);
   const updateSetting = useCallback(updateSettingAction(updateSettings), [updateSettings]);
 
   return (
@@ -54,6 +56,7 @@ const App = () => {
           addRule={addRule}
           updateRule={updateRule}
           removeRule={removeRule}
+          changeAllActive={changeAllActive}
         />
         <Settings
           settings={settings}

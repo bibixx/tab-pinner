@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { PinnerRule } from '../../../types/PinnerRule';
 import { EditMode } from '../../../types/EditMote';
 
@@ -19,6 +19,7 @@ interface RulesProps {
   addRule: () => void;
   updateRule: (rule: PinnerRule) => void;
   removeRule: (rule: PinnerRule) => void;
+  changeAllActive: (rules: PinnerRule[], isActive: boolean) => void;
 }
 
 const Rules: React.FC<RulesProps> = ({
@@ -26,12 +27,19 @@ const Rules: React.FC<RulesProps> = ({
   addRule,
   updateRule,
   removeRule,
+  changeAllActive,
 }) => {
   const [editMode, setEditMode] = useState<EditMode>(EditMode.active);
 
   const changeEditMode = () => {
     setEditMode(editMode === EditMode.active ? EditMode.delete : EditMode.active);
   };
+
+  const areAllChecked = useMemo(() => rules.every(({ active }) => active), [rules]);
+  const onHeaderActiveChange = useCallback(
+    () => changeAllActive(rules, !areAllChecked),
+    [rules, areAllChecked, changeAllActive],
+  );
 
   return (
     <Wrapper>
@@ -56,7 +64,8 @@ const Rules: React.FC<RulesProps> = ({
                 </VisuallyHiddenLabel>
                 <Checkbox
                   id="header-active"
-                  checked
+                  checked={areAllChecked}
+                  onChange={onHeaderActiveChange}
                 />
               </ColumnWrapper>
             </Th>

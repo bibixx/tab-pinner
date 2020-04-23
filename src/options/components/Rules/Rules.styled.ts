@@ -32,7 +32,7 @@ export const Td = styled.td`
   text-align: left;
   border-bottom: 1px solid #e0e0e0;
 
-  &:first-child {
+  &:first-of-type {
     width: 3rem;
   }
 

@@ -26,3 +26,20 @@ export const removeRule = (updateRules: Function) => async (rule: PinnerRule) =>
 
   await updateRules();
 };
+
+export const changeAllActive = (
+  updateRules: Function,
+) => async (
+  rules: PinnerRule[],
+  isActive: boolean,
+) => {
+  for (const rule of rules) {
+    // eslint-disable-next-line no-await-in-loop
+    await store.updateRule({
+      ...rule,
+      active: isActive,
+    });
+  }
+
+  await updateRules();
+};
