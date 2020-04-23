@@ -5,11 +5,14 @@ import { EditMode } from '../../../types/EditMote';
 import InputLine from './InputLine';
 import I18n from '../I18n';
 
-import {
-  Wrapper, Header, Table, Th,
-} from './Rules.styled';
 import { H2 } from '../Headings';
 import Icon from '../Icon';
+import { VisuallyHiddenLabel } from '../VisuallyHidden';
+import Checkbox from '../Checkbox';
+
+import {
+  Wrapper, Header, Table, Th, ColumnWrapper,
+} from './Rules.styled';
 
 interface RulesProps {
   rules: PinnerRule[];
@@ -47,7 +50,13 @@ const Rules: React.FC<RulesProps> = ({
         <thead>
           <tr>
             <Th>
-              Active
+              <ColumnWrapper>
+                <VisuallyHiddenLabel htmlFor="header-active">Is rule active (all rules)</VisuallyHiddenLabel>
+                <Checkbox
+                  id="header-active"
+                  checked
+                />
+              </ColumnWrapper>
             </Th>
             <Th>
               <I18n>rule_name</I18n>

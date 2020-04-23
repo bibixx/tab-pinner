@@ -2,9 +2,12 @@ import React from 'react';
 import { PinnerRule } from '../../../../types/PinnerRule';
 import { EditMode } from '../../../../types/EditMote';
 
-import { StyledInput } from './InputLine.styled';
 import { getTranslatedText } from '../../../../shared/getTranslatedText/getTranslatedText';
 import { Td } from '../Rules.styled';
+import Checkbox from '../../Checkbox';
+import { VisuallyHiddenLabel } from '../../VisuallyHidden';
+
+import { StyledInput, ColumnWrapper } from './InputLine.styled';
 
 interface InputLineProps {
   rule: PinnerRule;
@@ -55,11 +58,15 @@ const InputLine: React.FC<InputLineProps> = ({
 
   const firstColumn = editMode === EditMode.active
     ? (
-      <StyledInput
-        type="checkbox"
-        checked={active}
-        onChange={onActiveChange}
-      />
+      <ColumnWrapper>
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        <VisuallyHiddenLabel htmlFor={`${rule.id}-active`}>Is rule active</VisuallyHiddenLabel>
+        <Checkbox
+          id={`${rule.id}-active`}
+          checked={active}
+          onChange={onActiveChange}
+        />
+      </ColumnWrapper>
     )
     : (<button onClick={() => removeRule(rule)} type="button">🗑</button>);
 

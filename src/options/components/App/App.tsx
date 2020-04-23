@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import 'what-input';
+
 import { store } from '../../../shared/store';
 import { PinnerRule } from '../../../types/PinnerRule';
 import {

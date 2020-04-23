@@ -54,3 +54,11 @@ export const Th = styled(TdWithTh)`
   font-weight: 500;
   border-bottom: 1px solid #e0e0e0;
 `;
+
+export const ColumnWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+`;
