@@ -10,6 +10,7 @@ import Input from '../../Input';
 
 import { ColumnWrapper } from './InputLine.styled';
 import I18n from '../../I18n';
+import ButtonIcon from '../../IconButton';
 
 interface InputLineProps {
   rule: PinnerRule;
@@ -60,7 +61,7 @@ const InputLine: React.FC<InputLineProps> = ({
 
   const firstColumn = editMode === EditMode.active
     ? (
-      <ColumnWrapper>
+      <>
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <VisuallyHiddenLabel htmlFor={`${rule.id}-active`}>
           <I18n>rule_active</I18n>
@@ -70,13 +71,21 @@ const InputLine: React.FC<InputLineProps> = ({
           checked={active}
           onChange={onActiveChange}
         />
-      </ColumnWrapper>
+      </>
     )
-    : (<button onClick={() => removeRule(rule)} type="button">🗑</button>);
+    : (
+      <ButtonIcon onClick={() => removeRule(rule)}>
+        delete
+      </ButtonIcon>
+    );
 
   return (
     <tr>
-      <Td>{firstColumn}</Td>
+      <Td>
+        <ColumnWrapper>
+          {firstColumn}
+        </ColumnWrapper>
+      </Td>
       <Td>
         <VisuallyHiddenLabel htmlFor={`${rule.id}-rule_name`}>
           <I18n>rule_name</I18n>

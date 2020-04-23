@@ -22,9 +22,11 @@ const Checkbox: React.FC<CheckboxProps> = ({
     <StyledCheckboxFocusWrapper aria-hidden>
       <StyledCheckbox className="material-icons" indeterminate={indeterminate} />
     </StyledCheckboxFocusWrapper>
-    <LabelText>
-      {children}
-    </LabelText>
+    {children && (
+      <LabelText>
+        {children}
+      </LabelText>
+    )}
   </Wrapper>
 );
 

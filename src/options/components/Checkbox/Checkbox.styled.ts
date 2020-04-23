@@ -56,7 +56,7 @@ export const StyledCheckboxFocusWrapper = styled.div`
     transform: translate(-50%, -50%) scale(1.5);
     opacity: 0;
     border-radius: 50%;
-    background: var(--accent-color-1);
+    background: currentColor;
     width: 1.5rem;
     height: 1.5rem;
     transition: 0.15s ease-in-out;

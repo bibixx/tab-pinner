@@ -6,12 +6,12 @@ import InputLine from './InputLine';
 import I18n from '../I18n';
 
 import { H2 } from '../Headings';
-import Icon from '../Icon';
 import { VisuallyHiddenLabel } from '../VisuallyHidden';
 import Checkbox from '../Checkbox';
+import ButtonIcon from '../IconButton';
 
 import {
-  Wrapper, Header, Table, Th, ColumnWrapper,
+  Wrapper, Header, Table, Th, ColumnWrapper, RulesButtons,
 } from './Rules.styled';
 
 interface RulesProps {
@@ -42,33 +42,46 @@ const Rules: React.FC<RulesProps> = ({
     [rules, areAllChecked, changeAllActive],
   );
 
+  const firstColumn = editMode === EditMode.active
+    ? (
+      <>
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        <VisuallyHiddenLabel htmlFor="header-active">
+          <I18n>rule_active</I18n>
+        </VisuallyHiddenLabel>
+        <Checkbox
+          id="header-active"
+          checked={!areAllUnchecked}
+          onChange={onHeaderActiveChange}
+          indeterminate={!areAllChecked}
+        />
+      </>
+    )
+    : (
+      <ButtonIcon onClick={() => {}}>
+        delete
+      </ButtonIcon>
+    );
+
   return (
     <Wrapper>
       <Header>
         <H2><I18n>rules_header</I18n></H2>
-        <div>
-          <button onClick={addRule} type="button">
-            <Icon>add</Icon>
-          </button>
-          <button onClick={changeEditMode} type="button">
-            <Icon>delete</Icon>
-          </button>
-        </div>
+        <RulesButtons>
+          <ButtonIcon onClick={addRule}>
+            add
+          </ButtonIcon>
+          <ButtonIcon onClick={changeEditMode}>
+            delete
+          </ButtonIcon>
+        </RulesButtons>
       </Header>
       <Table>
         <thead>
           <tr>
             <Th>
               <ColumnWrapper>
-                <VisuallyHiddenLabel htmlFor="header-active">
-                  <I18n>rule_active_all</I18n>
-                </VisuallyHiddenLabel>
-                <Checkbox
-                  id="header-active"
-                  checked={!areAllUnchecked}
-                  onChange={onHeaderActiveChange}
-                  indeterminate={!areAllChecked}
-                />
+                {firstColumn}
               </ColumnWrapper>
             </Th>
             <Th>
