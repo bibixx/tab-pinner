@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 
-export const StyledButton = styled.button`
+interface StyledButtonProps {
+  active?: boolean;
+}
+
+export const StyledButton = styled.button<StyledButtonProps>`
   position: relative;
   border: none;
   background: none;
@@ -10,7 +14,7 @@ export const StyledButton = styled.button`
   width: 1.5rem;
   outline: 0;
   cursor: pointer;
-  color: var(--button-icon);
+  color: ${(props) => (!props.active ? 'var(--button-icon)' : 'var(--accent-color-2)')};
 
   &::before {
     content: '';

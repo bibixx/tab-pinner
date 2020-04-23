@@ -71,7 +71,7 @@ const Rules: React.FC<RulesProps> = ({
           <ButtonIcon onClick={addRule}>
             add
           </ButtonIcon>
-          <ButtonIcon onClick={changeEditMode}>
+          <ButtonIcon onClick={changeEditMode} active={editMode === EditMode.delete}>
             delete
           </ButtonIcon>
         </RulesButtons>

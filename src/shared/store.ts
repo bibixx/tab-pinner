@@ -33,7 +33,20 @@ export class Store {
     const storageValues = await getStorageValues();
     const newRules = storageValues.rules.filter(({ id }) => rule.id !== id);
 
-    setStorageValues(newRules, storageValues.settings);
+    if (newRules.length === 0) {
+      setStorageValues(
+        [{
+          id: Date.now(),
+          name: '',
+          active: true,
+          regexp: '',
+          position: null,
+        }],
+        storageValues.settings,
+      );
+    } else {
+      setStorageValues(newRules, storageValues.settings);
+    }
   }
 
   async updateRule(newRule: PinnerRule) {
