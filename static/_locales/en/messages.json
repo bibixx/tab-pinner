@@ -43,6 +43,14 @@
 		"message": "Add new rule",
 		"description": "Add new rule button"
 	},
+	"rule_active": {
+		"message": "Is rule active",
+		"description": "Subtitle on `active` input"
+	},
+	"rule_active_all": {
+		"message": "Is rule active (all rules)",
+		"description": "Subtitle on header for `active` input"
+	},
 	"rule_name": {
 		"message": "Rule name",
 		"description": "Subtitle on `rn` input"

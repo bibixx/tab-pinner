@@ -6,8 +6,10 @@ import { getTranslatedText } from '../../../../shared/getTranslatedText/getTrans
 import { Td } from '../Rules.styled';
 import Checkbox from '../../Checkbox';
 import { VisuallyHiddenLabel } from '../../VisuallyHidden';
+import Input from '../../Input';
 
-import { StyledInput, ColumnWrapper } from './InputLine.styled';
+import { ColumnWrapper } from './InputLine.styled';
+import I18n from '../../I18n';
 
 interface InputLineProps {
   rule: PinnerRule;
@@ -60,7 +62,9 @@ const InputLine: React.FC<InputLineProps> = ({
     ? (
       <ColumnWrapper>
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <VisuallyHiddenLabel htmlFor={`${rule.id}-active`}>Is rule active</VisuallyHiddenLabel>
+        <VisuallyHiddenLabel htmlFor={`${rule.id}-active`}>
+          <I18n>rule_active</I18n>
+        </VisuallyHiddenLabel>
         <Checkbox
           id={`${rule.id}-active`}
           checked={active}
@@ -74,7 +78,11 @@ const InputLine: React.FC<InputLineProps> = ({
     <tr>
       <Td>{firstColumn}</Td>
       <Td>
-        <StyledInput
+        <VisuallyHiddenLabel htmlFor={`${rule.id}-rule_name`}>
+          <I18n>rule_name</I18n>
+        </VisuallyHiddenLabel>
+        <Input
+          id={`${rule.id}-rule_name`}
           type="text"
           value={name}
           onChange={updateName}
@@ -82,7 +90,11 @@ const InputLine: React.FC<InputLineProps> = ({
         />
       </Td>
       <Td>
-        <StyledInput
+        <VisuallyHiddenLabel htmlFor={`${rule.id}-regular_expression`}>
+          <I18n>regular_expression</I18n>
+        </VisuallyHiddenLabel>
+        <Input
+          id={`${rule.id}-regular_expression`}
           type="text"
           value={regexp}
           onChange={updateRegex}
@@ -90,13 +102,18 @@ const InputLine: React.FC<InputLineProps> = ({
         />
       </Td>
       <Td>
-        <StyledInput
+        <VisuallyHiddenLabel htmlFor={`${rule.id}-tab_index`}>
+          <I18n>tab_index</I18n>
+        </VisuallyHiddenLabel>
+        <Input
+          id={`${rule.id}-tab_index`}
           type="number"
           value={position}
           onChange={updatePosition}
           min={0}
           step={0}
           placeholder={getTranslatedText('tab_index')}
+          textAlign="right"
         />
       </Td>
     </tr>

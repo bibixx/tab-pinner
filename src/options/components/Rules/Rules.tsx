@@ -51,7 +51,9 @@ const Rules: React.FC<RulesProps> = ({
           <tr>
             <Th>
               <ColumnWrapper>
-                <VisuallyHiddenLabel htmlFor="header-active">Is rule active (all rules)</VisuallyHiddenLabel>
+                <VisuallyHiddenLabel htmlFor="header-active">
+                  <I18n>rule_active_all</I18n>
+                </VisuallyHiddenLabel>
                 <Checkbox
                   id="header-active"
                   checked

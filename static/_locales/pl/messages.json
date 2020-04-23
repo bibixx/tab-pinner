@@ -47,6 +47,14 @@
 		"message": "Dodaj nową regułę",
 		"description": "Add new rule button"
 	},
+	"rule_active": {
+		"message": "Aktywne",
+		"description": "Subtitle on `active` input"
+	},
+	"rule_active_all": {
+		"message": "Aktywne (wszystkie reguły)",
+		"description": "Subtitle on header for `active` input"
+	},
 	"rule_name": {
 		"message": "Nazwa reguły",
 		"description": "Subtitle on `rn` input"
