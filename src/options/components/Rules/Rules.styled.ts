@@ -32,8 +32,12 @@ export const Td = styled.td`
   text-align: left;
   border-bottom: 1px solid #e0e0e0;
 
-  &:first-of-type {
+  &:nth-of-type(1) {
     width: 3rem;
+  }
+
+  &:nth-of-type(2) {
+    width: 15rem;
   }
 
   &:last-child {
@@ -50,7 +54,7 @@ const TdWithTh = Td.withComponent('th');
 
 export const Th = styled(TdWithTh)`
   color: var(--table-header);
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 500;
   border-bottom: 1px solid #e0e0e0;
 `;

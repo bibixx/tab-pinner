@@ -6,10 +6,10 @@ import {
 type CheckboxProps = React.DetailedHTMLProps<
 React.InputHTMLAttributes<HTMLInputElement>,
 HTMLInputElement
->;
+> & { indeterminate?: boolean };
 
 const Checkbox: React.FC<CheckboxProps> = ({
-  checked, onChange, children, ...props
+  checked, onChange, children, indeterminate = false, ...props
 }) => (
   <Wrapper>
     <Input
@@ -20,7 +20,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
       {...props}
     />
     <StyledCheckboxFocusWrapper aria-hidden>
-      <StyledCheckbox className="material-icons" />
+      <StyledCheckbox className="material-icons" indeterminate={indeterminate} />
     </StyledCheckboxFocusWrapper>
     <LabelText>
       {children}

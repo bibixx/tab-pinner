@@ -36,6 +36,7 @@ const Rules: React.FC<RulesProps> = ({
   };
 
   const areAllChecked = useMemo(() => rules.every(({ active }) => active), [rules]);
+  const areAllUnchecked = useMemo(() => rules.every(({ active }) => !active), [rules]);
   const onHeaderActiveChange = useCallback(
     () => changeAllActive(rules, !areAllChecked),
     [rules, areAllChecked, changeAllActive],
@@ -64,8 +65,9 @@ const Rules: React.FC<RulesProps> = ({
                 </VisuallyHiddenLabel>
                 <Checkbox
                   id="header-active"
-                  checked={areAllChecked}
+                  checked={!areAllUnchecked}
                   onChange={onHeaderActiveChange}
+                  indeterminate={!areAllChecked}
                 />
               </ColumnWrapper>
             </Th>

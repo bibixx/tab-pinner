@@ -9,10 +9,31 @@ export const Underline = styled.div`
   bottom: -0.25rem;
   left: 0;
   width: 100%;
-  transform: scaleX(0);
-  transition: transform 0.2s ease-in-out;
-  border-bottom: 2px solid var(--accent-color-1);
-  content: "";
+  height: 2px;
+
+  &::before, &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &::before {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    background: var(--paper-text-color);
+    transition: transform 0.1s ease-in-out;
+  }
+
+  &::after {
+    transform: scaleX(0);
+    transform-origin: center;
+    background: var(--accent-color-1);
+    transition: transform 0.2s ease-in-out;
+  }
 `;
 
 export interface StyledInputProps {
@@ -26,11 +47,26 @@ export const StyledInput = styled.input<StyledInputProps>`
   background: none;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 0.75rem;
+  font-size: 1rem;
   outline: 0;
   text-align: ${(props) => props.textAlign || 'left'};
+  padding: 0;
+
+  &[type=number]::-webkit-inner-spin-button,
+  &[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &:hover + ${Underline} {
+    &::before {
+      transform: scaleY(1);
+    }
+  }
 
   &:focus + ${Underline} {
-    transform: scaleX(1);
+    &::after {
+      transform: scaleX(1);
+    }
   }
 `;
