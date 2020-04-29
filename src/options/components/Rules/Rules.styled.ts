@@ -41,7 +41,7 @@ export const Td = styled.td`
   }
 
   &:last-child {
-    width: 5rem;
+    width: 6rem;
     text-align: right;
   }
 

@@ -37,11 +37,11 @@
 	},
 	"change_shrt_popup_line2": {
 		"message": "Scroll to the bottom of the page and click \"Keyboard shortcuts\"",
-		"description": "How to change shortcut - popup – line 1"
+		"description": "How to change shortcut - popup – line 2"
 	},
 	"change_shrt_popup_line3": {
 		"message": "You can now enter your shortcut in the field next to the name of plugin",
-		"description": "How to change shortcut - popup – line 1"
+		"description": "How to change shortcut - popup – line 3"
 	},
 	"rules_header": {
 		"message": "Rules",
@@ -100,15 +100,15 @@
 		"description": "Header of options"
 	},
 	"close": {
-		"message": "Close tab after double clicking on plugin icon.",
+		"message": "Close tab after double clicking on plugin icon",
 		"description": "`Close tab after dbl click` checkbox"
 	},
 	"close_conf": {
-		"message": "Confirm closing tab after double clicking on plugin icon.",
+		"message": "Confirm closing tab after double clicking on plugin icon",
 		"description": "`Confirm closing tab after dbl click` checkbox"
 	},
 	"back_index": {
-		"message": "After unpinning tab move it to the right.",
+		"message": "After unpinning tab move it to the right",
 		"description": "`After unpinning tab move it to the right` checkbox"
 	},
 	"save": {
@@ -142,28 +142,6 @@
 	"author": {
 		"message": "Made with $$heart by $$author",
 		"description": "Author"
-	},
-	"translators_msg_1": {
-		"message": "$translators$ translated this extention to English",
-		"description": "Who translated extention - for single translator",
-		"placeholders": {
-			"translators": {
-				"content": "$1"
-			}
-		}
-	},
-	"translators_msg": {
-		"message": "$translators$ translated this extention to English",
-		"description": "Who translated extention - for multiple translators",
-		"placeholders": {
-			"translators": {
-				"content": "$1"
-			}
-		}
-	},
-	"translators_and": {
-		"message": "and",
-		"description": "`and` used to connect translator names"
 	},
 	"i_understand": {
 		"message": "OK"

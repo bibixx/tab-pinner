@@ -24,22 +24,26 @@
 		"description": "How to use plugin (header)"
 	},
 	"how_to": {
-		"message": "Aby przypiąć lub odpiąć kartę, naciśnij na ikonę roszerzenia (pinezka) lub użyj skrótu klawiszowego (domyślnie - „Ctrl+Shift+X”). Aby zamknąć aktywną kartę podwójnie naciśnij na ikonę rozszerzenia lub dwukrotnie użyj skrótu klawiszowego.",
+		"message": "Aby przypiąć lub odpiąć kartę, naciśnij na ikonę rozszerzenia (pinezka) lub użyj skrótu klawiszowego (domyślnie - „$$shortcut”). Aby zamknąć aktywną kartę, podwójnie naciśnij na ikonę rozszerzenia lub dwukrotnie użyj skrótu klawiszowego.",
 		"description": "How to use plugin"
 	},
 	"change_shrt": {
 		"message": "Jak zmienić skrót klawiszowy do przypinania/odpinania/zamykania kart?",
 		"description": "How to change shortcut"
 	},
-	"change_shrt_popup": {
-		"message": "1. Przejdź do <a href=\"chrome://extensions/\">chrome://extensions/</a>.<br>2. Przesuń stronę na sam dół i naciśnij \"Skróty klawiaturowe\".<br>3. Po wybraniu pola obok nazwy wtyczki możesz wprowadzić swój własny skrót.",
-		"description": "How to change shortcut - popup"
+	"change_shrt_popup_line1": {
+		"message": "Przejdź do $$chrome_link",
+		"description": "How to change shortcut - popup – line 1"
 	},
-	"change_shrt_header": {
-		"message": "1. Przejdź do <a href=\"chrome://extensions/\">chrome://extensions/</a>.<br>2. Przesuń stronę na sam dół i naciśnij \"Skróty klawiaturowe\".<br>3. Po wybraniu pola obok nazwy wtyczki możesz wprowadzić swój własny skrót.",
-		"description": "How to change shortcut - popup"
+	"change_shrt_popup_line2": {
+		"message": "Przesuń stronę na sam dół i naciśnij „Skróty klawiaturowe”",
+		"description": "How to change shortcut - popup – line 2"
 	},
-	"rules": {
+	"change_shrt_popup_line3": {
+		"message": "Po wybraniu pola obok nazwy wtyczki możesz wprowadzić swój własny skrót",
+		"description": "How to change shortcut - popup – line 1"
+	},
+	"rules_header": {
 		"message": "Reguły",
 		"description": "Header on card"
 	},
@@ -68,7 +72,7 @@
 		"description": "Subtitle on `re` input"
 	},
 	"regular_expression_popup": {
-		"message": "Tu jest miejsce na wprowadzenie reguły przypinania kart. Możesz ją ustalić poprostu wpisując adres strony lub wprowadzić jako <a href=\"http://kursjs.pl/kurs/regular.html\">wyrażenie regularne</a>.",
+		"message": "Tu jest miejsce na wprowadzenie reguły przypinania kart. Możesz ją ustalić po prostu wpisując adres strony lub wprowadzić jako <a href=\"http://kursjs.pl/kurs/regular.html\">wyrażenie regularne</a>.",
 		"description": "Subtitle on `re` input"
 	},
 	"tab_index": {
@@ -96,15 +100,15 @@
 		"description": "Header of options"
 	},
 	"close": {
-		"message": "Zamknij kartę po dwókrotnym naciśnięciu ikony rozszerzenia.",
+		"message": "Zamknij kartę po dwukrotnym naciśnięciu ikony rozszerzenia",
 		"description": "`Close tab after dbl click` checkbox"
 	},
 	"close_conf": {
-		"message": "Potwierdzaj zamykanie kart po dwókrotnym naciśnięciu ikony rozszerzenia.",
+		"message": "Potwierdzaj zamykanie kart po dwukrotnym naciśnięciu ikony rozszerzenia",
 		"description": "`Confirm closing tab after dbl click` checkbox"
 	},
 	"back_index": {
-		"message": "Po odpięciu karty przesuń ją na prawo.",
+		"message": "Po odpięciu karty przesuń ją na prawo",
 		"description": "`After unpinning tab move it to right` checkbox"
 	},
 	"save": {
@@ -136,30 +140,8 @@
 		"description": "Text on cancel button on popup"
 	},
 	"author": {
-		"message": "<span>Stworzone z&MediumSpace;</span><i class=\"material-icons\">favorite</i><span>&MediumSpace;przez&MediumSpace;</span><span><a href=\"http://github.com/bibixx\" target=\"_blank\">bibixx</a></span>",
+		"message": "Stworzone z $$heart przez $$author",
 		"description": "Author"
-	},
-	"translators_msg_1": {
-		"message": "$translators$ przetłumaczył to rozszerzenie na język Polski",
-		"description": "Who translated extention - for single translator",
-		"placeholders": {
-			"translators": {
-				"content": "$1"
-			}
-		}
-	},
-	"translators_msg": {
-		"message": "$translators$ przetłumaczyli to rozszerzenie na język Polski",
-		"description": "Who translated extention - for multiple translators",
-		"placeholders": {
-			"translators": {
-				"content": "$1"
-			}
-		}
-	},
-	"translators_and": {
-		"message": "i",
-		"description": "`and` used to connect translator names"
 	},
 	"i_understand": {
 		"message": "OK"
