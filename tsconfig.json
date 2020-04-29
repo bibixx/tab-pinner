@@ -11,7 +11,7 @@
     "jsx": "preserve",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "lib": ["es2019", "dom"],
+    "lib": ["es2020", "dom"],
 
     "noImplicitAny": true,
     "noImplicitThis": true,

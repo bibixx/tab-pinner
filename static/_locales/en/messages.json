@@ -31,9 +31,17 @@
 		"message": "How to change shortcut for pinning/unpinning/closing tab?",
 		"description": "How to change shortcut"
 	},
-	"change_shrt_popup": {
-		"message": "1. Go to <a href=\"chrome://extensions/\">chrome://extensions/</a>.<br>2. Scroll to the bottom of the page and click \"Keyboard shortcuts\".<br>3. You can now enter your shortcut in the field next to the name of plugin.",
-		"description": "How to change shortcut - popup"
+	"change_shrt_popup_line1": {
+		"message": "Go to $$chrome_link",
+		"description": "How to change shortcut - popup – line 1"
+	},
+	"change_shrt_popup_line2": {
+		"message": "Scroll to the bottom of the page and click \"Keyboard shortcuts\"",
+		"description": "How to change shortcut - popup – line 1"
+	},
+	"change_shrt_popup_line3": {
+		"message": "You can now enter your shortcut in the field next to the name of plugin",
+		"description": "How to change shortcut - popup – line 1"
 	},
 	"rules_header": {
 		"message": "Rules",
@@ -132,7 +140,7 @@
 		"description": "Text on cancel button on popup"
 	},
 	"author": {
-		"message": "Made with $heart by $author",
+		"message": "Made with $$heart by $$author",
 		"description": "Author"
 	},
 	"translators_msg_1": {

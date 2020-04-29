@@ -1,5 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, {
+  useState, useEffect, useCallback, useRef,
+} from 'react';
 import 'what-input';
+import ReactModal from 'react-modal';
 
 import { store } from '../../../shared/store';
 import { PinnerRule } from '../../../types/PinnerRule';
@@ -20,6 +23,7 @@ import HowTo from '../HowTo';
 import Header from '../Header';
 import Footer from '../Footer';
 import Paper from '../Paper';
+import AppWrapper from '../AppWrapper';
 
 import './global.css';
 
@@ -30,6 +34,7 @@ const App = () => {
     confirm: false,
     move: false,
   });
+  const modalContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     store.getRules()
@@ -37,6 +42,12 @@ const App = () => {
     store.getSettings()
       .then((newSettings) => setSettings(newSettings));
   }, []);
+
+  useEffect(() => {
+    if (modalContainerRef.current !== null) {
+      ReactModal.setAppElement(modalContainerRef.current);
+    }
+  }, [modalContainerRef]);
 
   const updateRules = useCallback(async () => setRules(await store.getRules()), []);
   const updateSettings = useCallback(async () => setSettings(await store.getSettings()), []);
@@ -49,21 +60,24 @@ const App = () => {
   return (
     <>
       <Header />
-      <Paper>
-        <HowTo />
-        <Rules
-          rules={rules}
-          addRule={addRule}
-          updateRule={updateRule}
-          removeRule={removeRule}
-          changeAllActive={changeAllActive}
-        />
-        <Settings
-          settings={settings}
-          updateSetting={updateSetting}
-        />
-      </Paper>
+      <AppWrapper>
+        <Paper>
+          <HowTo />
+          <Rules
+            rules={rules}
+            addRule={addRule}
+            updateRule={updateRule}
+            removeRule={removeRule}
+            changeAllActive={changeAllActive}
+          />
+          <Settings
+            settings={settings}
+            updateSetting={updateSetting}
+          />
+        </Paper>
+      </AppWrapper>
       <Footer />
+      <div ref={modalContainerRef} />
     </>
   );
 };

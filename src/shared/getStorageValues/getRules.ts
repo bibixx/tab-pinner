@@ -13,13 +13,13 @@ export const getRules = (rules: any): PinnerRule[] => {
     name,
     regexp,
     position,
-  }) => {
+  }, i) => {
     const ruleBuilder = new RuleBuilder();
 
     if (typeof id === 'number') {
       ruleBuilder.setId(id);
     } else {
-      ruleBuilder.setId(Date.now());
+      ruleBuilder.setId(Date.now() + i);
     }
 
     if (typeof active === 'boolean') {

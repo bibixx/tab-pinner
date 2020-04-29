@@ -1,21 +1,25 @@
 import React from 'react';
+
 import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslatedText';
 
-import { replaceStringsWithComponents, Mappings } from '../../utils/replaceStringsWithComponents';
-import { renderWithReplacedStrings } from '../../utils/renderWithReplacedStrings';
 import { StyleFooter, StyledIcon, Link } from './Footer.styled';
+import { replaceWithElements } from '../utils/replaceWithElements';
 
-const mappings: Mappings[] = [
-  ['$heart', <StyledIcon>favorite</StyledIcon>],
-  ['$author', <Link href="https://legiec.io" key="link">bibixx</Link>],
+const mappings = [
+  <StyledIcon>favorite</StyledIcon>,
+  <Link href="https://legiec.io" key="link">bibixx</Link>,
 ];
 
 const Footer: React.FC = () => {
-  const authorString = replaceStringsWithComponents(mappings, getTranslatedText('author'));
+  const authorString = replaceWithElements(
+    getTranslatedText('author'),
+    /\$\w+/g,
+    mappings,
+  );
 
   return (
     <StyleFooter>
-      {renderWithReplacedStrings(authorString)}
+      {authorString}
     </StyleFooter>
   );
 };

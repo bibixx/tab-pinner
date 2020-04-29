@@ -25,6 +25,7 @@
     "@types/chrome": "^0.0.104",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
+    "@types/react-modal": "^3.10.5",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-emotion": "^10.0.33",
@@ -53,6 +54,7 @@
     "@emotion/styled": "^10.0.27",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-modal": "^3.11.2",
     "what-input": "^5.2.7"
   }
 }
