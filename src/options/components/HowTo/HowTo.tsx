@@ -3,7 +3,9 @@ import I18n from '../I18n';
 import { H2 } from '../Headings';
 import LinkButton from '../LinkButton';
 import Modal from '../Modal';
-import Ol from '../Ol';
+
+import { Ol } from './HowTo.styled';
+import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslatedText';
 
 const HowTo: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,8 +24,9 @@ const HowTo: React.FC = () => {
       <Modal
         isOpen={isModalOpen}
         onClose={closeModal}
+        header={getTranslatedText('change_shrt')}
+        acceptButtonText={getTranslatedText('i_understand')}
       >
-        <H2><I18n>change_shrt</I18n></H2>
         <Ol>
           <li>
             <I18n
@@ -37,7 +40,6 @@ const HowTo: React.FC = () => {
           <li><I18n>change_shrt_popup_line2</I18n></li>
           <li><I18n>change_shrt_popup_line3</I18n></li>
         </Ol>
-        <button type="button" onClick={closeModal}><I18n>i_understand</I18n></button>
       </Modal>
     </>
   );

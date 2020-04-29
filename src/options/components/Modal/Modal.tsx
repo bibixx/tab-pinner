@@ -2,14 +2,21 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import { ClassNames } from '@emotion/core';
 
-import Paper from '../Paper';
+import Button from '../Button';
+import {
+  Wrapper, Body, Header, Footer, StyledH2,
+} from './Modal.styled';
 
 interface ModalProps {
   isOpen: boolean;
   onClose: (event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>) => void;
+  header?: string;
+  acceptButtonText: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => (
+const Modal: React.FC<ModalProps> = ({
+  isOpen, onClose, children, header, acceptButtonText,
+}) => (
   <ClassNames>
     {({ css }) => (
       <ReactModal
@@ -33,9 +40,19 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => (
           outline: 0;
         `}
       >
-        <Paper>
-          {children}
-        </Paper>
+        <Wrapper>
+          {header && (
+            <Header>
+              <StyledH2>{header}</StyledH2>
+            </Header>
+          )}
+          <Body>
+            {children}
+          </Body>
+          <Footer>
+            <Button onClick={onClose}>{acceptButtonText}</Button>
+          </Footer>
+        </Wrapper>
       </ReactModal>
     )}
   </ClassNames>

@@ -1,8 +1,7 @@
 import styled from '@emotion/styled';
 
-const Ol = styled.ol`
+export const Ol = styled.ol`
   margin: 0;
-  margin-bottom: 0.5rem;
   padding: 0;
   list-style-type: none;
   counter-reset: list;
@@ -20,5 +19,3 @@ const Ol = styled.ol`
     }
   }
 `;
-
-export default Ol;

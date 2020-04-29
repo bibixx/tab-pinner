@@ -162,6 +162,6 @@
 		"description": "`and` used to connect translator names"
 	},
 	"i_understand": {
-		"message": "Rozumiem"
+		"message": "OK"
 	}
 }

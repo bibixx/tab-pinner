@@ -1,4 +1,6 @@
 :root {
+  --font-family: 'Roboto', sans-serif;
+
   /* Dark */
   --background: #202020;
   --text-color: #d2d2d2;
@@ -10,7 +12,10 @@
   --table-border: #e0e0e0;
   --input-disabled: rgba(255, 255, 255, 0.3);
   --accent-color-1: #3f51b5;
-  --accent-color-2: #e91e63;
+  --accent-color-2: hsl(340, 82%, 52%);
+  --button-color: #fff;
+  --button-background: var(--accent-color-2);
+  --button-background-focus: hsl(340, 82%, 45%);
 
   /* Light */
   --background: #3f51b5;
@@ -23,14 +28,18 @@
   --table-border: #e0e0e0;
   --input-disabled: rgba(0, 0, 0, 0.26);
   --accent-color-1: #3f51b5;
-  --accent-color-2: #e91e63;
+  --accent-color-2: hsl(340, 82%, 52%);
+
+  --button-color: var(--accent-color-2);
+  --button-background: rgba(0, 0, 0, 0);
+  --button-background-focus: rgba(0, 0, 0, 0.1);
 }
 
 body {
   background: var(--background);
   color: var(--text-color);
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-family);
   font-weight: 400;
   font-size: 1rem;
 }
