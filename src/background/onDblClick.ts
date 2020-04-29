@@ -5,10 +5,10 @@ export const handleDoubleClick = (onClick: Function, onDblClick: Function): void
   if (timerActive) {
     clearTimeout(timer);
     timerActive = false;
-    onClick();
+    onDblClick();
   } else {
     timer = setTimeout(() => {
-      onDblClick();
+      onClick();
       timerActive = false;
     }, 200);
     timerActive = true;
