@@ -1,0 +1,36 @@
+{
+  "release": {
+    "branches": ["master"]
+  },
+  "verifyConditions": ["semantic-release-chrome", "@semantic-release/github"],
+  "prepare": [
+    {
+      "path": "semantic-release-chrome",
+      "asset": "tab-pinner.zip"
+    }
+  ],
+  "publish": [
+    {
+      "path": "semantic-release-chrome",
+      "asset": "tab-pinner.zip",
+      "extensionId": "mcclikmfcmcpejkaobpfkmmbekbhedoi",
+      "target": "trustedTesters"
+    },
+    {
+      "path": "@semantic-release/github",
+      "assets": [
+        {
+          "path": "tab-pinner.zip"
+        }
+      ]
+    }
+  ],
+  "analyzeCommits": {
+    "releaseRules": [
+      {
+        "scope": "manifest",
+        "release": "patch"
+      }
+    ]
+  }
+}

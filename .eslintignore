@@ -1,2 +1,3 @@
 build/
-webpack.development.js
+webpack.*.js
+commitlint.config.js
