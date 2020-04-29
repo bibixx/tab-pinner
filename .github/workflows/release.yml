@@ -27,6 +27,12 @@ jobs:
 
     - run: yarn install
 
+    - name: Run TypeScript checks
+      run: yarn tsc
+
+    - name: Run linter
+      run: yarn lint
+
     - name: Build package
       run: yarn build
 
