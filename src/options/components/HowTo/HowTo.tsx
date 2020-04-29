@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import I18n from '../I18n';
 import { H2 } from '../Headings';
 import LinkButton from '../LinkButton';
@@ -9,14 +9,23 @@ import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslat
 
 const HowTo: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => { setIsModalOpen(true); };
-  const closeModal = () => { setIsModalOpen(false); };
+  const openModal = useCallback(() => { setIsModalOpen(true); }, [setIsModalOpen]);
+  const closeModal = useCallback(() => { setIsModalOpen(false); }, [setIsModalOpen]);
+  const isMac = useMemo(() => navigator.userAgent.indexOf('Mac OS X') !== -1, []);
 
   return (
     <>
       <div>
         <H2><I18n>how_to_header</I18n></H2>
-        <p><I18n>how_to</I18n></p>
+        <p>
+          <I18n
+            substitutions={[
+              isMac ? 'Cmd+Shift+X' : 'Ctrl+Shift+X',
+            ]}
+          >
+            how_to
+          </I18n>
+        </p>
         <p>
           <LinkButton onClick={openModal}><I18n>change_shrt</I18n></LinkButton>
         </p>

@@ -24,7 +24,7 @@
 		"description": "How to use plugin (header)"
 	},
 	"how_to": {
-		"message": "To pin or unpin tab click on plugin icon (pin) or use shortcut (default – ”Ctrl+Shift+X”). To close current tab double click on the icon or double use shortcut.",
+		"message": "To pin or unpin tab click on plugin icon (pin) or use shortcut (default – \"$$shortcut\"). To close current tab double click on the icon or double use shortcut.",
 		"description": "How to use plugin"
 	},
 	"change_shrt": {
