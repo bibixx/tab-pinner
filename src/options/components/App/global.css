@@ -1,25 +1,8 @@
 :root {
   --font-family: 'Roboto', sans-serif;
 
-  /* Dark */
-  --background: #202020;
-  --text-color: #fff;
-  --paper-color: #424242;
-  --paper-text-color: var(--text-color);
-  --heart-icon: #ff3838;
-  --table-header: #fff;
-  --button-icon: #fff;
-  --table-border: #e0e0e0;
-  --input-disabled: rgba(255, 255, 255, 0.3);
-  --accent-color-1: #2196f3;
-  --accent-color-2: hsl(340, 82%, 52%);
-
-  --button-color: var(--accent-color-2);
-  --button-background: rgba(0, 0, 0, 0);
-  --button-background-focus: rgba(0, 0, 0, 0.1);
-
   /* Light */
-  /* --background: #3f51b5;
+  --background: #3f51b5;
   --text-color: #fff;
   --paper-color: #fff;
   --paper-text-color: #111;
@@ -33,7 +16,28 @@
 
   --button-color: var(--accent-color-2);
   --button-background: rgba(0, 0, 0, 0);
-  --button-background-focus: rgba(0, 0, 0, 0.1); */
+  --button-background-focus: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #202020;
+    --text-color: #fff;
+    --paper-color: #424242;
+    --paper-text-color: var(--text-color);
+    --heart-icon: #ff3838;
+    --table-header: var(--text-color);
+    --button-icon: var(--text-color);
+    --table-border: #e0e0e0;
+    --input-disabled: rgba(255, 255, 255, 0.3);
+    --accent-color-1: #2196f3;
+    --accent-color-2: hsl(340, 82%, 52%);
+
+    --button-color: var(--accent-color-2);
+    --button-background: rgba(0, 0, 0, 0);
+    --button-background-focus: rgba(0, 0, 0, 0.1);
+  }
 }
 
 body {
