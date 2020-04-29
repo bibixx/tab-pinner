@@ -51,6 +51,7 @@ export const StyledInput = styled.input<StyledInputProps>`
   outline: 0;
   text-align: ${(props) => props.textAlign || 'left'};
   padding: 0;
+  color: inherit;
 
   &[type=number]::-webkit-inner-spin-button,
   &[type=number]::-webkit-outer-spin-button {
