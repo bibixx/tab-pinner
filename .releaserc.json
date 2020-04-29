@@ -6,6 +6,7 @@
   "prepare": [
     {
       "path": "semantic-release-chrome",
+      "distFolder": "build",
       "asset": "tab-pinner.zip"
     }
   ],
@@ -13,8 +14,7 @@
     {
       "path": "semantic-release-chrome",
       "asset": "tab-pinner.zip",
-      "extensionId": "mcclikmfcmcpejkaobpfkmmbekbhedoi",
-      "target": "trustedTesters"
+      "extensionId": "mcclikmfcmcpejkaobpfkmmbekbhedoi"
     },
     {
       "path": "@semantic-release/github",
