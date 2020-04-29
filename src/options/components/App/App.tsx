@@ -26,6 +26,7 @@ import Paper from '../Paper';
 import AppWrapper from '../AppWrapper';
 
 import './global.css';
+import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslatedText';
 
 const App = () => {
   const [rules, setRules] = useState<PinnerRule[]>([]);
@@ -41,6 +42,8 @@ const App = () => {
       .then((newRules) => setRules(newRules));
     store.getSettings()
       .then((newSettings) => setSettings(newSettings));
+
+    document.title = getTranslatedText('options_title');
   }, []);
 
   useEffect(() => {
