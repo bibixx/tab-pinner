@@ -1,7 +1,7 @@
 {
   "name": "tab-pinner",
   "private": true,
-  "version": "2.2.0",
+  "version": "0.0.0-development",
   "description": "",
   "scripts": {
     "dev:extension": "webpack --config webpack.development.js --watch",

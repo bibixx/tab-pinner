@@ -1,7 +1,7 @@
 {
 	"name": "Tab pinner",
 	"description": "__MSG_description__",
-	"version": "2.2.0",
+	"version": "0.0.0-development",
 	"default_locale": "en",
 	"permissions": [
 		"activeTab",
