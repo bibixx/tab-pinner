@@ -1,4 +1,4 @@
-import { store } from '../shared/store';
+import { getStorageValues } from '../shared/getStorageValues';
 import { getTranslatedText } from '../shared/getTranslatedText/getTranslatedText';
 
 export default async function closeTab(tab: chrome.tabs.Tab) {
@@ -6,7 +6,7 @@ export default async function closeTab(tab: chrome.tabs.Tab) {
     return;
   }
 
-  const settings = await store.getSettings();
+  const { settings } = await getStorageValues();
 
   const close = settings.confirm
     // eslint-disable-next-line no-restricted-globals, no-alert
