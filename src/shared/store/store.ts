@@ -1,7 +1,9 @@
-import { PinnerRule } from '../types/PinnerRule';
-import { PinnerSettings } from '../types/PinnerSettings';
-import { getStorageValues } from './getStorageValues';
-import { AppStorage } from '../types/AppStorage';
+import { PinnerRule } from '../../types/PinnerRule';
+import { PinnerSettings } from '../../types/PinnerSettings';
+import { getStorageValues } from '../getStorageValues';
+import { setStorageValues } from '../setStorageValues';
+import { AppStorage } from '../../types/AppStorage';
+import { defaultStorageValues } from '../getStorageValues/defaultStorageValues';
 
 interface PartialSettings {
   close?: boolean;
@@ -16,13 +18,27 @@ export class Store {
     const storageValues = await getStorageValues();
 
     this.storageValues = storageValues;
+
+    return this.storageValues;
+  }
+
+  async update() {
+    setStorageValues(this.storageValues.rules, this.storageValues.settings);
   }
 
   getRules() {
+    if (this.storageValues === undefined) {
+      return defaultStorageValues.rules;
+    }
+
     return this.storageValues.rules;
   }
 
-  getSettings() {
+  getSettings(): PinnerSettings {
+    if (this.storageValues === undefined) {
+      return defaultStorageValues.settings;
+    }
+
     return this.storageValues.settings;
   }
 
@@ -71,8 +87,8 @@ export class Store {
     this.setStorageValues(newRules, storageValues.settings);
   }
 
-  async updateSettings(settings: PartialSettings) {
-    const storageValues = await getStorageValues();
+  updateSettings(settings: PartialSettings) {
+    const { storageValues } = this;
     const newSettings: PinnerSettings = {
       ...storageValues.settings,
       ...settings,

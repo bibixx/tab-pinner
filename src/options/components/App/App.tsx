@@ -53,8 +53,14 @@ const App = () => {
     }
   }, [modalContainerRef]);
 
-  const updateRules = useCallback((newRules) => setRules(newRules), []);
-  const updateSettings = useCallback((newSettings) => setSettings(newSettings), []);
+  const updateRules = useCallback((newRules) => {
+    setRules(newRules);
+    store.update();
+  }, []);
+  const updateSettings = useCallback((newSettings) => {
+    setSettings(newSettings);
+    store.update();
+  }, []);
   const addRule = useCallback(addRuleAction(updateRules), [updateRules]);
   const updateRule = useCallback(updateRuleAction(updateRules), [updateRules]);
   const removeRule = useCallback(removeRuleAction(updateRules), [updateRules]);
