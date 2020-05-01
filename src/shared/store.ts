@@ -1,7 +1,7 @@
 import { PinnerRule } from '../types/PinnerRule';
 import { PinnerSettings } from '../types/PinnerSettings';
 import { getStorageValues } from './getStorageValues';
-import { setStorageValues } from './setStorageValues';
+import { AppStorage } from '../types/AppStorage';
 
 interface PartialSettings {
   close?: boolean;
@@ -10,51 +10,65 @@ interface PartialSettings {
 }
 
 export class Store {
-  async getRules() {
+  private storageValues!: AppStorage;
+
+  async init() {
     const storageValues = await getStorageValues();
 
-    return storageValues.rules;
+    this.storageValues = storageValues;
   }
 
-  async getSettings() {
-    const storageValues = await getStorageValues();
-
-    return storageValues.settings;
+  getRules() {
+    return this.storageValues.rules;
   }
 
-  async addRule(rule: PinnerRule) {
-    const storageValues = await getStorageValues();
+  getSettings() {
+    return this.storageValues.settings;
+  }
+
+  setStorageValues(
+    rules: PinnerRule[],
+    settings: PinnerSettings,
+  ) {
+    this.storageValues = {
+      rules,
+      settings,
+    };
+  }
+
+  addRule(rule: PinnerRule) {
+    const { storageValues } = this;
     const newRules = [...storageValues.rules, rule];
 
-    setStorageValues(newRules, storageValues.settings);
+    this.setStorageValues(newRules, storageValues.settings);
   }
 
-  async removeRule(rule: PinnerRule) {
-    const storageValues = await getStorageValues();
+  removeRule(rule: PinnerRule) {
+    const { storageValues } = this;
     const newRules = storageValues.rules.filter(({ id }) => rule.id !== id);
 
     if (newRules.length === 0) {
-      setStorageValues(
-        [{
+      this.storageValues = {
+        rules: [{
           id: Date.now(),
           name: '',
           active: true,
           regexp: '',
           position: null,
         }],
-        storageValues.settings,
-      );
+        settings: storageValues.settings,
+      };
     } else {
-      setStorageValues(newRules, storageValues.settings);
+      this.setStorageValues(newRules, storageValues.settings);
     }
   }
 
-  async updateRule(newRule: PinnerRule) {
-    const storageValues = await getStorageValues();
+  updateRule(newRule: PinnerRule) {
+    const { storageValues } = this;
     const newRules = storageValues.rules
       .map((oldRule) => (oldRule.id === newRule.id ? newRule : oldRule));
 
-    setStorageValues(newRules, storageValues.settings);
+    this.setStorageValues(newRules, storageValues.settings);
   }
 
   async updateSettings(settings: PartialSettings) {
@@ -64,7 +78,7 @@ export class Store {
       ...settings,
     };
 
-    setStorageValues(storageValues.rules, newSettings);
+    this.setStorageValues(storageValues.rules, newSettings);
   }
 }
 

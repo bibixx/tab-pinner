@@ -1,7 +1,7 @@
 import { PinnerRule } from '../../types/PinnerRule';
 import { store } from '../../shared/store';
 
-export const addRule = (updateRules: Function) => async () => {
+export const addRule = (updateRules: Function) => () => {
   const newRule: PinnerRule = {
     id: Date.now(),
     name: '',
@@ -10,36 +10,35 @@ export const addRule = (updateRules: Function) => async () => {
     position: null,
   };
 
-  await store.addRule(newRule);
+  store.addRule(newRule);
 
-  await updateRules();
+  updateRules(store.getRules());
 };
 
-export const updateRule = (updateRules: Function) => async (newRule: PinnerRule) => {
-  await store.updateRule(newRule);
+export const updateRule = (updateRules: Function) => (newRule: PinnerRule) => {
+  store.updateRule(newRule);
 
-  await updateRules();
+  updateRules(store.getRules());
 };
 
-export const removeRule = (updateRules: Function) => async (rule: PinnerRule) => {
-  await store.removeRule(rule);
+export const removeRule = (updateRules: Function) => (rule: PinnerRule) => {
+  store.removeRule(rule);
 
-  await updateRules();
+  updateRules(store.getRules());
 };
 
 export const changeAllActive = (
   updateRules: Function,
-) => async (
+) => (
   rules: PinnerRule[],
   isActive: boolean,
 ) => {
   for (const rule of rules) {
-    // eslint-disable-next-line no-await-in-loop
-    await store.updateRule({
+    store.updateRule({
       ...rule,
       active: isActive,
     });
   }
 
-  await updateRules();
+  updateRules(store.getRules());
 };

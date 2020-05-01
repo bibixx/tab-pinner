@@ -38,10 +38,11 @@ const App = () => {
   const modalContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    store.getRules()
-      .then((newRules) => setRules(newRules));
-    store.getSettings()
-      .then((newSettings) => setSettings(newSettings));
+    store.init()
+      .then(() => {
+        setRules(store.getRules());
+        setSettings(store.getSettings());
+      });
 
     document.title = getTranslatedText('options_title');
   }, []);
@@ -52,8 +53,8 @@ const App = () => {
     }
   }, [modalContainerRef]);
 
-  const updateRules = useCallback(async () => setRules(await store.getRules()), []);
-  const updateSettings = useCallback(async () => setSettings(await store.getSettings()), []);
+  const updateRules = useCallback((newRules) => setRules(newRules), []);
+  const updateSettings = useCallback((newSettings) => setSettings(newSettings), []);
   const addRule = useCallback(addRuleAction(updateRules), [updateRules]);
   const updateRule = useCallback(updateRuleAction(updateRules), [updateRules]);
   const removeRule = useCallback(removeRuleAction(updateRules), [updateRules]);
