@@ -7,7 +7,7 @@ import { Ul, Li } from './Settings.styled';
 
 interface SettingsProps {
   settings: PinnerSettings;
-  updateSetting: (newSettingKey: SettingKey) => (newSetting: boolean) => Promise<void>;
+  updateSetting: (newSettingKey: SettingKey) => (newSetting: boolean) => void;
 }
 
 /* eslint-disable jsx-a11y/label-has-associated-control */

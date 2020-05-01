@@ -1,12 +1,12 @@
 import { PinnerRule } from '../types/PinnerRule';
-import { store } from '../shared/store';
+import { getStorageValues } from '../shared/getStorageValues';
 
 export const pinIfMatchesRule = async (tab: chrome.tabs.Tab) => {
   if (tab.id === undefined) {
     return;
   }
 
-  const rules = await store.getRules();
+  const { rules } = await getStorageValues();
 
   rules.forEach((rule: PinnerRule) => {
     if (tab.id === undefined) {

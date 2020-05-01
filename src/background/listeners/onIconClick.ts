@@ -1,10 +1,10 @@
 import { handleIconClick } from '../changeOnClick';
 import closeTab from '../closeTab';
 import { handleDoubleClick } from '../onDblClick';
-import { store } from '../../shared/store';
+import { getStorageValues } from '../../shared/getStorageValues';
 
 export const onIconClick = async (tab: chrome.tabs.Tab) => {
-  const settings = await store.getSettings();
+  const { settings } = await getStorageValues();
 
   if (settings.close) {
     handleDoubleClick(

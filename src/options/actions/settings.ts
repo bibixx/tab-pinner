@@ -5,12 +5,12 @@ export const updateSetting = (
   updateSettings: Function,
 ) => (
   newSettingKey: SettingKey,
-) => async (
+) => (
   newSetting: boolean,
 ) => {
-  await store.updateSettings({
+  store.updateSettings({
     [newSettingKey]: newSetting,
   });
 
-  await updateSettings();
+  updateSettings(store.getSettings());
 };
