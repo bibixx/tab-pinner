@@ -1,12 +1,12 @@
-name: Build
+name: Lint
 
 on:
   push:
     branches:
-      - 'master'
+      - '*'
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -33,14 +33,3 @@ jobs:
 
     - name: Run linter
       run: yarn lint
-
-    - name: Build package
-      run: yarn build
-
-    - name: Deploy apps to production
-      run: yarn release
-      env:
-        GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-        GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-        GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
