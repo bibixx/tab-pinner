@@ -1,16 +1,26 @@
 name: Lint
 
-on: [push]
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
 
 jobs:
-  build:
+  lint:
+    name: Lint
+    runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js v12
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: 12
-
       - name: Install dependencies
         run: npm ci
 
