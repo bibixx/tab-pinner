@@ -1,9 +1,9 @@
-import React from 'react';
+import { MouseEvent as ReactMouseEvent } from 'react';
 import { Icon } from '../Icon/Icon';
 import { StyledButton } from './IconButton.styled';
 
 interface IconButtonProps {
-  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onClick: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => void;
   children: string;
   active?: boolean;
 }

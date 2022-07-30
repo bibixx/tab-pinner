@@ -1,12 +1,12 @@
-import React from 'react';
+import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import {
   Wrapper, Input, StyledCheckbox, StyledCheckboxFocusWrapper, LabelText,
 } from './Checkbox.styled';
 
-type CheckboxProps = React.DetailedHTMLProps<
-React.InputHTMLAttributes<HTMLInputElement>,
-HTMLInputElement
-> & { indeterminate?: boolean };
+interface CheckboxProps extends
+  DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+  indeterminate?: boolean
+}
 
 export const Checkbox = ({
   checked, onChange, children, indeterminate = false, ...props

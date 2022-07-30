@@ -1,9 +1,5 @@
-import React from 'react';
-
-import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslatedText';
-
 import { StyleFooter, StyledIcon, Link } from './Footer.styled';
-import { replaceWithElements } from '../utils/replaceWithElements';
+import { i18n } from '../i18n/i18n';
 
 const mappings = [
   <StyledIcon>favorite</StyledIcon>,
@@ -11,9 +7,8 @@ const mappings = [
 ];
 
 export const Footer = () => {
-  const authorString = replaceWithElements(
-    getTranslatedText('author'),
-    /\$\w+/g,
+  const authorString = i18n(
+    'author',
     mappings,
   );
 

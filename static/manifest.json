@@ -1,5 +1,4 @@
 {
-  "$schema": "https://raw.githubusercontent.com/cezaraugusto/chrome-extension-manifest-json-schema/main/manifest/manifest.schema.v3.json",
 	"name": "Tab pinner",
 	"description": "__MSG_description__",
 	"version": "0.0.0",
@@ -10,17 +9,25 @@
 		"storage"
 	],
 	"background": {
-		"service_worker": "background.bundle.js",
+		"service_worker": "background.js",
     "type": "module"
 	},
-	"options_page": "options.html",
+  "options_page": "options.html",
   "action": {
     "default_icon": {
-      "16": "imgs/icon.png"
+      "16": "imgs/icon_16.png",
+      "48": "imgs/icon_48.png",
+      "128": "imgs/icon_128.png",
+      "256": "imgs/icon_256.png"
     },
     "default_title": "__MSG_pin__"
   },
-	"icons": { "48": "imgs/icon_big_48.png" },
+	"icons": {
+    "16": "imgs/icon_big_16.png",
+    "48": "imgs/icon_big_48.png",
+    "128": "imgs/icon_big_128.png",
+    "256": "imgs/icon_big_256.png"
+  },
 	"commands": {
 	  "_execute_browser_action": {
 			"suggested_key": {

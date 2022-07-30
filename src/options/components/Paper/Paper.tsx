@@ -1,8 +1,8 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import { Wrapper } from './Paper.styled';
 
 interface PaperProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const Paper = ({ children }: PaperProps) => (

@@ -1,4 +1,4 @@
-import React, {
+import {
   useState, useEffect, useCallback, useRef,
 } from 'react';
 import 'what-input';
@@ -26,7 +26,8 @@ import { Paper } from '../Paper/Paper';
 import { AppWrapper } from '../AppWrapper/AppWrapper';
 
 import './global.css';
-import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslatedText';
+import { i18n } from '../i18n/i18n';
+import { pipe } from '../../utils/pipe/pipe';
 
 export const App = () => {
   const [rules, setRules] = useState<PinnerRule[]>([]);
@@ -37,13 +38,16 @@ export const App = () => {
   const modalContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    store.init()
-      .then(() => {
-        setRules(store.getRules());
-        setSettings(store.getSettings());
-      });
+    async function initializeFromStore() {
+      await store.init();
 
-    document.title = getTranslatedText('options_title');
+      setRules(store.getRules());
+      setSettings(store.getSettings());
+    }
+
+    initializeFromStore();
+
+    document.title = i18n('options_title');
   }, []);
 
   useEffect(() => {
@@ -52,19 +56,27 @@ export const App = () => {
     }
   }, [modalContainerRef]);
 
-  const updateRules = useCallback((newRules) => {
+  const updateRules = useCallback((newRules: PinnerRule[]) => {
     setRules(newRules);
     store.update();
   }, []);
-  const updateSettings = useCallback((newSettings) => {
+  const updateSettings = useCallback((newSettings: PinnerSettings) => {
     setSettings(newSettings);
     store.update();
   }, []);
-  const addRule = useCallback(addRuleAction(updateRules), [updateRules]);
-  const updateRule = useCallback(updateRuleAction(updateRules), [updateRules]);
-  const removeRule = useCallback(removeRuleAction(updateRules), [updateRules]);
-  const changeAllActive = useCallback(changeAllActiveAction(updateRules), [updateSettings]);
-  const updateSetting = useCallback(updateSettingAction(updateSettings), [updateSettings]);
+
+  const updateRulesFromStore = useCallback(() => updateRules(store.getRules()), [updateRules]);
+  const updateSettingsFromStore = useCallback(() => updateSettings(store.getSettings()),
+    [updateSettings]);
+  const addRule = useCallback(pipe(addRuleAction, updateRulesFromStore), [updateRules]);
+  const updateRule = useCallback(pipe(updateRuleAction, updateRulesFromStore), [updateRules]);
+  const removeRule = useCallback(pipe(removeRuleAction, updateRulesFromStore), [updateRules]);
+  const changeAllActive = useCallback(
+    pipe(changeAllActiveAction, updateRulesFromStore), [updateSettings],
+  );
+  const updateSetting = useCallback(
+    pipe(updateSettingAction, updateSettingsFromStore), [updateSettings],
+  );
 
   return (
     <>

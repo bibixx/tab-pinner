@@ -34,7 +34,7 @@ jobs:
         run: npm ci
 
       - name: Run TypeScript checks
-        run: npm run tsc
+        run: npm run type-check
 
       - name: Run linter
         run: npm run lint

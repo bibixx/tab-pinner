@@ -1,7 +1,7 @@
 import { PinnerRule } from '../../types/PinnerRule';
 import { store } from '../utils/store/store';
 
-export const addRule = (updateRules: Function) => () => {
+export const addRule = () => {
   const newRule: PinnerRule = {
     id: Date.now(),
     name: '',
@@ -11,25 +11,17 @@ export const addRule = (updateRules: Function) => () => {
   };
 
   store.addRule(newRule);
-
-  updateRules(store.getRules());
 };
 
-export const updateRule = (updateRules: Function) => (newRule: PinnerRule) => {
+export const updateRule = (newRule: PinnerRule) => {
   store.updateRule(newRule);
-
-  updateRules(store.getRules());
 };
 
-export const removeRule = (updateRules: Function) => (rule: PinnerRule) => {
+export const removeRule = (rule: PinnerRule) => {
   store.removeRule(rule);
-
-  updateRules(store.getRules());
 };
 
 export const changeAllActive = (
-  updateRules: Function,
-) => (
   rules: PinnerRule[],
   isActive: boolean,
 ) => {
@@ -39,6 +31,4 @@ export const changeAllActive = (
       active: isActive,
     });
   }
-
-  updateRules(store.getRules());
 };

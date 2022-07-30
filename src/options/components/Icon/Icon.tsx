@@ -1,8 +1,8 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 interface IconProps {
   className?: string;
-  children: React.ReactChild;
+  children: ReactNode;
 }
 
 export const Icon = ({ children, className }: IconProps) => (

@@ -1,15 +1,18 @@
-import React from 'react';
+import { ReactNode } from 'react';
+import { getReplacementRegExp } from '../../../shared/getReplacementRegExp/getReplacementRegExp';
 import { getTranslatedText, Key } from '../../../shared/getTranslatedText/getTranslatedText';
 import { replaceWithElements } from '../utils/replaceWithElements';
 
-export const i18n = (children: Key, substitutions: (JSX.Element|string)[] = []) => {
+export function i18n(children: Key): string;
+export function i18n(children: Key, substitutions: ReactNode[]): ReactNode;
+export function i18n(children: Key, substitutions?: ReactNode[]): ReactNode {
   if (substitutions !== undefined) {
     return replaceWithElements(
       getTranslatedText(children),
-      /\$[a-z_]+/g,
+      getReplacementRegExp(),
       substitutions,
     );
   }
 
-  return <>{getTranslatedText(children)}</>;
-};
+  return getTranslatedText(children);
+}

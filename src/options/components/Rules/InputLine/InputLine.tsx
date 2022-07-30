@@ -1,16 +1,15 @@
-import React from 'react';
+import { ChangeEvent } from 'react';
 import { PinnerRule } from '../../../../types/PinnerRule';
 import { EditMode } from '../../../../types/EditMote';
 
-import { getTranslatedText } from '../../../../shared/getTranslatedText/getTranslatedText';
 import { Td } from '../Rules.styled';
 import { Checkbox } from '../../Checkbox/Checkbox';
 import { VisuallyHiddenLabel } from '../../VisuallyHidden/VisuallyHidden';
 import { Input } from '../../Input/Input';
 
 import { ColumnWrapper } from './InputLine.styled';
-import { i18n } from '../../i18n/i18n';
 import { IconButton } from '../../IconButton/IconButton';
+import { i18n } from '../../i18n/i18n';
 
 interface InputLineProps {
   rule: PinnerRule;
@@ -30,17 +29,17 @@ export const InputLine = ({
   } = rule;
   const position = rule.position === null ? '' : rule.position;
 
-  const updateName = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>): void => {
+  const updateName = ({ target: { value } }: ChangeEvent<HTMLInputElement>): void => {
     const newRule: PinnerRule = { ...rule, name: value };
     updateRule(newRule);
   };
 
-  const updateRegex = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>): void => {
+  const updateRegex = ({ target: { value } }: ChangeEvent<HTMLInputElement>): void => {
     const newRule: PinnerRule = { ...rule, regexp: value };
     updateRule(newRule);
   };
 
-  const updatePosition = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>): void => {
+  const updatePosition = ({ target: { value } }: ChangeEvent<HTMLInputElement>): void => {
     const newPosition = Number.parseInt(value, 10);
 
     if (value === '') {
@@ -54,7 +53,7 @@ export const InputLine = ({
     updateRule(newRule);
   };
 
-  const onActiveChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onActiveChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newRule: PinnerRule = { ...rule, active: e.target.checked };
     updateRule(newRule);
   };
@@ -95,7 +94,7 @@ export const InputLine = ({
           type="text"
           value={name}
           onChange={updateName}
-          placeholder={getTranslatedText('rule_name')}
+          placeholder={i18n('rule_name')}
         />
       </Td>
       <Td>
@@ -107,7 +106,7 @@ export const InputLine = ({
           type="text"
           value={regexp}
           onChange={updateRegex}
-          placeholder={getTranslatedText('regular_expression')}
+          placeholder={i18n('regular_expression')}
         />
       </Td>
       <Td>
@@ -121,7 +120,7 @@ export const InputLine = ({
           onChange={updatePosition}
           min={0}
           step={0}
-          placeholder={getTranslatedText('tab_index')}
+          placeholder={i18n('tab_index')}
           textAlign="right"
         />
       </Td>

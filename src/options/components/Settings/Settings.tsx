@@ -1,4 +1,4 @@
-import React from 'react';
+import { ChangeEvent } from 'react';
 import { PinnerSettings, SettingKey } from '../../../types/PinnerSettings';
 import { i18n } from '../i18n/i18n';
 import { H2 } from '../Headings/Headings';
@@ -7,7 +7,7 @@ import { Ul, Li } from './Settings.styled';
 
 interface SettingsProps {
   settings: PinnerSettings;
-  updateSetting: (newSettingKey: SettingKey) => (newSetting: boolean) => void;
+  updateSetting: (newSettingKey: SettingKey, newSetting: boolean) => void;
 }
 
 export const Settings = ({
@@ -15,8 +15,8 @@ export const Settings = ({
   updateSetting,
 }: SettingsProps) => {
   const onChange = (key: SettingKey) => (
-    { target: { checked } }: React.ChangeEvent<HTMLInputElement>,
-  ) => updateSetting(key)(checked);
+    { target: { checked } }: ChangeEvent<HTMLInputElement>,
+  ) => updateSetting(key, checked);
 
   return (
     <div>

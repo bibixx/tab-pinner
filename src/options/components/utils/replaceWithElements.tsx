@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment, ReactNode } from 'react';
 
 interface Match {
   match: string;
@@ -7,7 +7,7 @@ interface Match {
 export const replaceWithElements = (
   string: string,
   regexp: RegExp,
-  substitutions: (JSX.Element|string)[],
+  substitutions: ReactNode[],
 ) => {
   const matches = string.matchAll(regexp);
   const strings: (Match|string)[] = [];
@@ -40,16 +40,16 @@ export const replaceWithElements = (
       {strings.map((el, i) => {
         if (typeof el === 'string') {
           return (
-            <React.Fragment key={el + i}>
+            <Fragment key={el + i}>
               {el}
-            </React.Fragment>
+            </Fragment>
           );
         }
 
         return (
-          <React.Fragment key={el.match + i}>
+          <Fragment key={el.match + i}>
             {substitutions[matchesIndex++]}
-          </React.Fragment>
+          </Fragment>
         );
       })}
     </>

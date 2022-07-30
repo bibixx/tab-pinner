@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import { KeyboardEvent, MouseEvent as ReactMouseEvent, ReactNode } from 'react';
 import ReactModal from 'react-modal';
-import { ClassNames } from '@emotion/core';
+import { ClassNames } from '@emotion/react';
 
 import { Button } from '../Button/Button';
 import {
@@ -9,7 +9,7 @@ import {
 
 interface ModalProps {
   isOpen: boolean;
-  onClose: (event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>) => void;
+  onClose: (event: ReactMouseEvent<Element, MouseEvent> | KeyboardEvent<Element>) => void;
   header?: string;
   acceptButtonText: string;
   children: ReactNode;
