@@ -1,9 +1,9 @@
-import { PinnerRule } from '../../types/PinnerRule';
-import { PinnerSettings } from '../../types/PinnerSettings';
-import { getStorageValues } from '../getStorageValues';
-import { setStorageValues } from '../setStorageValues';
-import { AppStorage } from '../../types/AppStorage';
-import { defaultStorageValues } from '../getStorageValues/defaultStorageValues';
+import { getStorageValues } from '../../../shared/getStorageValues';
+import { defaultStorageValues } from '../../../shared/getStorageValues/defaultStorageValues';
+import { AppStorage } from '../../../types/AppStorage';
+import { PinnerRule } from '../../../types/PinnerRule';
+import { PinnerSettings } from '../../../types/PinnerSettings';
+import { setStorageValues } from '../setStorageValues/setStorageValues';
 
 interface PartialSettings {
   close?: boolean;
@@ -42,10 +42,7 @@ export class Store {
     return this.storageValues.settings;
   }
 
-  setStorageValues(
-    rules: PinnerRule[],
-    settings: PinnerSettings,
-  ) {
+  setStorageValues(rules: PinnerRule[], settings: PinnerSettings) {
     this.storageValues = {
       rules,
       settings,
@@ -65,13 +62,15 @@ export class Store {
 
     if (newRules.length === 0) {
       this.storageValues = {
-        rules: [{
-          id: Date.now(),
-          name: '',
-          active: true,
-          regexp: '',
-          position: null,
-        }],
+        rules: [
+          {
+            id: Date.now(),
+            name: '',
+            active: true,
+            regexp: '',
+            position: null,
+          },
+        ],
         settings: storageValues.settings,
       };
     } else {
@@ -81,8 +80,9 @@ export class Store {
 
   updateRule(newRule: PinnerRule) {
     const { storageValues } = this;
-    const newRules = storageValues.rules
-      .map((oldRule) => (oldRule.id === newRule.id ? newRule : oldRule));
+    const newRules = storageValues.rules.map((oldRule) =>
+      oldRule.id === newRule.id ? newRule : oldRule,
+    );
 
     this.setStorageValues(newRules, storageValues.settings);
   }

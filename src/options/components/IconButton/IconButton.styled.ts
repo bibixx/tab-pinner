@@ -14,7 +14,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
   width: 1.5rem;
   outline: 0;
   cursor: pointer;
-  color: ${(props) => (!props.active ? 'var(--button-icon)' : 'var(--accent-color-2)')};
+  color: ${(props) =>
+    !props.active ? 'var(--button-icon)' : 'var(--accent-color-2)'};
 
   &::before {
     content: '';
@@ -36,7 +37,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
     opacity: 0.15;
   }
 
-  [data-whatinput="keyboard"] &:focus::before {
+  [data-whatinput='keyboard'] &:focus::before {
     opacity: 0.25;
   }
 `;

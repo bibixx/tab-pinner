@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   release:
@@ -18,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
 
       - uses: actions/cache@v2
         with:
@@ -31,10 +32,14 @@ jobs:
         run: npm ci
 
       - name: Run TypeScript checks
-        run: npm run tsc
+        run: npm run type-check
 
-      - name: Run linter
+      - name: Run ESLint checks
         run: npm run lint
+
+      - name: Run commitlint checks (Push)
+        run: npx commitlint --from ${{ github.event.before }} --to ${{ github.event.after }}
+        if: github.event_name == 'push'
 
       - name: Build package
         run: npm run build

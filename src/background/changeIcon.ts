@@ -4,24 +4,34 @@ const getProperties = (pinned: boolean) => {
   if (pinned) {
     return {
       title: getTranslatedText('unpin'),
-      path: 'imgs/icon_in.png',
+      path: {
+        16: 'imgs/icon_in_16.png',
+        48: 'imgs/icon_in_48.png',
+        128: 'imgs/icon_in_128.png',
+        256: 'imgs/icon_in_256.png',
+      },
     };
   }
 
   return {
     title: getTranslatedText('pin'),
-    path: 'imgs/icon.png',
+    path: {
+      16: 'imgs/icon_16.png',
+      48: 'imgs/icon_48.png',
+      128: 'imgs/icon_128.png',
+      256: 'imgs/icon_256.png',
+    },
   };
 };
 
 export const changeIcon = (pinned: boolean) => {
   const { title, path } = getProperties(pinned);
 
-  chrome.browserAction.setTitle({
+  chrome.action.setTitle({
     title,
   });
 
-  chrome.browserAction.setIcon({
+  chrome.action.setIcon({
     path,
   });
 };

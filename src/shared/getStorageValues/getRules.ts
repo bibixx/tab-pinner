@@ -2,18 +2,12 @@ import { PinnerRule } from '../../types/PinnerRule';
 import { RuleBuilder } from './ruleBuilder';
 import { defaultStorageValues } from './defaultStorageValues';
 
-export const getRules = (rules: any): PinnerRule[] => {
+export const getRules = (rules: Record<string, string>[]): PinnerRule[] => {
   if (!Array.isArray(rules)) {
     return defaultStorageValues.rules;
   }
 
-  return rules.map(({
-    id,
-    active,
-    name,
-    regexp,
-    position,
-  }, i) => {
+  return rules.map(({ id, active, name, regexp, position }, i) => {
     const ruleBuilder = new RuleBuilder();
 
     if (typeof id === 'number') {

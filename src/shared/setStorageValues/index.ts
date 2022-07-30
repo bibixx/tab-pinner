@@ -1,1 +1,0 @@
-export { setStorageValues } from './setStorageValues';

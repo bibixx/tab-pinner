@@ -18,7 +18,8 @@ export const StyledCheckbox = styled.div<StyledCheckboxProps>`
   cursor: pointer;
   transition: color 0.1s ease-in-out;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     position: absolute;
     top: 0;
     left: 0;
@@ -33,7 +34,8 @@ export const StyledCheckbox = styled.div<StyledCheckboxProps>`
   }
 
   &::after {
-    content: '${(props) => (props.indeterminate ? 'indeterminate_check_box' : 'check_box')}';
+    content: '${(props) =>
+      props.indeterminate ? 'indeterminate_check_box' : 'check_box'}';
     opacity: 0;
   }
 `;
@@ -70,7 +72,7 @@ export const Input = styled.input<StyledCheckboxProps>`
   left: 0;
   opacity: 0.0000001;
 
-  [data-whatinput="keyboard"] &:focus + ${StyledCheckboxFocusWrapper}::before {
+  [data-whatinput='keyboard'] &:focus + ${StyledCheckboxFocusWrapper}::before {
     opacity: 0.25;
   }
 

@@ -12,7 +12,6 @@ export const defaultStorageValues: AppStorage = {
   ],
   settings: {
     close: true,
-    confirm: true,
     move: true,
   },
 };

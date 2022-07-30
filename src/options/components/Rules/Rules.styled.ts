@@ -1,12 +1,13 @@
 import styled from '@emotion/styled';
-import { H2 } from '../Headings';
+import { H2 } from '../Headings/Headings';
 
 export const Wrapper = styled.section`
   margin: 1rem -1rem;
   padding: 1rem 0 0;
-  border: 1px solid rgba(0,0,0,.12);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 0.5rem;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 2px 1px -1px rgba(0, 0, 0, 0.12);
 `;
 
 export const Header = styled.header`

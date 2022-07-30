@@ -1,27 +1,15 @@
-import React from 'react';
-
-import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslatedText';
-
 import { StyleFooter, StyledIcon, Link } from './Footer.styled';
-import { replaceWithElements } from '../utils/replaceWithElements';
+import { i18n } from '../../utils/i18n/i18n';
 
 const mappings = [
-  <StyledIcon>favorite</StyledIcon>,
-  <Link href="https://legiec.io" key="link">bibixx</Link>,
+  <StyledIcon key="icon">favorite</StyledIcon>,
+  <Link href="https://legiec.io" key="link">
+    bibixx
+  </Link>,
 ];
 
-const Footer: React.FC = () => {
-  const authorString = replaceWithElements(
-    getTranslatedText('author'),
-    /\$\w+/g,
-    mappings,
-  );
+export const Footer = () => {
+  const authorString = i18n('author', mappings);
 
-  return (
-    <StyleFooter>
-      {authorString}
-    </StyleFooter>
-  );
+  return <StyleFooter>{authorString}</StyleFooter>;
 };
-
-export default Footer;

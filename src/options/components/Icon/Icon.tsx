@@ -1,12 +1,10 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 interface IconProps {
   className?: string;
-  children: React.ReactChild;
+  children: ReactNode;
 }
 
-const Icon: React.FC<IconProps> = ({ children, className }) => (
+export const Icon = ({ children, className }: IconProps) => (
   <i className={['material-icons', className].join(' ')}>{children}</i>
 );
-
-export default Icon;

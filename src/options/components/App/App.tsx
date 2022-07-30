@@ -1,10 +1,8 @@
-import React, {
-  useState, useEffect, useCallback, useRef,
-} from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import 'what-input';
 import ReactModal from 'react-modal';
 
-import { store } from '../../../shared/store';
+import { store } from '../../utils/store/store';
 import { PinnerRule } from '../../../types/PinnerRule';
 import {
   addRule as addRuleAction,
@@ -12,39 +10,40 @@ import {
   removeRule as removeRuleAction,
   changeAllActive as changeAllActiveAction,
 } from '../../actions/rules';
-import {
-  updateSetting as updateSettingAction,
-} from '../../actions/settings';
+import { updateSetting as updateSettingAction } from '../../actions/settings';
 import { PinnerSettings } from '../../../types/PinnerSettings';
 
-import Rules from '../Rules';
-import Settings from '../Settings';
-import HowTo from '../HowTo';
-import Header from '../Header';
-import Footer from '../Footer';
-import Paper from '../Paper';
-import AppWrapper from '../AppWrapper';
+import { Rules } from '../Rules/Rules';
+import { Settings } from '../Settings/Settings';
+import { HowTo } from '../HowTo/HowTo';
+import { Header } from '../Header/Header';
+import { Footer } from '../Footer/Footer';
+import { Paper } from '../Paper/Paper';
+import { AppWrapper } from '../AppWrapper/AppWrapper';
 
 import './global.css';
-import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslatedText';
+import { i18n } from '../../utils/i18n/i18n';
+import { pipe } from '../../utils/pipe/pipe';
 
-const App = () => {
+export const App = () => {
   const [rules, setRules] = useState<PinnerRule[]>([]);
   const [settings, setSettings] = useState<PinnerSettings>({
     close: false,
-    confirm: false,
     move: false,
   });
   const modalContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    store.init()
-      .then(() => {
-        setRules(store.getRules());
-        setSettings(store.getSettings());
-      });
+    async function initializeFromStore() {
+      await store.init();
 
-    document.title = getTranslatedText('options_title');
+      setRules(store.getRules());
+      setSettings(store.getSettings());
+    }
+
+    initializeFromStore();
+
+    document.title = i18n('options_title');
   }, []);
 
   useEffect(() => {
@@ -53,19 +52,28 @@ const App = () => {
     }
   }, [modalContainerRef]);
 
-  const updateRules = useCallback((newRules) => {
+  const updateRules = useCallback((newRules: PinnerRule[]) => {
     setRules(newRules);
     store.update();
   }, []);
-  const updateSettings = useCallback((newSettings) => {
+  const updateSettings = useCallback((newSettings: PinnerSettings) => {
     setSettings(newSettings);
     store.update();
   }, []);
-  const addRule = useCallback(addRuleAction(updateRules), [updateRules]);
-  const updateRule = useCallback(updateRuleAction(updateRules), [updateRules]);
-  const removeRule = useCallback(removeRuleAction(updateRules), [updateRules]);
-  const changeAllActive = useCallback(changeAllActiveAction(updateRules), [updateSettings]);
-  const updateSetting = useCallback(updateSettingAction(updateSettings), [updateSettings]);
+
+  const updateRulesFromStore = useCallback(
+    () => updateRules(store.getRules()),
+    [updateRules],
+  );
+  const updateSettingsFromStore = useCallback(
+    () => updateSettings(store.getSettings()),
+    [updateSettings],
+  );
+  const addRule = pipe(addRuleAction, updateRulesFromStore);
+  const updateRule = pipe(updateRuleAction, updateRulesFromStore);
+  const removeRule = pipe(removeRuleAction, updateRulesFromStore);
+  const changeAllActive = pipe(changeAllActiveAction, updateRulesFromStore);
+  const updateSetting = pipe(updateSettingAction, updateSettingsFromStore);
 
   return (
     <>
@@ -80,10 +88,7 @@ const App = () => {
             removeRule={removeRule}
             changeAllActive={changeAllActive}
           />
-          <Settings
-            settings={settings}
-            updateSetting={updateSetting}
-          />
+          <Settings settings={settings} updateSetting={updateSetting} />
         </Paper>
       </AppWrapper>
       <Footer />
@@ -91,5 +96,3 @@ const App = () => {
     </>
   );
 };
-
-export default App;

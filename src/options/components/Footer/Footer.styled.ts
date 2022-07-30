@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import Icon from '../Icon';
+import { Icon } from '../Icon/Icon';
 
 export const StyleFooter = styled.footer`
   display: flex;

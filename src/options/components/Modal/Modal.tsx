@@ -1,23 +1,30 @@
-import React from 'react';
+import { KeyboardEvent, MouseEvent as ReactMouseEvent, ReactNode } from 'react';
 import ReactModal from 'react-modal';
-import { ClassNames } from '@emotion/core';
+import { ClassNames } from '@emotion/react';
 
-import Button from '../Button';
-import {
-  Wrapper, Body, Header, Footer, StyledH2,
-} from './Modal.styled';
+import { Button } from '../Button/Button';
+import { Wrapper, Body, Header, Footer, StyledH2 } from './Modal.styled';
 
 interface ModalProps {
   isOpen: boolean;
-  onClose: (event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>) => void;
+  onClose: (
+    event: ReactMouseEvent<Element, MouseEvent> | KeyboardEvent<Element>,
+  ) => void;
   header?: string;
   acceptButtonText: string;
+  children: ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({
-  isOpen, onClose, children, header, acceptButtonText,
-}) => {
-  const { matches: prefersReducedMotion } = window.matchMedia('(prefers-reduced-motion: reduce)');
+export const Modal = ({
+  isOpen,
+  onClose,
+  children,
+  header,
+  acceptButtonText,
+}: ModalProps) => {
+  const { matches: prefersReducedMotion } = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  );
   const animationTime = prefersReducedMotion ? 0 : 150;
 
   return (
@@ -72,9 +79,7 @@ const Modal: React.FC<ModalProps> = ({
                 <StyledH2>{header}</StyledH2>
               </Header>
             )}
-            <Body>
-              {children}
-            </Body>
+            <Body>{children}</Body>
             <Footer>
               <Button onClick={onClose}>{acceptButtonText}</Button>
             </Footer>
@@ -84,5 +89,3 @@ const Modal: React.FC<ModalProps> = ({
     </ClassNames>
   );
 };
-
-export default Modal;

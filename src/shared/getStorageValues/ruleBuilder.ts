@@ -3,13 +3,13 @@ import { PinnerRule } from '../../types/PinnerRule';
 export class RuleBuilder {
   private id?: number;
 
-  private active: boolean = false;
+  private active = false;
 
-  private regexp: string = '';
+  private regexp = '';
 
-  private position: number|null = null;
+  private position: number | null = null;
 
-  private name: string = '';
+  private name = '';
 
   setId(id: number) {
     this.id = id;
@@ -23,7 +23,7 @@ export class RuleBuilder {
     this.regexp = regexp;
   }
 
-  setPosition(position: number|null) {
+  setPosition(position: number | null) {
     this.position = position;
   }
 

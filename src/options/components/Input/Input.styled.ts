@@ -11,11 +11,12 @@ export const Underline = styled.div`
   width: 100%;
   height: 2px;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     position: absolute;
     top: 0;
     left: 0;
-    content: "";
+    content: '';
     display: block;
     width: 100%;
     height: 100%;
@@ -37,7 +38,7 @@ export const Underline = styled.div`
 `;
 
 export interface StyledInputProps {
-  textAlign?: 'left'|'right'|'center';
+  textAlign?: 'left' | 'right' | 'center';
 }
 
 export const StyledInput = styled.input<StyledInputProps>`
@@ -53,8 +54,8 @@ export const StyledInput = styled.input<StyledInputProps>`
   padding: 0;
   color: inherit;
 
-  &[type=number]::-webkit-inner-spin-button,
-  &[type=number]::-webkit-outer-spin-button {
+  &[type='number']::-webkit-inner-spin-button,
+  &[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }

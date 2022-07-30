@@ -1,18 +1,20 @@
-import React, { ReactChild } from 'react';
+import { MouseEvent as ReactMouseEvent, ReactNode } from 'react';
 import { StyledLinkText, StyledLink } from './LinkButton.styled';
 
 interface LinkButtonProps {
   href?: string;
-  children: ReactChild;
-  onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  children: ReactNode;
+  onClick?: (event: ReactMouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
-const LinkButton: React.FC<LinkButtonProps> = ({ href, children, onClick }) => {
+export const LinkButton = ({ href, children, onClick }: LinkButtonProps) => {
   if (href) {
-    return <StyledLink href={href} onClick={onClick}>{children}</StyledLink>;
+    return (
+      <StyledLink href={href} onClick={onClick}>
+        {children}
+      </StyledLink>
+    );
   }
 
   return <StyledLinkText onClick={onClick}>{children}</StyledLinkText>;
 };
-
-export default LinkButton;

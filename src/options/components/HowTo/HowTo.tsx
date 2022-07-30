@@ -1,33 +1,32 @@
-import React, { useState, useCallback, useMemo } from 'react';
-import I18n from '../I18n';
-import { H2 } from '../Headings';
-import LinkButton from '../LinkButton';
-import Modal from '../Modal';
+import { useState, useCallback, useMemo } from 'react';
+import { i18n } from '../../utils/i18n/i18n';
+import { H2 } from '../Headings/Headings';
+import { LinkButton } from '../LinkButton/LinkButton';
+import { Modal } from '../Modal/Modal';
 
 import { Ol } from './HowTo.styled';
 import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslatedText';
 
-const HowTo: React.FC = () => {
+export const HowTo = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = useCallback(() => { setIsModalOpen(true); }, [setIsModalOpen]);
-  const closeModal = useCallback(() => { setIsModalOpen(false); }, [setIsModalOpen]);
-  const isMac = useMemo(() => navigator.userAgent.indexOf('Mac OS X') !== -1, []);
+  const openModal = useCallback(() => {
+    setIsModalOpen(true);
+  }, [setIsModalOpen]);
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+  }, [setIsModalOpen]);
+  const isMac = useMemo(
+    () => navigator.userAgent.indexOf('Mac OS X') !== -1,
+    [],
+  );
 
   return (
     <>
       <div>
-        <H2><I18n>how_to_header</I18n></H2>
+        <H2>{i18n('how_to_header')}</H2>
+        <p>{i18n('how_to', [isMac ? 'Cmd+Shift+X' : 'Ctrl+Shift+X'])}</p>
         <p>
-          <I18n
-            substitutions={[
-              isMac ? 'Cmd+Shift+X' : 'Ctrl+Shift+X',
-            ]}
-          >
-            how_to
-          </I18n>
-        </p>
-        <p>
-          <LinkButton onClick={openModal}><I18n>change_shrt</I18n></LinkButton>
+          <LinkButton onClick={openModal}>{i18n('change_shrt')}</LinkButton>
         </p>
       </div>
       <Modal
@@ -38,20 +37,16 @@ const HowTo: React.FC = () => {
       >
         <Ol>
           <li>
-            <I18n
-              substitutions={[
-                <LinkButton href="chrome://extensions/">chrome://extensions/</LinkButton>,
-              ]}
-            >
-              change_shrt_popup_line1
-            </I18n>
+            {i18n('change_shrt_popup_line1', [
+              <LinkButton href="chrome://extensions/" key="link">
+                chrome://extensions/
+              </LinkButton>,
+            ])}
           </li>
-          <li><I18n>change_shrt_popup_line2</I18n></li>
-          <li><I18n>change_shrt_popup_line3</I18n></li>
+          <li>{i18n('change_shrt_popup_line2')}</li>
+          <li>{i18n('change_shrt_popup_line3')}</li>
         </Ol>
       </Modal>
     </>
   );
 };
-
-export default HowTo;

@@ -1,12 +1,10 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import { Wrapper } from './Paper.styled';
 
 interface PaperProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-const Paper: React.FC<PaperProps> = ({ children }) => (
+export const Paper = ({ children }: PaperProps) => (
   <Wrapper>{children}</Wrapper>
 );
-
-export default Paper;

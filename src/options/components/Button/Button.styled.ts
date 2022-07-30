@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   border-radius: 0.25em;
   font-family: var(--font-family);
   font-weight: 500;
@@ -18,5 +18,3 @@ const StyledButton = styled.button`
     background: var(--button-background-focus);
   }
 `;
-
-export default StyledButton;
