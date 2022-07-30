@@ -2,7 +2,13 @@
   "release": {
     "branches": ["master"]
   },
-  "verifyConditions": ["semantic-release-chrome", "@semantic-release/github"],
+  "verifyConditions": [
+    {
+      "path": "semantic-release-chrome",
+      "extensionId": "mcclikmfcmcpejkaobpfkmmbekbhedoi"
+    },
+    "@semantic-release/github"
+  ],
   "prepare": [
     {
       "path": "semantic-release-chrome",
