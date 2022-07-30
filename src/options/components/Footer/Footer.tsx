@@ -1,5 +1,5 @@
 import { StyleFooter, StyledIcon, Link } from './Footer.styled';
-import { i18n } from '../i18n/i18n';
+import { i18n } from '../../utils/i18n/i18n';
 
 const mappings = [
   <StyledIcon>favorite</StyledIcon>,

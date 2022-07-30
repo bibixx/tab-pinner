@@ -3,7 +3,7 @@ import { PinnerRule } from '../../../types/PinnerRule';
 import { EditMode } from '../../../types/EditMote';
 
 import { InputLine } from './InputLine/InputLine';
-import { i18n } from '../i18n/i18n';
+import { i18n } from '../../utils/i18n/i18n';
 
 import { H2 } from '../Headings/Headings';
 import { VisuallyHiddenLabel } from '../VisuallyHidden/VisuallyHidden';

@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 import { PinnerSettings, SettingKey } from '../../../types/PinnerSettings';
-import { i18n } from '../i18n/i18n';
+import { i18n } from '../../utils/i18n/i18n';
 import { H2 } from '../Headings/Headings';
 import { Checkbox } from '../Checkbox/Checkbox';
 import { Ul, Li } from './Settings.styled';

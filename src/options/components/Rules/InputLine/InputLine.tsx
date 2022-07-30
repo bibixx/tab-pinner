@@ -9,7 +9,7 @@ import { Input } from '../../Input/Input';
 
 import { ColumnWrapper } from './InputLine.styled';
 import { IconButton } from '../../IconButton/IconButton';
-import { i18n } from '../../i18n/i18n';
+import { i18n } from '../../../utils/i18n/i18n';
 
 interface InputLineProps {
   rule: PinnerRule;

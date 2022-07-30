@@ -26,7 +26,7 @@ import { Paper } from '../Paper/Paper';
 import { AppWrapper } from '../AppWrapper/AppWrapper';
 
 import './global.css';
-import { i18n } from '../i18n/i18n';
+import { i18n } from '../../utils/i18n/i18n';
 import { pipe } from '../../utils/pipe/pipe';
 
 export const App = () => {
