@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - '*'
+      - '!master'
   pull_request:
     branches:
       - '*'
@@ -21,7 +22,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
 
       - uses: actions/cache@v2
         with:
