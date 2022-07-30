@@ -28,7 +28,10 @@ export const pinIfMatchesRule = async (tab: chrome.tabs.Tab) => {
 
     if (position !== null) {
       chrome.tabs.move(tab.id, {
-        index: typeof position === 'string' ? Number.parseInt(position, 10) : position,
+        index:
+          typeof position === 'string'
+            ? Number.parseInt(position, 10)
+            : position,
       });
     }
 

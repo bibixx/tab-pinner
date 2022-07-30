@@ -10,13 +10,11 @@ interface SettingsProps {
   updateSetting: (newSettingKey: SettingKey, newSetting: boolean) => void;
 }
 
-export const Settings = ({
-  settings,
-  updateSetting,
-}: SettingsProps) => {
-  const onChange = (key: SettingKey) => (
-    { target: { checked } }: ChangeEvent<HTMLInputElement>,
-  ) => updateSetting(key, checked);
+export const Settings = ({ settings, updateSetting }: SettingsProps) => {
+  const onChange =
+    (key: SettingKey) =>
+    ({ target: { checked } }: ChangeEvent<HTMLInputElement>) =>
+      updateSetting(key, checked);
 
   return (
     <div>
@@ -32,10 +30,7 @@ export const Settings = ({
           </Checkbox>
         </Li>
         <Li>
-          <Checkbox
-            checked={settings.move}
-            onChange={onChange('move')}
-          >
+          <Checkbox checked={settings.move} onChange={onChange('move')}>
             {i18n('back_index')}
           </Checkbox>
         </Li>

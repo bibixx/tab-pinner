@@ -1,1 +1,4 @@
-export enum EditMode { active, delete }
+export enum EditMode {
+  active,
+  delete,
+}

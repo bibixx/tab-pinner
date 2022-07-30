@@ -3,5 +3,5 @@ export interface PinnerRule {
   name: string;
   active: boolean;
   regexp: string;
-  position: number|null;
+  position: number | null;
 }

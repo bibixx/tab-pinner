@@ -21,10 +21,7 @@ export const removeRule = (rule: PinnerRule) => {
   store.removeRule(rule);
 };
 
-export const changeAllActive = (
-  rules: PinnerRule[],
-  isActive: boolean,
-) => {
+export const changeAllActive = (rules: PinnerRule[], isActive: boolean) => {
   for (const rule of rules) {
     store.updateRule({
       ...rule,

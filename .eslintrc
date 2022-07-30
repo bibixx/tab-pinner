@@ -5,10 +5,11 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:react/jsx-runtime"
+    "plugin:react/jsx-runtime",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "prettier"],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
@@ -16,5 +17,8 @@
     "react": {
       "version": "detect"
     }
+  },
+  "rules": {
+    "prettier/prettier": ["error"]
   }
 }

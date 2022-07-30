@@ -3,22 +3,28 @@ import ReactModal from 'react-modal';
 import { ClassNames } from '@emotion/react';
 
 import { Button } from '../Button/Button';
-import {
-  Wrapper, Body, Header, Footer, StyledH2,
-} from './Modal.styled';
+import { Wrapper, Body, Header, Footer, StyledH2 } from './Modal.styled';
 
 interface ModalProps {
   isOpen: boolean;
-  onClose: (event: ReactMouseEvent<Element, MouseEvent> | KeyboardEvent<Element>) => void;
+  onClose: (
+    event: ReactMouseEvent<Element, MouseEvent> | KeyboardEvent<Element>,
+  ) => void;
   header?: string;
   acceptButtonText: string;
   children: ReactNode;
 }
 
 export const Modal = ({
-  isOpen, onClose, children, header, acceptButtonText,
+  isOpen,
+  onClose,
+  children,
+  header,
+  acceptButtonText,
 }: ModalProps) => {
-  const { matches: prefersReducedMotion } = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const { matches: prefersReducedMotion } = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  );
   const animationTime = prefersReducedMotion ? 0 : 150;
 
   return (
@@ -73,9 +79,7 @@ export const Modal = ({
                 <StyledH2>{header}</StyledH2>
               </Header>
             )}
-            <Body>
-              {children}
-            </Body>
+            <Body>{children}</Body>
             <Footer>
               <Button onClick={onClose}>{acceptButtonText}</Button>
             </Footer>

@@ -8,7 +8,11 @@ interface IconButtonProps {
   active?: boolean;
 }
 
-export const IconButton = ({ onClick, children, active = false }: IconButtonProps) => (
+export const IconButton = ({
+  onClick,
+  children,
+  active = false,
+}: IconButtonProps) => (
   <StyledButton onClick={onClick} type="button" active={active}>
     <Icon>{children}</Icon>
   </StyledButton>

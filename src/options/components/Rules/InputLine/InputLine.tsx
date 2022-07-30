@@ -24,22 +24,26 @@ export const InputLine = ({
   removeRule,
   editMode,
 }: InputLineProps) => {
-  const {
-    name, regexp, active,
-  } = rule;
+  const { name, regexp, active } = rule;
   const position = rule.position === null ? '' : rule.position;
 
-  const updateName = ({ target: { value } }: ChangeEvent<HTMLInputElement>): void => {
+  const updateName = ({
+    target: { value },
+  }: ChangeEvent<HTMLInputElement>): void => {
     const newRule: PinnerRule = { ...rule, name: value };
     updateRule(newRule);
   };
 
-  const updateRegex = ({ target: { value } }: ChangeEvent<HTMLInputElement>): void => {
+  const updateRegex = ({
+    target: { value },
+  }: ChangeEvent<HTMLInputElement>): void => {
     const newRule: PinnerRule = { ...rule, regexp: value };
     updateRule(newRule);
   };
 
-  const updatePosition = ({ target: { value } }: ChangeEvent<HTMLInputElement>): void => {
+  const updatePosition = ({
+    target: { value },
+  }: ChangeEvent<HTMLInputElement>): void => {
     const newPosition = Number.parseInt(value, 10);
 
     if (value === '') {
@@ -58,8 +62,8 @@ export const InputLine = ({
     updateRule(newRule);
   };
 
-  const firstColumn = editMode === EditMode.active
-    ? (
+  const firstColumn =
+    editMode === EditMode.active ? (
       <>
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <VisuallyHiddenLabel htmlFor={`${rule.id}-active`}>
@@ -71,19 +75,14 @@ export const InputLine = ({
           onChange={onActiveChange}
         />
       </>
-    )
-    : (
-      <IconButton onClick={() => removeRule(rule)}>
-        delete
-      </IconButton>
+    ) : (
+      <IconButton onClick={() => removeRule(rule)}>delete</IconButton>
     );
 
   return (
     <tr>
       <Td>
-        <ColumnWrapper>
-          {firstColumn}
-        </ColumnWrapper>
+        <ColumnWrapper>{firstColumn}</ColumnWrapper>
       </Td>
       <Td>
         <VisuallyHiddenLabel htmlFor={`${rule.id}-rule_name`}>

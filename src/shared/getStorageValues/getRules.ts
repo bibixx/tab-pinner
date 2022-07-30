@@ -7,13 +7,7 @@ export const getRules = (rules: Record<string, string>[]): PinnerRule[] => {
     return defaultStorageValues.rules;
   }
 
-  return rules.map(({
-    id,
-    active,
-    name,
-    regexp,
-    position,
-  }, i) => {
+  return rules.map(({ id, active, name, regexp, position }, i) => {
     const ruleBuilder = new RuleBuilder();
 
     if (typeof id === 'number') {

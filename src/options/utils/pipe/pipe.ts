@@ -1,4 +1,7 @@
-export const pipe = <TArgs extends unknown[], R1, R2>(
-  fn1: (...args: TArgs) => R1,
-  fn2: (a: R1) => R2,
-) => (...args: TArgs): R2 => fn2(fn1(...args));
+export const pipe =
+  <TArgs extends unknown[], R1, R2>(
+    fn1: (...args: TArgs) => R1,
+    fn2: (a: R1) => R2,
+  ) =>
+  (...args: TArgs): R2 =>
+    fn2(fn1(...args));

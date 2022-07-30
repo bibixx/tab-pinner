@@ -7,7 +7,7 @@ export class RuleBuilder {
 
   private regexp = '';
 
-  private position: number|null = null;
+  private position: number | null = null;
 
   private name = '';
 
@@ -23,7 +23,7 @@ export class RuleBuilder {
     this.regexp = regexp;
   }
 
-  setPosition(position: number|null) {
+  setPosition(position: number | null) {
     this.position = position;
   }
 

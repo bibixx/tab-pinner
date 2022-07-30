@@ -9,7 +9,11 @@ interface LinkButtonProps {
 
 export const LinkButton = ({ href, children, onClick }: LinkButtonProps) => {
   if (href) {
-    return <StyledLink href={href} onClick={onClick}>{children}</StyledLink>;
+    return (
+      <StyledLink href={href} onClick={onClick}>
+        {children}
+      </StyledLink>
+    );
   }
 
   return <StyledLinkText onClick={onClick}>{children}</StyledLinkText>;

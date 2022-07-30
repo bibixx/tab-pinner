@@ -1,6 +1,4 @@
-import {
-  useState, useEffect, useCallback, useRef,
-} from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import 'what-input';
 import ReactModal from 'react-modal';
 
@@ -12,9 +10,7 @@ import {
   removeRule as removeRuleAction,
   changeAllActive as changeAllActiveAction,
 } from '../../actions/rules';
-import {
-  updateSetting as updateSettingAction,
-} from '../../actions/settings';
+import { updateSetting as updateSettingAction } from '../../actions/settings';
 import { PinnerSettings } from '../../../types/PinnerSettings';
 
 import { Rules } from '../Rules/Rules';
@@ -65,14 +61,19 @@ export const App = () => {
     store.update();
   }, []);
 
-  const updateRulesFromStore = useCallback(() => updateRules(store.getRules()), [updateRules]);
-  const updateSettingsFromStore = useCallback(() => updateSettings(store.getSettings()),
-    [updateSettings]);
-  const addRule = pipe(addRuleAction, updateRulesFromStore)
-  const updateRule = pipe(updateRuleAction, updateRulesFromStore)
-  const removeRule = pipe(removeRuleAction, updateRulesFromStore)
-  const changeAllActive = pipe(changeAllActiveAction, updateRulesFromStore)
-  const updateSetting = pipe(updateSettingAction, updateSettingsFromStore)
+  const updateRulesFromStore = useCallback(
+    () => updateRules(store.getRules()),
+    [updateRules],
+  );
+  const updateSettingsFromStore = useCallback(
+    () => updateSettings(store.getSettings()),
+    [updateSettings],
+  );
+  const addRule = pipe(addRuleAction, updateRulesFromStore);
+  const updateRule = pipe(updateRuleAction, updateRulesFromStore);
+  const removeRule = pipe(removeRuleAction, updateRulesFromStore);
+  const changeAllActive = pipe(changeAllActiveAction, updateRulesFromStore);
+  const updateSetting = pipe(updateSettingAction, updateSettingsFromStore);
 
   return (
     <>
@@ -87,10 +88,7 @@ export const App = () => {
             removeRule={removeRule}
             changeAllActive={changeAllActive}
           />
-          <Settings
-            settings={settings}
-            updateSetting={updateSetting}
-          />
+          <Settings settings={settings} updateSetting={updateSetting} />
         </Paper>
       </AppWrapper>
       <Footer />

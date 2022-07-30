@@ -9,19 +9,22 @@ import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslat
 
 export const HowTo = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = useCallback(() => { setIsModalOpen(true); }, [setIsModalOpen]);
-  const closeModal = useCallback(() => { setIsModalOpen(false); }, [setIsModalOpen]);
-  const isMac = useMemo(() => navigator.userAgent.indexOf('Mac OS X') !== -1, []);
+  const openModal = useCallback(() => {
+    setIsModalOpen(true);
+  }, [setIsModalOpen]);
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+  }, [setIsModalOpen]);
+  const isMac = useMemo(
+    () => navigator.userAgent.indexOf('Mac OS X') !== -1,
+    [],
+  );
 
   return (
     <>
       <div>
         <H2>{i18n('how_to_header')}</H2>
-        <p>
-          {i18n('how_to', [
-            isMac ? 'Cmd+Shift+X' : 'Ctrl+Shift+X',
-          ])}
-        </p>
+        <p>{i18n('how_to', [isMac ? 'Cmd+Shift+X' : 'Ctrl+Shift+X'])}</p>
         <p>
           <LinkButton onClick={openModal}>{i18n('change_shrt')}</LinkButton>
         </p>
@@ -35,7 +38,9 @@ export const HowTo = () => {
         <Ol>
           <li>
             {i18n('change_shrt_popup_line1', [
-              <LinkButton href="chrome://extensions/" key="link">chrome://extensions/</LinkButton>,
+              <LinkButton href="chrome://extensions/" key="link">
+                chrome://extensions/
+              </LinkButton>,
             ])}
           </li>
           <li>{i18n('change_shrt_popup_line2')}</li>
