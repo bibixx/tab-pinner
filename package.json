@@ -9,13 +9,14 @@
     "build": "vite build",
     "type-check": "tsc --noEmit",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "prepare": "husky install"
   },
   "author": "bibixx",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "@commitlint/cli": "^12.0.1",
-    "@commitlint/config-conventional": "^12.0.1",
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
     "@emotion/babel-plugin": "^11.9.5",
     "@types/chrome": "^0.0.193",
     "@types/node": "^18.6.3",
@@ -25,17 +26,17 @@
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
     "@vitejs/plugin-react": "^2.0.0",
-    "cz-conventional-changelog": "^3.1.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "husky": "^4.2.5",
+    "husky": "^8.0.0",
     "prettier": "^2.7.1",
-    "semantic-release": "^17.4.0",
-    "semantic-release-chrome": "^1.1.3",
+    "semantic-release": "^19.0.3",
+    "semantic-release-chrome": "^3.1.0",
     "typescript": "^4.7.4",
     "vite": "^3.0.4"
   },
@@ -45,16 +46,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.15.1",
-    "what-input": "^5.2.7"
+    "what-input": "^5.2.12"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
