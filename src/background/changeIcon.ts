@@ -17,11 +17,11 @@ const getProperties = (pinned: boolean) => {
 export const changeIcon = (pinned: boolean) => {
   const { title, path } = getProperties(pinned);
 
-  chrome.browserAction.setTitle({
+  chrome.action.setTitle({
     title,
   });
 
-  chrome.browserAction.setIcon({
+  chrome.action.setIcon({
     path,
   });
 };

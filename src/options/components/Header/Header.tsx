@@ -1,13 +1,11 @@
 import React from 'react';
-import I18n from '../I18n';
 
 import { Wrapper } from './Header.styled';
-import { H1 } from '../Headings';
+import { H1 } from '../Headings/Headings';
+import { i18n } from '../i18n/i18n';
 
-const Header: React.FC = () => (
+export const Header = () => (
   <Wrapper>
-    <H1><I18n>options_title</I18n></H1>
+    <H1>{i18n('options_title')}</H1>
   </Wrapper>
 );
-
-export default Header;

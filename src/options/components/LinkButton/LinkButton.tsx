@@ -7,12 +7,10 @@ interface LinkButtonProps {
   onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
-const LinkButton: React.FC<LinkButtonProps> = ({ href, children, onClick }) => {
+export const LinkButton = ({ href, children, onClick }: LinkButtonProps) => {
   if (href) {
     return <StyledLink href={href} onClick={onClick}>{children}</StyledLink>;
   }
 
   return <StyledLinkText onClick={onClick}>{children}</StyledLinkText>;
 };
-
-export default LinkButton;

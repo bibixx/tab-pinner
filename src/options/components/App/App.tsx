@@ -4,7 +4,7 @@ import React, {
 import 'what-input';
 import ReactModal from 'react-modal';
 
-import { store } from '../../../shared/store';
+import { store } from '../../utils/store/store';
 import { PinnerRule } from '../../../types/PinnerRule';
 import {
   addRule as addRuleAction,
@@ -17,22 +17,21 @@ import {
 } from '../../actions/settings';
 import { PinnerSettings } from '../../../types/PinnerSettings';
 
-import Rules from '../Rules';
-import Settings from '../Settings';
-import HowTo from '../HowTo';
-import Header from '../Header';
-import Footer from '../Footer';
-import Paper from '../Paper';
-import AppWrapper from '../AppWrapper';
+import { Rules } from '../Rules/Rules';
+import { Settings } from '../Settings/Settings';
+import { HowTo } from '../HowTo/HowTo';
+import { Header } from '../Header/Header';
+import { Footer } from '../Footer/Footer';
+import { Paper } from '../Paper/Paper';
+import { AppWrapper } from '../AppWrapper/AppWrapper';
 
 import './global.css';
 import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslatedText';
 
-const App = () => {
+export const App = () => {
   const [rules, setRules] = useState<PinnerRule[]>([]);
   const [settings, setSettings] = useState<PinnerSettings>({
     close: false,
-    confirm: false,
     move: false,
   });
   const modalContainerRef = useRef<HTMLDivElement>(null);
@@ -91,5 +90,3 @@ const App = () => {
     </>
   );
 };
-
-export default App;

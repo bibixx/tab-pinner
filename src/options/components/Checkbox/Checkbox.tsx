@@ -8,15 +8,14 @@ React.InputHTMLAttributes<HTMLInputElement>,
 HTMLInputElement
 > & { indeterminate?: boolean };
 
-const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox = ({
   checked, onChange, children, indeterminate = false, ...props
-}) => (
+}: CheckboxProps) => (
   <Wrapper>
     <Input
       type="checkbox"
       checked={checked}
       onChange={onChange}
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     />
     <StyledCheckboxFocusWrapper aria-hidden>
@@ -29,5 +28,3 @@ const Checkbox: React.FC<CheckboxProps> = ({
     )}
   </Wrapper>
 );
-
-export default Checkbox;

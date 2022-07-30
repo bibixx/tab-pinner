@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { H2 } from '../Headings';
+import { H2 } from '../Headings/Headings';
 
 export const Wrapper = styled.section`
   margin: 1rem -1rem;

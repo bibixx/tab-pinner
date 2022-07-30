@@ -1,9 +1,9 @@
-import { PinnerRule } from '../../types/PinnerRule';
-import { PinnerSettings } from '../../types/PinnerSettings';
-import { getStorageValues } from '../getStorageValues';
-import { setStorageValues } from '../setStorageValues';
-import { AppStorage } from '../../types/AppStorage';
-import { defaultStorageValues } from '../getStorageValues/defaultStorageValues';
+import { getStorageValues } from '../../../shared/getStorageValues';
+import { defaultStorageValues } from '../../../shared/getStorageValues/defaultStorageValues';
+import { AppStorage } from '../../../types/AppStorage';
+import { PinnerRule } from '../../../types/PinnerRule';
+import { PinnerSettings } from '../../../types/PinnerSettings';
+import { setStorageValues } from '../setStorageValues/setStorageValues';
 
 interface PartialSettings {
   close?: boolean;

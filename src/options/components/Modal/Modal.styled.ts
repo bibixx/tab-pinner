@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { H2 } from '../Headings';
+import { H2 } from '../Headings/Headings';
 
 export const Wrapper = styled.div`
   border-radius: 0.5rem;

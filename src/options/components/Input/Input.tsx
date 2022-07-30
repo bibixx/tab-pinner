@@ -8,12 +8,9 @@ React.InputHTMLAttributes<HTMLInputElement>,
 HTMLInputElement
 > & StyledInputProps;
 
-const Input: React.FC<InputProps> = ({ ...props }) => (
+export const Input = (props: InputProps) => (
   <Wrapper>
-    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
     <StyledInput {...props} />
     <Underline />
   </Wrapper>
 );
-
-export default Input;

@@ -5,8 +5,6 @@ interface PaperProps {
   children: React.ReactNode;
 }
 
-const Paper: React.FC<PaperProps> = ({ children }) => (
+export const Paper = ({ children }: PaperProps) => (
   <Wrapper>{children}</Wrapper>
 );
-
-export default Paper;

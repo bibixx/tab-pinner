@@ -5,8 +5,6 @@ interface IconProps {
   children: React.ReactChild;
 }
 
-const Icon: React.FC<IconProps> = ({ children, className }) => (
+export const Icon = ({ children, className }: IconProps) => (
   <i className={['material-icons', className].join(' ')}>{children}</i>
 );
-
-export default Icon;

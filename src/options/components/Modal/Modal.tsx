@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import ReactModal from 'react-modal';
 import { ClassNames } from '@emotion/core';
 
-import Button from '../Button';
+import { Button } from '../Button/Button';
 import {
   Wrapper, Body, Header, Footer, StyledH2,
 } from './Modal.styled';
@@ -12,11 +12,12 @@ interface ModalProps {
   onClose: (event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>) => void;
   header?: string;
   acceptButtonText: string;
+  children: ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({
+export const Modal = ({
   isOpen, onClose, children, header, acceptButtonText,
-}) => {
+}: ModalProps) => {
   const { matches: prefersReducedMotion } = window.matchMedia('(prefers-reduced-motion: reduce)');
   const animationTime = prefersReducedMotion ? 0 : 150;
 
@@ -84,5 +85,3 @@ const Modal: React.FC<ModalProps> = ({
     </ClassNames>
   );
 };
-
-export default Modal;

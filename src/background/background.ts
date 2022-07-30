@@ -1,11 +1,14 @@
-import {
-  onUpdate, onCreated, onActivated, onIconClick,
-} from './listeners';
+import { onActivated } from './listeners/onActivated';
+import { onCreated } from './listeners/onCreated';
+import { onIconClick } from './listeners/onIconClick';
+import { onUpdate } from './listeners/onUpdate';
 
-chrome.tabs.onUpdated.addListener(onUpdate);
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.tabs.onUpdated.addListener(onUpdate);
 
-chrome.tabs.onCreated.addListener(onCreated);
+  chrome.tabs.onCreated.addListener(onCreated);
 
-chrome.tabs.onActivated.addListener(onActivated);
+  chrome.tabs.onActivated.addListener(onActivated);
 
-chrome.browserAction.onClicked.addListener(onIconClick);
+  chrome.action.onClicked.addListener(onIconClick);
+});

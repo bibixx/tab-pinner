@@ -4,13 +4,13 @@ import { EditMode } from '../../../../types/EditMote';
 
 import { getTranslatedText } from '../../../../shared/getTranslatedText/getTranslatedText';
 import { Td } from '../Rules.styled';
-import Checkbox from '../../Checkbox';
-import { VisuallyHiddenLabel } from '../../VisuallyHidden';
-import Input from '../../Input';
+import { Checkbox } from '../../Checkbox/Checkbox';
+import { VisuallyHiddenLabel } from '../../VisuallyHidden/VisuallyHidden';
+import { Input } from '../../Input/Input';
 
 import { ColumnWrapper } from './InputLine.styled';
-import I18n from '../../I18n';
-import ButtonIcon from '../../IconButton';
+import { i18n } from '../../i18n/i18n';
+import { IconButton } from '../../IconButton/IconButton';
 
 interface InputLineProps {
   rule: PinnerRule;
@@ -19,12 +19,12 @@ interface InputLineProps {
   editMode: EditMode;
 }
 
-const InputLine: React.FC<InputLineProps> = ({
+export const InputLine = ({
   rule,
   updateRule,
   removeRule,
   editMode,
-}) => {
+}: InputLineProps) => {
   const {
     name, regexp, active,
   } = rule;
@@ -64,7 +64,7 @@ const InputLine: React.FC<InputLineProps> = ({
       <>
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <VisuallyHiddenLabel htmlFor={`${rule.id}-active`}>
-          <I18n>rule_active</I18n>
+          {i18n('rule_active')}
         </VisuallyHiddenLabel>
         <Checkbox
           id={`${rule.id}-active`}
@@ -74,9 +74,9 @@ const InputLine: React.FC<InputLineProps> = ({
       </>
     )
     : (
-      <ButtonIcon onClick={() => removeRule(rule)}>
+      <IconButton onClick={() => removeRule(rule)}>
         delete
-      </ButtonIcon>
+      </IconButton>
     );
 
   return (
@@ -88,7 +88,7 @@ const InputLine: React.FC<InputLineProps> = ({
       </Td>
       <Td>
         <VisuallyHiddenLabel htmlFor={`${rule.id}-rule_name`}>
-          <I18n>rule_name</I18n>
+          {i18n('rule_name')}
         </VisuallyHiddenLabel>
         <Input
           id={`${rule.id}-rule_name`}
@@ -100,7 +100,7 @@ const InputLine: React.FC<InputLineProps> = ({
       </Td>
       <Td>
         <VisuallyHiddenLabel htmlFor={`${rule.id}-regular_expression`}>
-          <I18n>regular_expression</I18n>
+          {i18n('regular_expression')}
         </VisuallyHiddenLabel>
         <Input
           id={`${rule.id}-regular_expression`}
@@ -112,7 +112,7 @@ const InputLine: React.FC<InputLineProps> = ({
       </Td>
       <Td>
         <VisuallyHiddenLabel htmlFor={`${rule.id}-tab_index`}>
-          <I18n>tab_index</I18n>
+          {i18n('tab_index')}
         </VisuallyHiddenLabel>
         <Input
           id={`${rule.id}-tab_index`}
@@ -128,5 +128,3 @@ const InputLine: React.FC<InputLineProps> = ({
     </tr>
   );
 };
-
-export default InputLine;

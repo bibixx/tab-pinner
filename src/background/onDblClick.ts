@@ -1,16 +1,17 @@
-let timer: NodeJS.Timeout;
-let timerActive = false;
+let timer: NodeJS.Timeout | null = null;
 
 export const handleDoubleClick = (onClick: Function, onDblClick: Function): void => {
-  if (timerActive) {
+  if (timer !== null) {
     clearTimeout(timer);
-    timerActive = false;
+    timer = null;
     onDblClick();
-  } else {
-    timer = setTimeout(() => {
-      onClick();
-      timerActive = false;
-    }, 200);
-    timerActive = true;
+    return;
   }
+
+  const onTimerFinished = () => {
+    onClick();
+    timer = null;
+  };
+
+  timer = setTimeout(onTimerFinished, 200);
 };

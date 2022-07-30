@@ -10,7 +10,7 @@ const mappings = [
   <Link href="https://legiec.io" key="link">bibixx</Link>,
 ];
 
-const Footer: React.FC = () => {
+export const Footer = () => {
   const authorString = replaceWithElements(
     getTranslatedText('author'),
     /\$\w+/g,
@@ -23,5 +23,3 @@ const Footer: React.FC = () => {
     </StyleFooter>
   );
 };
-
-export default Footer;

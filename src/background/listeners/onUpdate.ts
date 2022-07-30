@@ -6,11 +6,15 @@ export const onUpdate = async (
   changeInfo: chrome.tabs.TabChangeInfo,
   tab: chrome.tabs.Tab,
 ) => {
-  if (changeInfo.url && tab.active) {
-    changeIcon(tab.pinned);
-
-    if (!tab.pinned) {
-      await pinIfMatchesRule(tab);
-    }
+  if (!changeInfo.url || !tab.active) {
+    return;
   }
+
+  changeIcon(tab.pinned);
+
+  if (tab.pinned) {
+    return;
+  }
+
+  await pinIfMatchesRule(tab);
 };

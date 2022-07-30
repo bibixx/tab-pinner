@@ -1,13 +1,8 @@
 import React from 'react';
-import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslatedText';
+import { getTranslatedText, Key } from '../../../shared/getTranslatedText/getTranslatedText';
 import { replaceWithElements } from '../utils/replaceWithElements';
 
-interface I18nProps {
-  children: string;
-  substitutions?: (JSX.Element|string)[];
-}
-
-const I18n: React.FC<I18nProps> = ({ children, substitutions }) => {
+export const i18n = (children: Key, substitutions: (JSX.Element|string)[] = []) => {
   if (substitutions !== undefined) {
     return replaceWithElements(
       getTranslatedText(children),
@@ -18,5 +13,3 @@ const I18n: React.FC<I18nProps> = ({ children, substitutions }) => {
 
   return <>{getTranslatedText(children)}</>;
 };
-
-export default I18n;

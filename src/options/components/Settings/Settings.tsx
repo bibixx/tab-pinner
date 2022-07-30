@@ -1,8 +1,8 @@
 import React from 'react';
 import { PinnerSettings, SettingKey } from '../../../types/PinnerSettings';
-import I18n from '../I18n';
-import { H2 } from '../Headings';
-import Checkbox from '../Checkbox';
+import { i18n } from '../i18n/i18n';
+import { H2 } from '../Headings/Headings';
+import { Checkbox } from '../Checkbox/Checkbox';
 import { Ul, Li } from './Settings.styled';
 
 interface SettingsProps {
@@ -10,18 +10,17 @@ interface SettingsProps {
   updateSetting: (newSettingKey: SettingKey) => (newSetting: boolean) => void;
 }
 
-/* eslint-disable jsx-a11y/label-has-associated-control */
-const Settings: React.FC<SettingsProps> = ({
+export const Settings = ({
   settings,
   updateSetting,
-}) => {
+}: SettingsProps) => {
   const onChange = (key: SettingKey) => (
     { target: { checked } }: React.ChangeEvent<HTMLInputElement>,
   ) => updateSetting(key)(checked);
 
   return (
     <div>
-      <H2><I18n>settings_header</I18n></H2>
+      <H2>{i18n('settings_header')}</H2>
       <Ul>
         <Li>
           <Checkbox
@@ -29,17 +28,7 @@ const Settings: React.FC<SettingsProps> = ({
             checked={settings.close}
             onChange={onChange('close')}
           >
-            <I18n>close</I18n>
-          </Checkbox>
-        </Li>
-        <Li>
-          <Checkbox
-            type="checkbox"
-            disabled={!settings.close}
-            checked={settings.confirm}
-            onChange={onChange('confirm')}
-          >
-            <I18n>close_conf</I18n>
+            {i18n('close')}
           </Checkbox>
         </Li>
         <Li>
@@ -47,12 +36,10 @@ const Settings: React.FC<SettingsProps> = ({
             checked={settings.move}
             onChange={onChange('move')}
           >
-            <I18n>back_index</I18n>
+            {i18n('back_index')}
           </Checkbox>
         </Li>
       </Ul>
     </div>
   );
 };
-
-export default Settings;

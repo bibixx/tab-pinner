@@ -1,5 +1,5 @@
 import { PinnerRule } from '../../types/PinnerRule';
-import { store } from '../../shared/store';
+import { store } from '../utils/store/store';
 
 export const addRule = (updateRules: Function) => () => {
   const newRule: PinnerRule = {

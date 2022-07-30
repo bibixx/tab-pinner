@@ -2,13 +2,13 @@ import React, { useState, useCallback, useMemo } from 'react';
 import { PinnerRule } from '../../../types/PinnerRule';
 import { EditMode } from '../../../types/EditMote';
 
-import InputLine from './InputLine';
-import I18n from '../I18n';
+import { InputLine } from './InputLine/InputLine';
+import { i18n } from '../i18n/i18n';
 
-import { H2 } from '../Headings';
-import { VisuallyHiddenLabel } from '../VisuallyHidden';
-import Checkbox from '../Checkbox';
-import ButtonIcon from '../IconButton';
+import { H2 } from '../Headings/Headings';
+import { VisuallyHiddenLabel } from '../VisuallyHidden/VisuallyHidden';
+import { Checkbox } from '../Checkbox/Checkbox';
+import { IconButton } from '../IconButton/IconButton';
 
 import {
   Wrapper, Header, Table, Th, ColumnWrapper, RulesButtons,
@@ -22,13 +22,13 @@ interface RulesProps {
   changeAllActive: (rules: PinnerRule[], isActive: boolean) => void;
 }
 
-const Rules: React.FC<RulesProps> = ({
+export const Rules = ({
   rules,
   addRule,
   updateRule,
   removeRule,
   changeAllActive,
-}) => {
+}: RulesProps) => {
   const [editMode, setEditMode] = useState<EditMode>(EditMode.active);
 
   const changeEditMode = () => {
@@ -45,9 +45,8 @@ const Rules: React.FC<RulesProps> = ({
   const firstColumn = editMode === EditMode.active
     ? (
       <>
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <VisuallyHiddenLabel htmlFor="header-active">
-          <I18n>rule_active</I18n>
+          {i18n('rule_active')}
         </VisuallyHiddenLabel>
         <Checkbox
           id="header-active"
@@ -58,22 +57,22 @@ const Rules: React.FC<RulesProps> = ({
       </>
     )
     : (
-      <ButtonIcon onClick={() => {}}>
+      <IconButton onClick={() => {}}>
         delete
-      </ButtonIcon>
+      </IconButton>
     );
 
   return (
     <Wrapper>
       <Header>
-        <H2><I18n>rules_header</I18n></H2>
+        <H2>{i18n('rules_header')}</H2>
         <RulesButtons>
-          <ButtonIcon onClick={addRule}>
+          <IconButton onClick={addRule}>
             add
-          </ButtonIcon>
-          <ButtonIcon onClick={changeEditMode} active={editMode === EditMode.delete}>
+          </IconButton>
+          <IconButton onClick={changeEditMode} active={editMode === EditMode.delete}>
             delete
-          </ButtonIcon>
+          </IconButton>
         </RulesButtons>
       </Header>
       <Table>
@@ -85,13 +84,13 @@ const Rules: React.FC<RulesProps> = ({
               </ColumnWrapper>
             </Th>
             <Th>
-              <I18n>rule_name</I18n>
+              {i18n('rule_name')}
             </Th>
             <Th>
-              <I18n>regular_expression</I18n>
+              {i18n('regular_expression')}
             </Th>
             <Th>
-              <I18n>tab_index</I18n>
+              {i18n('tab_index')}
             </Th>
           </tr>
         </thead>
@@ -110,5 +109,3 @@ const Rules: React.FC<RulesProps> = ({
     </Wrapper>
   );
 };
-
-export default Rules;
