@@ -37,5 +37,13 @@ jobs:
       - name: Run TypeScript checks
         run: npm run type-check
 
-      - name: Run linter
+      - name: Run ESLint checks
         run: npm run lint
+
+      - name: Run commitlint checks (Pull request)
+        run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }}
+        if: github.event_name == 'pull_request'
+
+      - name: Run commitlint checks (Push)
+        run: npx commitlint --from ${{ github.event.before }} --to ${{ github.event.after }}
+        if: github.event_name == 'push'

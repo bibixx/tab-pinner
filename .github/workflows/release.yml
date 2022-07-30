@@ -33,8 +33,11 @@ jobs:
       - name: Run TypeScript checks
         run: npm run type-check
 
-      - name: Run linter
+      - name: Run ESLint checks
         run: npm run lint
+
+      - name: Run commitlint checks
+        run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
 
       - name: Build package
         run: npm run build
