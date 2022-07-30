@@ -57,7 +57,7 @@ export const Rules = ({
       </>
     )
     : (
-      <IconButton onClick={() => {}}>
+      <IconButton>
         delete
       </IconButton>
     );

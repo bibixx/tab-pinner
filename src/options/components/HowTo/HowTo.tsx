@@ -35,7 +35,7 @@ export const HowTo = () => {
         <Ol>
           <li>
             {i18n('change_shrt_popup_line1', [
-              <LinkButton href="chrome://extensions/">chrome://extensions/</LinkButton>,
+              <LinkButton href="chrome://extensions/" key="link">chrome://extensions/</LinkButton>,
             ])}
           </li>
           <li>{i18n('change_shrt_popup_line2')}</li>

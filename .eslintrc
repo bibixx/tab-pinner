@@ -1,35 +1,20 @@
 {
   "extends": [
-    "airbnb-typescript",
-    "plugin:react-hooks/recommended"
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/jsx-runtime"
   ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": [
-    "react-hooks"
-  ],
-  "rules": {
-    "import/prefer-default-export": 0,
-    "class-methods-use-this": 0,
-    "react/prop-types": 0,
-    "no-restricted-syntax": [
-      "error",
-      {
-        "selector": "ForInStatement",
-        "message": "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array."
-      },
-      {
-        "selector": "LabeledStatement",
-        "message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
-      },
-      {
-        "selector": "WithStatement",
-        "message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
-      }
-    ],
-    "react/react-in-jsx-scope": 0,
-    "react/require-default-props": 0,
-    "react/jsx-props-no-spreading": 0
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

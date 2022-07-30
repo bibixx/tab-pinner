@@ -3,7 +3,7 @@ import { PinnerSettings } from '../../../types/PinnerSettings';
 import { AppStorage } from '../../../types/AppStorage';
 import { isChromeStorageAvailable } from '../../../shared/isChromeStorageAvailable/isChromeStorageAvailable';
 
-const storageSet = (value: any): Promise<void> => new Promise(
+const storageSet = <T>(value: T): Promise<void> => new Promise(
   (resolve) => {
     if (isChromeStorageAvailable()) {
       chrome.storage.sync.set(value, resolve);

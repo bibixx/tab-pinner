@@ -68,15 +68,11 @@ export const App = () => {
   const updateRulesFromStore = useCallback(() => updateRules(store.getRules()), [updateRules]);
   const updateSettingsFromStore = useCallback(() => updateSettings(store.getSettings()),
     [updateSettings]);
-  const addRule = useCallback(pipe(addRuleAction, updateRulesFromStore), [updateRules]);
-  const updateRule = useCallback(pipe(updateRuleAction, updateRulesFromStore), [updateRules]);
-  const removeRule = useCallback(pipe(removeRuleAction, updateRulesFromStore), [updateRules]);
-  const changeAllActive = useCallback(
-    pipe(changeAllActiveAction, updateRulesFromStore), [updateSettings],
-  );
-  const updateSetting = useCallback(
-    pipe(updateSettingAction, updateSettingsFromStore), [updateSettings],
-  );
+  const addRule = pipe(addRuleAction, updateRulesFromStore)
+  const updateRule = pipe(updateRuleAction, updateRulesFromStore)
+  const removeRule = pipe(removeRuleAction, updateRulesFromStore)
+  const changeAllActive = pipe(changeAllActiveAction, updateRulesFromStore)
+  const updateSetting = pipe(updateSettingAction, updateSettingsFromStore)
 
   return (
     <>

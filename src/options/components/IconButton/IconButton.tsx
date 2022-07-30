@@ -3,7 +3,7 @@ import { Icon } from '../Icon/Icon';
 import { StyledButton } from './IconButton.styled';
 
 interface IconButtonProps {
-  onClick: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onClick?: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => void;
   children: string;
   active?: boolean;
 }
