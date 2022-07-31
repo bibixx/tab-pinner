@@ -1,23 +1,7 @@
 <div id="top"></div>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
 
 <!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-<center>
+<div align="center">
   <a href="https://github.com/bibixx/tab-pinner/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/bibixx/tab-pinner.svg?style=flat" alt="Contributors" />
   </a>
@@ -36,8 +20,8 @@
   <a href="https://twitter.com/bibix1999/">
     <img src="https://img.shields.io/badge/@bibix1999-1DA1F2?style=flat&logo=twitter&logoColor=ffffff" alt="Twitter @bibix1999" />
   </a>
-</center>
-<center>
+</div>
+<div align="center">
   <a href="https://semantic-release.gitbook.io/semantic-release/">
     <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="Semantic Release" />
   </a>
@@ -47,7 +31,7 @@
   <a href="https://www.conventionalcommits.org/en/v1.0.0/">
     <img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow" alt="Commitizen Friendly" />
   </a>
-</center>
+</div>
 
 <!-- PROJECT LOGO -->
 <br />
@@ -100,12 +84,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<center>
+<div align="center">
   <img src="readme-images/options.png" width="75%" alt="" />
-  <p>
-    Pin or unpin tab any tab easily using an extension icon in Chrome top bar or by using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">JavaScript Regular Expressions</a>.
-  </p>
-</center>
+</div>
+<p align="center">
+  Pin or unpin tab any tab easily using an extension icon in Chrome top bar or by using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">JavaScript Regular Expressions</a>.
+</p>
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
