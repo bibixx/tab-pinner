@@ -9,6 +9,7 @@
     "build": "vite build",
     "type-check": "tsc --noEmit",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
+    "lint-commit": "commitlint --from HEAD~",
     "release": "semantic-release",
     "prepare": "husky install"
   },
