@@ -35,6 +35,8 @@ export const pinIfMatchesRule = async (tab: chrome.tabs.Tab) => {
       });
     }
 
-    break;
+    return true;
   }
+
+  return false;
 };

@@ -10,11 +10,15 @@ export const onUpdate = async (
     return;
   }
 
-  changeIcon(tab.pinned);
-
   if (tab.pinned) {
     return;
   }
 
-  await pinIfMatchesRule(tab);
+  const matches = await pinIfMatchesRule(tab);
+
+  if (matches === undefined) {
+    return;
+  }
+
+  changeIcon(matches);
 };
