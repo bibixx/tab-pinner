@@ -29,7 +29,7 @@
     "256": "imgs/icon_big_256.png"
   },
 	"commands": {
-	  "_execute_browser_action": {
+	  "_execute_action": {
 			"suggested_key": {
 			  "windows": "Ctrl+Shift+X",
 			  "mac": "Command+Shift+X",
