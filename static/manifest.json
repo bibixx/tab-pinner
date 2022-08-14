@@ -1,17 +1,17 @@
 {
-	"name": "Tab pinner",
-	"description": "__MSG_description__",
-	"version": "0.0.0",
-	"default_locale": "en",
-	"permissions": [
-		"activeTab",
-		"tabs",
-		"storage"
-	],
-	"background": {
-		"service_worker": "background.js",
+  "name": "Tab pinner",
+  "description": "__MSG_description__",
+  "version": "0.0.0",
+  "default_locale": "en",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js",
     "type": "module"
-	},
+  },
   "options_page": "options.html",
   "action": {
     "default_icon": {
@@ -22,21 +22,21 @@
     },
     "default_title": "__MSG_pin__"
   },
-	"icons": {
+  "icons": {
     "16": "imgs/icon_big_16.png",
     "48": "imgs/icon_big_48.png",
     "128": "imgs/icon_big_128.png",
     "256": "imgs/icon_big_256.png"
   },
-	"commands": {
-	  "_execute_action": {
-			"suggested_key": {
-			  "windows": "Ctrl+Shift+X",
-			  "mac": "Command+Shift+X",
-			  "chromeos": "Ctrl+Shift+X",
-			  "linux": "Ctrl+Shift+X"
-			}
-	  }
-	},
-	"manifest_version": 3
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "windows": "Ctrl+Shift+X",
+        "mac": "Command+Shift+X",
+        "chromeos": "Ctrl+Shift+X",
+        "linux": "Ctrl+Shift+X"
+      }
+    }
+  },
+  "manifest_version": 3
 }
