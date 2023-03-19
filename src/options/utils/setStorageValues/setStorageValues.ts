@@ -3,7 +3,8 @@ import { PinnerSettings } from '../../../types/PinnerSettings';
 import { AppStorage } from '../../../types/AppStorage';
 import { isChromeStorageAvailable } from '../../../shared/isChromeStorageAvailable/isChromeStorageAvailable';
 
-const storageSet = <T>(value: T): Promise<void> =>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const storageSet = (value: Record<string, any>): Promise<void> =>
   new Promise((resolve) => {
     if (isChromeStorageAvailable()) {
       chrome.storage.sync.set(value, resolve);
