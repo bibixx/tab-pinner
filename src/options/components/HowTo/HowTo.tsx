@@ -4,7 +4,7 @@ import { H2 } from '../Headings/Headings';
 import { LinkButton } from '../LinkButton/LinkButton';
 import { Modal } from '../Modal/Modal';
 
-import { Ol } from './HowTo.styled';
+import { Ol, YTIframe } from './HowTo.styled';
 import { getTranslatedText } from '../../../shared/getTranslatedText/getTranslatedText';
 
 export const HowTo = () => {
@@ -38,14 +38,29 @@ export const HowTo = () => {
         <Ol>
           <li>
             {i18n('change_shrt_popup_line1', [
-              <LinkButton href="chrome://extensions/" key="link">
-                chrome://extensions/
+              <LinkButton
+                key="link"
+                onClick={() =>
+                  chrome.tabs.create({
+                    url: 'chrome://extensions/shortcuts',
+                  })
+                }
+              >
+                chrome://extensions/shortcuts
               </LinkButton>,
             ])}
           </li>
           <li>{i18n('change_shrt_popup_line2')}</li>
           <li>{i18n('change_shrt_popup_line3')}</li>
         </Ol>
+
+        <YTIframe
+          src="https://www.youtube-nocookie.com/embed/-lavzrWOins"
+          title="How to Change the Extension's Shortcut?"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></YTIframe>
       </Modal>
     </>
   );

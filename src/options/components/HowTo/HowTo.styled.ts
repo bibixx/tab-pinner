@@ -19,3 +19,10 @@ export const Ol = styled.ol`
     }
   }
 `;
+
+export const YTIframe = styled.iframe`
+  width: 100%;
+  aspect-ratio: 560/350;
+  height: auto;
+  margin-top: 1rem;
+`;

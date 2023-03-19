@@ -36,12 +36,12 @@
 		"description": "How to change shortcut - popup – line 1"
 	},
 	"change_shrt_popup_line2": {
-		"message": "Przesuń stronę na sam dół i naciśnij „Skróty klawiaturowe”",
+		"message": "Znajdź sekcję o nazwie \"Tab pinner\"",
 		"description": "How to change shortcut - popup – line 2"
 	},
 	"change_shrt_popup_line3": {
-		"message": "Po wybraniu pola obok nazwy wtyczki możesz wprowadzić swój własny skrót",
-		"description": "How to change shortcut - popup – line 1"
+		"message": "Kliknij w pole obok tekstu \"Aktywuj rozszerzenie\" i zdefiniuj nowy skrót klawiszowy",
+		"description": "How to change shortcut - popup – line 3"
 	},
 	"rules_header": {
 		"message": "Reguły",

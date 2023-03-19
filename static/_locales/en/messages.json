@@ -36,11 +36,11 @@
 		"description": "How to change shortcut - popup – line 1"
 	},
 	"change_shrt_popup_line2": {
-		"message": "Scroll to the bottom of the page and click \"Keyboard shortcuts\"",
+		"message": "Find a section called \"Tab pinner\"",
 		"description": "How to change shortcut - popup – line 2"
 	},
 	"change_shrt_popup_line3": {
-		"message": "You can now enter your shortcut in the field next to the name of plugin",
+		"message": "Click on a box next to the \"Activate the extension\" text and define the new shortcut",
 		"description": "How to change shortcut - popup – line 3"
 	},
 	"rules_header": {
