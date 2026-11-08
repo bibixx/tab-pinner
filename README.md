@@ -82,7 +82,10 @@
 ## About The Project
 
 <div align="center">
-  <img src="readme-images/options.png" width="75%" alt="" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="readme-images/options-dark.png" />
+    <img src="readme-images/options.png" width="75%" alt="" />
+  </picture>
 </div>
 <p align="center">
   Pin or unpin tab any tab easily using an extension icon in Chrome top bar, or automatically with simple URL patterns like <code>facebook.com</code> or <code>example.com/blog/*</code>, or with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">JavaScript Regular Expressions</a>.
