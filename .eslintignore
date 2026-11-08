@@ -1,4 +1,0 @@
-build/
-webpack.*.js
-commitlint.config.js
-vite.config.ts

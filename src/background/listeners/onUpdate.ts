@@ -3,7 +3,7 @@ import { pinIfMatchesRule } from '../pinIfMatchesRule';
 
 export const onUpdate = async (
   _tabId: number,
-  changeInfo: chrome.tabs.TabChangeInfo,
+  changeInfo: chrome.tabs.OnUpdatedInfo,
   tab: chrome.tabs.Tab,
 ) => {
   if (!changeInfo.url || !tab.active) {

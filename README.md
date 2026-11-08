@@ -22,9 +22,6 @@
   </a>
 </div>
 <div align="center">
-  <a href="https://semantic-release.gitbook.io/semantic-release/">
-    <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="Semantic Release" />
-  </a>
   <a href="http://commitizen.github.io/cz-cli/">
     <img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen Friendly" />
   </a>
@@ -110,10 +107,6 @@
   <img src="https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=ffffff" alt="Vite" />
 </a>
 <br />
-<a href="https://semantic-release.gitbook.io/semantic-release">
-  <img src="https://img.shields.io/badge/semantic_release-494949?style=flat&logo=semantic-release&logoColor=ffffff" alt="Semantic release" />
-</a>
-<br />
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -145,7 +138,7 @@ Don't forget to give the project a star! Thanks again!
 
 | Dependency | Version |
 | ---------- | ------- |
-| Node.js    | 16.0.0+ |
+| Node.js    | 26+     |
 
 ### Installation
 1. Clone the repo
@@ -173,6 +166,7 @@ Don't forget to give the project a star! Thanks again!
 | ------------- | --------------------------------------------------------------------------------------------------------------- |
 | `dev:server`  | Runs HTTP server with hot reloading for the options page (completely disconnected from the installed extension) |
 | `build`       | Builds the app in production mode into `build` directory                                                        |
+| `package`     | Builds the app and zips it into `tab-pinner.zip` for uploading to the Chrome Web Store                          |
 | `type-check`  | Runs TypeScript check on the whole codebase                                                                     |
 | `lint`        | Runs ESLint check on the whole codebase                                                                         |
 | `lint-commit` | Runs commitlint on the latest commit                                                                            |

@@ -15,7 +15,6 @@ export const replaceWithElements = (
 
   for (const match of matches) {
     if (match.index === undefined) {
-      // eslint-disable-next-line no-continue
       continue;
     }
 
@@ -30,7 +29,6 @@ export const replaceWithElements = (
 
   let matchesIndex = 0;
 
-  /* eslint-disable react/no-array-index-key, no-plusplus */
   return (
     <>
       {strings.map((el, i) => {
@@ -46,5 +44,4 @@ export const replaceWithElements = (
       })}
     </>
   );
-  /* eslint-enable react/no-array-index-key */
 };

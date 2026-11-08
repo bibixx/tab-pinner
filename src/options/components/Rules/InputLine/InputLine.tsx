@@ -65,7 +65,6 @@ export const InputLine = ({
   const firstColumn =
     editMode === EditMode.active ? (
       <>
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <VisuallyHiddenLabel htmlFor={`${rule.id}-active`}>
           {i18n('rule_active')}
         </VisuallyHiddenLabel>

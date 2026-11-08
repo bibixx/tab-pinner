@@ -7,11 +7,10 @@ import {
   LabelText,
 } from './Checkbox.styled';
 
-interface CheckboxProps
-  extends DetailedHTMLProps<
-    InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > {
+interface CheckboxProps extends DetailedHTMLProps<
+  InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+> {
   indeterminate?: boolean;
 }
 

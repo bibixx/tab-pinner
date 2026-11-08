@@ -1,4 +1,3 @@
-/* eslint-disable no-continue */
 import { getStorageValues } from '../shared/getStorageValues';
 
 export const pinIfMatchesRule = async (tab: chrome.tabs.Tab) => {
