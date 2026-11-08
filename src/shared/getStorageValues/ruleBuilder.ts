@@ -1,11 +1,13 @@
-import { PinnerRule } from '../../types/PinnerRule';
+import { MatchType, PinnerRule } from '../../types/PinnerRule';
 
 export class RuleBuilder {
   private id?: number;
 
   private active = false;
 
-  private regexp = '';
+  private matchType: MatchType = 'simple';
+
+  private pattern = '';
 
   private position: number | null = null;
 
@@ -19,8 +21,12 @@ export class RuleBuilder {
     this.active = active;
   }
 
-  setRegexp(regexp: string) {
-    this.regexp = regexp;
+  setMatchType(matchType: MatchType) {
+    this.matchType = matchType;
+  }
+
+  setPattern(pattern: string) {
+    this.pattern = pattern;
   }
 
   setPosition(position: number | null) {
@@ -40,7 +46,8 @@ export class RuleBuilder {
       id: this.id,
       name: this.name,
       active: this.active,
-      regexp: this.regexp,
+      matchType: this.matchType,
+      pattern: this.pattern,
       position: this.position,
     };
   }

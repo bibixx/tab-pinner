@@ -3,6 +3,7 @@ import { defaultStorageValues } from '../../../shared/getStorageValues/defaultSt
 import { AppStorage } from '../../../types/AppStorage';
 import { PinnerRule } from '../../../types/PinnerRule';
 import { PinnerSettings } from '../../../types/PinnerSettings';
+import { createEmptyRule } from '../createEmptyRule/createEmptyRule';
 import { setStorageValues } from '../setStorageValues/setStorageValues';
 
 interface PartialSettings {
@@ -62,15 +63,7 @@ export class Store {
 
     if (newRules.length === 0) {
       this.storageValues = {
-        rules: [
-          {
-            id: Date.now(),
-            name: '',
-            active: true,
-            regexp: '',
-            position: null,
-          },
-        ],
+        rules: [createEmptyRule()],
         settings: storageValues.settings,
       };
     } else {

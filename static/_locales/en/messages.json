@@ -20,15 +20,15 @@
 		"description": "Title of option page"
 	},
 	"how_to_header": {
-		"message": "How to use the plugin?",
+		"message": "Using the plugin",
 		"description": "How to use plugin (header)"
 	},
 	"how_to": {
-		"message": "To pin or unpin tab click on plugin icon (pin) or use shortcut (default – \"$$shortcut\"). To close current tab double click on the icon or double use shortcut.",
+		"message": "To pin or unpin a tab, click the plugin icon or press the shortcut ($$shortcut by default). To close the current tab, double-click the icon or press the shortcut twice.",
 		"description": "How to use plugin"
 	},
 	"change_shrt": {
-		"message": "How to change shortcut for pinning/unpinning/closing tab?",
+		"message": "Changing shortcuts for pinning/unpinning/closing a tab",
 		"description": "How to change shortcut"
 	},
 	"change_shrt_popup_line1": {
@@ -67,16 +67,60 @@
 		"message": "Here you can enter a name of the rule",
 		"description": "Subtitle on `rn` input - popup"
 	},
-	"regular_expression": {
-		"message": "Regular expression",
-		"description": "Subtitle on `re` input"
+	"pattern_guide_open": { "message": "Writing rules" },
+	"pattern_guide_title": { "message": "How to write a rule" },
+	"pattern_guide_wildcard": { "message": "Use * as a $$link: it stands for any text, including none." },
+	"pattern_guide_wildcard_link": { "message": "wildcard character" },
+	"pattern_guide_pattern": { "message": "Rule" },
+	"pattern_guide_meaning": { "message": "Behaviour" },
+	"pattern_guide_example_home": { "message": "Only the home page, with or without www." },
+	"pattern_guide_example_site": { "message": "Every page on the site, with or without www." },
+	"pattern_guide_example_subdomains": { "message": "Every page on google.com and all its subdomains, like mail.google.com." },
+	"pattern_guide_example_page": { "message": "Only that page." },
+	"pattern_guide_example_section": { "message": "Everything below that page." },
+	"pattern_guide_example_ignored": { "message": "That page, ignoring anything after ? or # in the address." },
+	"pattern_guide_example_scheme": { "message": "Only pages opened over https. Without it, both http and https match." },
+	"pattern_guide_example_query": { "message": "Only searches, with any value of q." },
+	"pattern_guide_regexp": { "message": "This type lets you type in more advanced queries using $$link." },
+	"pattern_guide_regexp_link": { "message": "JavaScript regular expressions" },
+	"rule_match": {
+		"message": "Match",
+		"description": "Label of the input with the URL pattern or regular expression"
+	},
+	"rule_type": {
+		"message": "Type",
+		"description": "Label of the rule type dropdown"
+	},
+	"rule_type_simple": {
+		"message": "Simple",
+		"description": "Rule type: simple URL pattern"
+	},
+	"rule_type_regexp": {
+		"message": "Advanced",
+		"description": "Rule type: regular expression"
+	},
+	"rule_match_placeholder_simple": {
+		"message": "facebook.com/*",
+		"description": "Placeholder of the match input for simple rules"
+	},
+	"rule_match_placeholder_regexp": {
+		"message": "^https?://example\\.com/",
+		"description": "Placeholder of the match input for regexp rules"
+	},
+	"rule_invalid_simple": {
+		"message": "Enter a site like facebook.com or github.com/user/*",
+		"description": "Error shown for an invalid simple pattern"
+	},
+	"rule_invalid_regexp": {
+		"message": "This isn't a valid regular expression",
+		"description": "Error shown for an invalid regular expression"
 	},
 	"regular_expression_popup": {
 		"message": "Here you enter URL you would like to pin. You can either enter it with <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions\">regular expression</a> or just by typing in the link of the page.",
 		"description": "Subtitle on `re` input"
 	},
 	"tab_index": {
-		"message": "Tab index",
+		"message": "Tab position",
 		"description": "Subtitle on `ti` input"
 	},
 	"tab_index_popup": {
@@ -84,7 +128,7 @@
 		"description": "Subtitle on `ti` input - popup"
 	},
 	"enabled": {
-		"message": "Enabled",
+		"message": "Enable",
 		"description": "Subtitle on `enabled` input"
 	},
 	"enabled_popup": {
@@ -142,6 +186,10 @@
 	"author": {
 		"message": "Made with $$heart by $$author",
 		"description": "Author"
+	},
+	"change_shrt_video": {
+		"message": "Watch how to do it on YouTube",
+		"description": "How to change shortcut - popup – link to the video"
 	},
 	"i_understand": {
 		"message": "OK"

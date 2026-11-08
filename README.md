@@ -40,7 +40,7 @@
 <h3 align="center">Tab Pinner</h3>
 
   <p align="center">
-    Chrome extension to easily pin and unpin tabs using a button and regular expressions.
+    Chrome extension to easily pin and unpin tabs using a button, simple URL patterns or regular expressions.
     <br />
     <a href="https://chrome.google.com/webstore/detail/tab-pinner/mcclikmfcmcpejkaobpfkmmbekbhedoi"><strong>Check it out on Chrome Web Store »</strong></a>
     <br />
@@ -85,13 +85,30 @@
   <img src="readme-images/options.png" width="75%" alt="" />
 </div>
 <p align="center">
-  Pin or unpin tab any tab easily using an extension icon in Chrome top bar or by using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">JavaScript Regular Expressions</a>.
+  Pin or unpin tab any tab easily using an extension icon in Chrome top bar, or automatically with simple URL patterns like <code>facebook.com</code> or <code>example.com/blog/*</code>, or with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">JavaScript Regular Expressions</a>.
 </p>
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
+
+### Writing rules
+
+With the **Simple** type, use `*` as a [wildcard character](https://en.wikipedia.org/wiki/Wildcard_character): it stands for any text, including none.
+
+| Rule                     | Behaviour                                                              |
+| ------------------------ | ---------------------------------------------------------------------- |
+| `facebook.com`           | Only the home page, with or without `www.`                             |
+| `facebook.com/*`         | Every page on the site, with or without `www.`                         |
+| `*.google.com/*`         | Every page on google.com and all its subdomains, like mail.google.com  |
+| `example.com/blog`       | Only that page                                                         |
+| `example.com/blog/*`     | Everything below that page                                             |
+| `https://example.com/*`  | Only pages opened over https. Without it, both http and https match    |
+| `example.com/search`     | That page, ignoring anything after `?` or `#` in the address           |
+| `example.com/search?q=*` | Only searches, with any value of `q`                                   |
+
+With the **Advanced** type, the rule is a [JavaScript regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) tested against the full address. It's case-sensitive and nothing is added for you.
 
 ### Built With
 
@@ -101,6 +118,10 @@
 <br />
 <a href="https://www.typescriptlang.org/">
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=ffffff" alt="TypeScript" />
+</a>
+<br />
+<a href="https://ui.shadcn.com/">
+  <img src="https://img.shields.io/badge/shadcn%2Fui-000000?style=flat&logo=shadcnui&logoColor=ffffff" alt="shadcn/ui" />
 </a>
 <br />
 <a href="https://vitejs.dev/">
@@ -169,6 +190,7 @@ Don't forget to give the project a star! Thanks again!
 | `package`     | Builds the app and zips it into `tab-pinner.zip` for uploading to the Chrome Web Store                          |
 | `type-check`  | Runs TypeScript check on the whole codebase                                                                     |
 | `lint`        | Runs ESLint check on the whole codebase                                                                         |
+| `test`        | Runs the unit tests                                                                                             |
 | `lint-commit` | Runs commitlint on the latest commit                                                                            |
 
 <p align="right">(<a href="#top">back to top</a>)</p>

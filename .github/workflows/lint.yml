@@ -33,6 +33,9 @@ jobs:
       - name: Run ESLint checks
         run: npm run lint
 
+      - name: Run tests
+        run: npm test
+
       - name: Run commitlint checks (Pull request)
         run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }}
         if: github.event_name == 'pull_request'

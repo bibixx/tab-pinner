@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import babel from '@rolldown/plugin-babel'
+import tailwindcss from '@tailwindcss/vite'
 import { dirname, join, relative } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(import.meta.url)
 const optionsPath = 'src/options'
@@ -12,14 +13,12 @@ const publicPath = relative(absoluteOptionsPath, join(__dirname, 'static'));
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return ({
-    plugins: [
-      babel({
-        plugins: ["@emotion/babel-plugin"]
-      }),
-      react({
-        jsxImportSource: "@emotion/react"
-      })
-    ],
+    plugins: [react(), tailwindcss()],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src/options', import.meta.url))
+      }
+    },
     root: optionsPath,
     build: {
       rolldownOptions: {

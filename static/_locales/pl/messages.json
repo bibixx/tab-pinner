@@ -20,15 +20,15 @@
 		"description": "Title of option page"
 	},
 	"how_to_header": {
-		"message": "Jak używać rozszerzenia?",
+		"message": "Korzystanie z rozszerzenia",
 		"description": "How to use plugin (header)"
 	},
 	"how_to": {
-		"message": "Aby przypiąć lub odpiąć kartę, naciśnij na ikonę rozszerzenia (pinezka) lub użyj skrótu klawiszowego (domyślnie - „$$shortcut”). Aby zamknąć aktywną kartę, podwójnie naciśnij na ikonę rozszerzenia lub dwukrotnie użyj skrótu klawiszowego.",
+		"message": "Aby przypiąć lub odpiąć kartę, kliknij ikonę rozszerzenia lub naciśnij skrót (domyślnie $$shortcut). Aby zamknąć aktywną kartę, kliknij dwukrotnie ikonę lub naciśnij skrót dwa razy.",
 		"description": "How to use plugin"
 	},
 	"change_shrt": {
-		"message": "Jak zmienić skrót klawiszowy do przypinania/odpinania/zamykania kart?",
+		"message": "Zmiana skrótów do przypinania/odpinania/zamykania karty",
 		"description": "How to change shortcut"
 	},
 	"change_shrt_popup_line1": {
@@ -67,9 +67,53 @@
 		"message": "Tu możesz wprowadzić nazwę dla reguły.",
 		"description": "Subtitle on `rn` input - popup"
 	},
-	"regular_expression": {
-		"message": "Wyrażenie regularne",
-		"description": "Subtitle on `re` input"
+	"pattern_guide_open": { "message": "Pisanie reguł" },
+	"pattern_guide_title": { "message": "Jak napisać regułę" },
+	"pattern_guide_wildcard": { "message": "Użyj * jako $$link: zastępuje dowolny tekst, również pusty." },
+	"pattern_guide_wildcard_link": { "message": "symbolu wieloznacznego" },
+	"pattern_guide_pattern": { "message": "Reguła" },
+	"pattern_guide_meaning": { "message": "Działanie" },
+	"pattern_guide_example_home": { "message": "Tylko stronę główną, z www lub bez." },
+	"pattern_guide_example_site": { "message": "Każdą stronę serwisu, z www lub bez." },
+	"pattern_guide_example_subdomains": { "message": "Każdą stronę google.com i wszystkich subdomen, np. mail.google.com." },
+	"pattern_guide_example_page": { "message": "Tylko tę stronę." },
+	"pattern_guide_example_section": { "message": "Wszystko poniżej tej strony." },
+	"pattern_guide_example_ignored": { "message": "Ta strona, z pominięciem wszystkiego po ? lub # w adresie." },
+	"pattern_guide_example_scheme": { "message": "Tylko strony otwarte przez https. Bez tego pasują zarówno http, jak i https." },
+	"pattern_guide_example_query": { "message": "Tylko wyszukiwania, z dowolną wartością q." },
+	"pattern_guide_regexp": { "message": "Ten typ pozwala wpisywać bardziej zaawansowane zapytania przy użyciu $$link." },
+	"pattern_guide_regexp_link": { "message": "wyrażeń regularnych JavaScript" },
+	"rule_match": {
+		"message": "Dopasowanie",
+		"description": "Label of the input with the URL pattern or regular expression"
+	},
+	"rule_type": {
+		"message": "Typ",
+		"description": "Label of the rule type dropdown"
+	},
+	"rule_type_simple": {
+		"message": "Prosty",
+		"description": "Rule type: simple URL pattern"
+	},
+	"rule_type_regexp": {
+		"message": "Zaawansowany",
+		"description": "Rule type: regular expression"
+	},
+	"rule_match_placeholder_simple": {
+		"message": "facebook.com/*",
+		"description": "Placeholder of the match input for simple rules"
+	},
+	"rule_match_placeholder_regexp": {
+		"message": "^https?://example\\.com/",
+		"description": "Placeholder of the match input for regexp rules"
+	},
+	"rule_invalid_simple": {
+		"message": "Wpisz stronę, np. facebook.com lub github.com/user/*",
+		"description": "Error shown for an invalid simple pattern"
+	},
+	"rule_invalid_regexp": {
+		"message": "To nie jest poprawne wyrażenie regularne",
+		"description": "Error shown for an invalid regular expression"
 	},
 	"regular_expression_popup": {
 		"message": "Tu jest miejsce na wprowadzenie reguły przypinania kart. Możesz ją ustalić po prostu wpisując adres strony lub wprowadzić jako <a href=\"http://kursjs.pl/kurs/regular.html\">wyrażenie regularne</a>.",
@@ -84,7 +128,7 @@
 		"description": "Subtitle on `ti` input - popup"
 	},
 	"enabled": {
-		"message": "Aktywne",
+		"message": "Włącz",
 		"description": "Subtitle on `enabled` input"
 	},
 	"enabled_popup": {
@@ -142,6 +186,10 @@
 	"author": {
 		"message": "Stworzone z $$heart przez $$author",
 		"description": "Author"
+	},
+	"change_shrt_video": {
+		"message": "Zobacz, jak to zrobić, na YouTube",
+		"description": "How to change shortcut - popup – link to the video"
 	},
 	"i_understand": {
 		"message": "OK"

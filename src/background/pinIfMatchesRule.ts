@@ -1,3 +1,4 @@
+import { compileRule } from '../shared/compileRule/compileRule';
 import { getStorageValues } from '../shared/getStorageValues';
 
 export const pinIfMatchesRule = async (tab: chrome.tabs.Tab) => {
@@ -8,16 +9,15 @@ export const pinIfMatchesRule = async (tab: chrome.tabs.Tab) => {
   const { rules } = await getStorageValues();
 
   for (const rule of rules) {
-    if (rule.active === false || rule.regexp === '') {
+    if (rule.active === false) {
       continue;
     }
 
-    const { regexp } = rule;
-    const expression = new RegExp(regexp);
+    const matches = compileRule(rule);
     const { position } = rule;
     const url = tab.url || tab.pendingUrl;
 
-    if (!url || !expression.test(url)) {
+    if (!url || !matches?.(url)) {
       continue;
     }
 

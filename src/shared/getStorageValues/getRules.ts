@@ -7,7 +7,9 @@ export const getRules = (rules: Record<string, string>[]): PinnerRule[] => {
     return defaultStorageValues.rules;
   }
 
-  return rules.map(({ id, active, name, regexp, position }, i) => {
+  return rules.map((storedRule, i) => {
+    const { id, active, name, matchType, pattern, regexp, position } =
+      storedRule;
     const ruleBuilder = new RuleBuilder();
 
     if (typeof id === 'number') {
@@ -24,8 +26,13 @@ export const getRules = (rules: Record<string, string>[]): PinnerRule[] => {
       ruleBuilder.setName(name);
     }
 
-    if (typeof regexp === 'string') {
-      ruleBuilder.setRegexp(regexp);
+    if (typeof pattern === 'string') {
+      ruleBuilder.setPattern(pattern);
+      ruleBuilder.setMatchType(matchType === 'regexp' ? 'regexp' : 'simple');
+    } else if (typeof regexp === 'string') {
+      // Rules saved before simple patterns existed only have `regexp`.
+      ruleBuilder.setPattern(regexp);
+      ruleBuilder.setMatchType('regexp');
     }
 
     if (typeof position === 'string') {

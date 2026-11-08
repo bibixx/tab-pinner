@@ -7,7 +7,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['build/'] },
+  { ignores: ['build/', 'src/options/components/ui/'] },
   js.configs.recommended,
   tseslint.configs.recommended,
   react.configs.flat.recommended,

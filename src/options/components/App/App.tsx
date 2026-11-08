@@ -1,6 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
-import 'what-input';
-import ReactModal from 'react-modal';
+import { useState, useEffect, useCallback } from 'react';
 
 import { store } from '../../utils/store/store';
 import { PinnerRule } from '../../../types/PinnerRule';
@@ -8,7 +6,6 @@ import {
   addRule as addRuleAction,
   updateRule as updateRuleAction,
   removeRule as removeRuleAction,
-  changeAllActive as changeAllActiveAction,
 } from '../../actions/rules';
 import { updateSetting as updateSettingAction } from '../../actions/settings';
 import { PinnerSettings } from '../../../types/PinnerSettings';
@@ -18,10 +15,7 @@ import { Settings } from '../Settings/Settings';
 import { HowTo } from '../HowTo/HowTo';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
-import { Paper } from '../Paper/Paper';
-import { AppWrapper } from '../AppWrapper/AppWrapper';
 
-import './global.css';
 import { i18n } from '../../utils/i18n/i18n';
 import { pipe } from '../../utils/pipe/pipe';
 
@@ -31,7 +25,6 @@ export const App = () => {
     close: false,
     move: false,
   });
-  const modalContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function initializeFromStore() {
@@ -45,12 +38,6 @@ export const App = () => {
 
     document.title = i18n('options_title');
   }, []);
-
-  useEffect(() => {
-    if (modalContainerRef.current !== null) {
-      ReactModal.setAppElement(modalContainerRef.current);
-    }
-  }, [modalContainerRef]);
 
   const updateRules = useCallback((newRules: PinnerRule[]) => {
     setRules(newRules);
@@ -72,27 +59,22 @@ export const App = () => {
   const addRule = pipe(addRuleAction, updateRulesFromStore);
   const updateRule = pipe(updateRuleAction, updateRulesFromStore);
   const removeRule = pipe(removeRuleAction, updateRulesFromStore);
-  const changeAllActive = pipe(changeAllActiveAction, updateRulesFromStore);
   const updateSetting = pipe(updateSettingAction, updateSettingsFromStore);
 
   return (
-    <>
+    <div className="flex min-h-svh flex-col">
       <Header />
-      <AppWrapper>
-        <Paper>
-          <HowTo />
-          <Rules
-            rules={rules}
-            addRule={addRule}
-            updateRule={updateRule}
-            removeRule={removeRule}
-            changeAllActive={changeAllActive}
-          />
-          <Settings settings={settings} updateSetting={updateSetting} />
-        </Paper>
-      </AppWrapper>
+      <main className="mx-auto w-full max-w-6xl flex-1 space-y-6 p-6">
+        <HowTo />
+        <Rules
+          rules={rules}
+          addRule={addRule}
+          updateRule={updateRule}
+          removeRule={removeRule}
+        />
+        <Settings settings={settings} updateSetting={updateSetting} />
+      </main>
       <Footer />
-      <div ref={modalContainerRef} />
-    </>
+    </div>
   );
 };
